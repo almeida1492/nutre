@@ -5,6 +5,8 @@ public class Nutrient {
     private String name;
     private int value;
 
+    public Nutrient(){}
+
     public Nutrient(String name, int value) {
         this.name = name;
         this.value = value;

@@ -3,6 +3,11 @@ package com.example.henriqueribeirodealmeida.nutre;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.SummaryAdapter;
@@ -13,6 +18,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int NUTRIENTS_COUNT = 18;
+
     private SummaryValues summaryValues;
     private ArrayList<Nutrient> summaryItems;
     private SummaryAdapter summaryAdapter;
@@ -22,16 +29,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView titleView = findViewById(R.id.title);
+        RelativeLayout panelView = findViewById(R.id.summary_panel);
+        final ListView summaryView = findViewById(R.id.summary);
+
         //Set activity title text font
         Typeface balooChettanType = Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf");
-        TextView titleView = findViewById(R.id.title);
         titleView.setTypeface(balooChettanType);
 
         /*ListView summaryListView = findViewById(R.id.summary);*/
         summaryValues = new SummaryValues(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         summaryItems = new ArrayList<>();
+
+        //Create a new Nutrient object for each slot in summaryItems list in order to make possible
+        //the setting in setSummaryItems()
+        for (int i = 0; i < NUTRIENTS_COUNT; i++){
+            summaryItems.add(new Nutrient());
+        }
         setSummaryItems();
+
         summaryAdapter = new SummaryAdapter(this, summaryItems);
+        summaryView.setAdapter(summaryAdapter);
+        summaryView.setDivider(null);
+
+        panelView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summaryAdapter.notifyClickToExpand();
+                setListViewHeight(summaryView);
+            }
+        });
     }
 
     private void setSummaryItems(){
@@ -88,5 +115,31 @@ public class MainActivity extends AppCompatActivity {
 
         summaryItems.get(17).setName("Zinco");
         summaryItems.get(17).setValue(summaryValues.getZinc());
+    }
+
+    private void setListViewHeight(ListView listView) {
+
+        SummaryAdapter adapter = (SummaryAdapter) listView.getAdapter();
+        int totalHeight = 0;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.EXACTLY);
+
+        for (int i = 0; i < adapter.getCount(); i++) {
+
+            View groupItem = adapter.getView(i, null, listView);
+            groupItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+
+            totalHeight += groupItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        int height = totalHeight + (listView.getDividerHeight() * (adapter.getCount() - 1));
+
+        if (height < 10){
+            height = 200;
+        }
+
+        params.height = height;
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 }
