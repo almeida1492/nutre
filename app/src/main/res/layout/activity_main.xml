@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
+        android:paddingBottom="17dp"
         tools:context=".MainActivity">
 
         <TextView
@@ -46,9 +47,9 @@
                 android:id="@+id/summary_panel_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/panel_header"
                 android:paddingBottom="7dp"
                 android:paddingLeft="17dp"
-                android:layout_below="@id/panel_header"
                 android:text="25 de setembro"
                 android:textColor="@color/colorWhite"
                 android:textSize="24sp" />
@@ -57,9 +58,9 @@
                 android:id="@+id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="17dp"
                 android:layout_below="@id/summary_panel_title"
-                android:layout_marginRight="12dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="17dp"
                 android:dividerHeight="0dp" />
 
             <ImageView
@@ -70,14 +71,15 @@
                 android:src="@drawable/arrow_drop_down" />
 
             <View
+                android:id="@+id/panel_mask"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_alignBottom="@id/expand_buttom"
-                android:background="@drawable/summary_panel_mask"/>
+                android:background="@drawable/summary_panel_mask" />
         </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/meal_history"
+            android:id="@+id/meal_history_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
@@ -96,9 +98,12 @@
                 android:text="Refeições"
                 android:textColor="@color/colorPrimaryDark" />
 
-            <!--<ListView
+            <ListView
+                android:id="@+id/meal_history"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>-->
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="4dp" />
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

@@ -7,14 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
-import com.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
 import com.example.henriqueribeirodealmeida.nutre.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -43,7 +39,7 @@ public class SummaryAdapter extends ArrayAdapter<Nutrient>{
         nameView.setText(nutrient.getName());
 
         TextView valueView = itemView.findViewById(R.id.item_value);
-        String valueOutput = String.valueOf(nutrient.getValue());
+        String valueOutput = String.valueOf(nutrient.getValue()) + nutrient.getMeasure();
         valueView.setText(valueOutput);
 
         return itemView;
@@ -59,8 +55,9 @@ public class SummaryAdapter extends ArrayAdapter<Nutrient>{
         }
     }
 
-    public void notifyClickToExpand(){
+    public boolean notifyClickToExpand(){
         isExpanded = !isExpanded;
         notifyDataSetChanged();
+        return isExpanded;
     }
 }
