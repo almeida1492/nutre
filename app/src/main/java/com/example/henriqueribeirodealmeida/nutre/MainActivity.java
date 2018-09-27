@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.MealHistoryAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Adapters.SummaryAdapter;
@@ -41,10 +43,19 @@ public class MainActivity extends AppCompatActivity {
         final ListView summaryView = findViewById(R.id.summary);
         final View panelMask = findViewById(R.id.panel_mask);
         final ListView mealHistoryView = findViewById(R.id.meal_history);
+        ImageView searchView = findViewById(R.id.search_action);
+        ImageView userView = findViewById(R.id.user_action);
+        TextView summaryTitle = findViewById(R.id.summary_panel_title);
+        TextView summaryHeader = findViewById(R.id.summary_panel_header);
+        TextView mealHistoryTitle = findViewById(R.id.meal_history_title);
 
-        //Set activity title text font
+        //Set fonts
         Typeface balooChettanType = Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf");
+        Typeface notoSansType = Typeface.createFromAsset(getAssets(), "fonts/NotoSans-Regular.ttf");
         titleView.setTypeface(balooChettanType);
+        summaryTitle.setTypeface(notoSansType);
+        summaryHeader.setTypeface(notoSansType);
+        mealHistoryTitle.setTypeface(notoSansType);
 
         /*ListView summaryListView = findViewById(R.id.summary);*/
         summaryValues = new SummaryValues(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
@@ -89,6 +100,20 @@ public class MainActivity extends AppCompatActivity {
         MealHistoryAdapter mealHistoryAdapter = new MealHistoryAdapter(this, meals);
         mealHistoryView.setAdapter(mealHistoryAdapter);
         setListViewHeight(mealHistoryView);
+
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Ainda não implementado.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        userView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Ainda não implementado.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setSummaryItems(){
