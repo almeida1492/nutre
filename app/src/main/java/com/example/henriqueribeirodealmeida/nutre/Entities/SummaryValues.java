@@ -2,190 +2,180 @@ package com.example.henriqueribeirodealmeida.nutre.Entities;
 
 public class SummaryValues {
 
-    private int energy;
-    private int carbohydrate;
-    private int protein;
-    private int totalFat;
-    private int transFat;
-    private int saturatedFat;
-    private int water;
-    private int vitaminA;
-    private int vitaminC;
-    private int vitaminE;
-    private int fibers;
-    private int sodium;
-    private int iron;
-    private int omega3;
-    private int omega6;
-    private int omega9;
-    private int calcium;
-    private int zinc;
+    private float energy;
+    private float carbohydrate;
+    private float protein;
+    private float totalFat;
+    private float saturatedFat;
+    private float transFat;
+    private float fibers;
+    private float sodium;
+    private float vitaminC;
+    private float calcium;
+    private float iron;
+    private float vitaminA;
+    private float selenium;
+    private float potassium;
+    private float magnesium;
+    private float vitaminE;
+    private float thiamine;
 
     //TODO might erase this constructor when integration is over
-    public SummaryValues(int energy, int carbohydrate, int protein, int totalFat, int transFat, int saturatedFat, int water, int vitaminA, int vitaminC, int vitaminE, int fibers, int sodium, int iron, int omega3, int omega6, int omega9, int calcium, int zinc) {
+    public SummaryValues (String name, float energy, float carbohydrate, float protein, float totalFat, float saturatedFat, float transFat, float fibers, float sodium, float vitaminC, float calcium, float iron, float vitaminA, float selenium, float potassium, float magnesium, float vitaminE, float thiamine) {
         this.energy = energy;
         this.carbohydrate = carbohydrate;
         this.protein = protein;
         this.totalFat = totalFat;
-        this.transFat = transFat;
         this.saturatedFat = saturatedFat;
-        this.water = water;
-        this.vitaminA = vitaminA;
-        this.vitaminC = vitaminC;
-        this.vitaminE = vitaminE;
+        this.transFat = transFat;
         this.fibers = fibers;
         this.sodium = sodium;
-        this.iron = iron;
-        this.omega3 = omega3;
-        this.omega6 = omega6;
-        this.omega9 = omega9;
+        this.vitaminC = vitaminC;
         this.calcium = calcium;
-        this.zinc = zinc;
+        this.iron = iron;
+        this.vitaminA = vitaminA;
+        this.selenium = selenium;
+        this.potassium = potassium;
+        this.magnesium = magnesium;
+        this.vitaminE = vitaminE;
+        this.thiamine = thiamine;
     }
 
-    public SummaryValues(){}
+    public SummaryValues(float i, float i1, float i2, float i3, float i4, float i5, float i6, float i7, float i8, float i9, float i10, float i11, float i12, float i13, float i14, float i15, float i16, float i17){}
 
-    public int getEnergy() {
+    public float getEnergy() {
         return energy;
     }
 
-    public void setEnergy(int energy) {
+    public void setEnergy(float energy) {
         this.energy = energy;
     }
 
-    public int getCarbohydrate() {
+    public float getCarbohydrate() {
         return carbohydrate;
     }
 
-    public void setCarbohydrate(int carbohydrate) {
+    public void setCarbohydrate(float carbohydrate) {
         this.carbohydrate = carbohydrate;
     }
 
-    public int getProtein() {
+    public float getProtein() {
         return protein;
     }
 
-    public void setProtein(int protein) {
+    public void setProtein(float protein) {
         this.protein = protein;
     }
 
-    public int getTotalFat() {
+    public float getTotalFat() {
         return totalFat;
     }
 
-    public void setTotalFat(int totalFat) {
+    public void setTotalFat(float totalFat) {
         this.totalFat = totalFat;
     }
 
-    public int getTransFat() {
-        return transFat;
-    }
-
-    public void setTransFat(int transFat) {
-        this.transFat = transFat;
-    }
-
-    public int getSaturatedFat() {
+    public float getSaturatedFat() {
         return saturatedFat;
     }
 
-    public void setSaturatedFat(int saturatedFat) {
+    public void setSaturatedFat(float saturatedFat) {
         this.saturatedFat = saturatedFat;
     }
 
-    public int getWater() {
-        return water;
+    public float getTransFat() {
+        return transFat;
     }
 
-    public void setWater(int water) {
-        this.water = water;
+    public void setTransFat(float transFat) {
+        this.transFat = transFat;
     }
 
-    public int getVitaminA() {
-        return vitaminA;
-    }
-
-    public void setVitaminA(int vitaminA) {
-        this.vitaminA = vitaminA;
-    }
-
-    public int getVitaminC() {
-        return vitaminC;
-    }
-
-    public void setVitaminC(int vitaminC) {
-        this.vitaminC = vitaminC;
-    }
-
-    public int getVitaminE() {
-        return vitaminE;
-    }
-
-    public void setVitaminE(int vitaminE) {
-        this.vitaminE = vitaminE;
-    }
-
-    public int getFibers() {
+    public float getFibers() {
         return fibers;
     }
 
-    public void setFibers(int fibers) {
+    public void setFibers(float fibers) {
         this.fibers = fibers;
     }
 
-    public int getSodium() {
+    public float getSodium() {
         return sodium;
     }
 
-    public void setSodium(int sodium) {
+    public void setSodium(float sodium) {
         this.sodium = sodium;
     }
 
-    public int getIron() {
-        return iron;
+    public float getVitaminC() {
+        return vitaminC;
     }
 
-    public void setIron(int iron) {
-        this.iron = iron;
+    public void setVitaminC(float vitaminC) {
+        this.vitaminC = vitaminC;
     }
 
-    public int getOmega3() {
-        return omega3;
-    }
-
-    public void setOmega3(int omega3) {
-        this.omega3 = omega3;
-    }
-
-    public int getOmega6() {
-        return omega6;
-    }
-
-    public void setOmega6(int omega6) {
-        this.omega6 = omega6;
-    }
-
-    public int getOmega9() {
-        return omega9;
-    }
-
-    public void setOmega9(int omega9) {
-        this.omega9 = omega9;
-    }
-
-    public int getCalcium() {
+    public float getCalcium() {
         return calcium;
     }
 
-    public void setCalcium(int calcium) {
+    public void setCalcium(float calcium) {
         this.calcium = calcium;
     }
 
-    public int getZinc() {
-        return zinc;
+    public float getIron() {
+        return iron;
     }
 
-    public void setZinc(int zinc) {
-        this.zinc = zinc;
+    public void setIron(float iron) {
+        this.iron = iron;
+    }
+
+    public float getVitaminA() {
+        return vitaminA;
+    }
+
+    public void setVitaminA(float vitaminA) {
+        this.vitaminA = vitaminA;
+    }
+
+    public float getSelenium() {
+        return selenium;
+    }
+
+    public void setSelenium(float selenium) {
+        this.selenium = selenium;
+    }
+
+    public float getPotassium() {
+        return potassium;
+    }
+
+    public void setPotassium(float potassium) {
+        this.potassium = potassium;
+    }
+
+    public float getMagnesium() {
+        return magnesium;
+    }
+
+    public void setMagnesium(float magnesium) {
+        this.magnesium = magnesium;
+    }
+
+    public float getVitaminE() {
+        return vitaminE;
+    }
+
+    public void setVitaminE(float vitaminE) {
+        this.vitaminE = vitaminE;
+    }
+
+    public float getThiamine() {
+        return thiamine;
+    }
+
+    public void setThiamine(float thiamine) {
+        this.thiamine = thiamine;
     }
 }
