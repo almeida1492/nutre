@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         meals = new ArrayList<>();
-        String[] str = new String[0];
+        String[] str = new String[18];
         meals.add(new Meal(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7], str[8], str[9], str[10], str[11], str[12], str[13], str[14], str[15], str[16], str[17]));
         meals.add(new Meal(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7], str[8], str[9], str[10], str[11], str[12], str[13], str[14], str[15], str[16], str[17]));
         meals.add(new Meal(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7], str[8], str[9], str[10], str[11], str[12], str[13], str[14], str[15], str[16], str[17]));
