@@ -1,7 +1,6 @@
 package com.example.henriqueribeirodealmeida.nutre.Entities;
 
 public class SummaryValues {
-
     private float energy;
     private float carbohydrate;
     private float protein;

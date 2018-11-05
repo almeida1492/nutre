@@ -43,14 +43,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mMealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
-        mMealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
-            @Override
-            public void onChanged(@Nullable final List<Meal> meals) {
-                Log.d("DEBUG_DB", meals.get(0).getName());
-                Log.d("DEBUG_DB", meals.get(1).getName());
-            }
-        });
+        if(mMealViewModel != null) {
+            ViewModelProviders.of(this).get(MealViewModel.class);
+            mMealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
+                @Override
+                public void onChanged(@Nullable final List<Meal> meals) {
+                    for (Meal meal : meals) {
+                        Log.d("DEBUG_DB", meal.getName());
+                    }
+                }
+            });
+        }
 
         TextView titleView = findViewById(R.id.title);
         RelativeLayout panelView = findViewById(R.id.summary_panel);
@@ -148,57 +151,58 @@ public class MainActivity extends AppCompatActivity {
         summaryItems.get(3).setValue((int) summaryValues.getTotalFat());
         summaryItems.get(3).setMeasure("g");
 
-        summaryItems.get(5).setName("Gordura Saturada");
-        summaryItems.get(5).setValue((int) summaryValues.getSaturatedFat());
-        summaryItems.get(5).setMeasure("g");
-
-        summaryItems.get(4).setName("Gordura Trans");
-        summaryItems.get(4).setValue((int) summaryValues.getTransFat());
+        summaryItems.get(4).setName("Gordura Saturada");
+        summaryItems.get(4).setValue((int) summaryValues.getSaturatedFat());
         summaryItems.get(4).setMeasure("g");
 
-        summaryItems.get(10).setName("Fibras");
-        summaryItems.get(10).setValue((int) summaryValues.getFibers());
-        summaryItems.get(10).setMeasure("g");
+        summaryItems.get(5).setName("Gordura Trans");
+        summaryItems.get(5).setValue((int) summaryValues.getTransFat());
+        summaryItems.get(5).setMeasure("g");
 
-        summaryItems.get(11).setName("Sódio");
-        summaryItems.get(11).setValue((int) summaryValues.getSodium());
-        summaryItems.get(11).setMeasure("g");
+        summaryItems.get(6).setName("Fibras");
+        summaryItems.get(6).setValue((int) summaryValues.getFibers());
+        summaryItems.get(6).setMeasure("g");
+
+        summaryItems.get(7).setName("Sódio");
+        summaryItems.get(7).setValue((int) summaryValues.getSodium());
+        summaryItems.get(7).setMeasure("g");
 
         summaryItems.get(8).setName("Vitamina C");
         summaryItems.get(8).setValue((int) summaryValues.getVitaminC());
         summaryItems.get(8).setMeasure("g");
 
-        summaryItems.get(16).setName("Cálcio");
-        summaryItems.get(16).setValue((int) summaryValues.getCalcium());
-        summaryItems.get(16).setMeasure("g");
-
-        summaryItems.get(12).setName("Ferro");
-        summaryItems.get(12).setValue((int) summaryValues.getIron());
-        summaryItems.get(12).setMeasure("g");
-
-        summaryItems.get(7).setName("Vitamina A");
-        summaryItems.get(7).setValue((int) summaryValues.getVitaminA());
-        summaryItems.get(7).setMeasure("g");
-
-        summaryItems.get(13).setName("Celenio");
-        summaryItems.get(13).setValue((int) summaryValues.getSelenium());
-        summaryItems.get(13).setMeasure("g");
-
-        summaryItems.get(14).setName("Potássio");
-        summaryItems.get(14).setValue((int) summaryValues.getPotassium());
-        summaryItems.get(14).setMeasure("g");
-
-        summaryItems.get(15).setName("Magnésio");
-        summaryItems.get(15).setValue((int) summaryValues.getMagnesium());
-        summaryItems.get(15).setMeasure("g");
-
-        summaryItems.get(9).setName("Vitamina E");
-        summaryItems.get(9).setValue((int) summaryValues.getVitaminE());
+        summaryItems.get(9).setName("Cálcio");
+        summaryItems.get(9).setValue((int) summaryValues.getCalcium());
         summaryItems.get(9).setMeasure("g");
 
-        summaryItems.get(17).setName("Tiamina");
-        summaryItems.get(17).setValue((int) summaryValues.getThiamine());
-        summaryItems.get(17).setMeasure("g");
+        summaryItems.get(10).setName("Ferro");
+        summaryItems.get(10).setValue((int) summaryValues.getIron());
+        summaryItems.get(10).setMeasure("g");
+
+        summaryItems.get(11).setName("Vitamina A");
+        summaryItems.get(11).setValue((int) summaryValues.getVitaminA());
+        summaryItems.get(11).setMeasure("g");
+
+        summaryItems.get(12).setName("Celenio");
+        summaryItems.get(12).setValue((int) summaryValues.getSelenium());
+        summaryItems.get(12).setMeasure("g");
+
+        summaryItems.get(13).setName("Potássio");
+        summaryItems.get(13).setValue((int) summaryValues.getPotassium());
+        summaryItems.get(13).setMeasure("g");
+
+        summaryItems.get(14).setName("Magnésio");
+        summaryItems.get(14).setValue((int) summaryValues.getMagnesium());
+        summaryItems.get(14).setMeasure("g");
+
+        summaryItems.get(15).setName("Vitamina E");
+        summaryItems.get(15).setValue((int) summaryValues.getVitaminE());
+        summaryItems.get(15).setMeasure("g");
+
+        summaryItems.get(16).setName("Tiamina");
+        summaryItems.get(16).setValue((int) summaryValues.getThiamine());
+        summaryItems.get(16).setMeasure("g");
+
     }
 
     private void setListViewHeight(ListView listView) {
