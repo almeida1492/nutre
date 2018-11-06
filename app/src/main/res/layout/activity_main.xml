@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_marginRight="22dp"
-            android:background="@drawable/summary_panel_background"
+            android:background="@drawable/blue_round_rec"
             app:layout_constraintTop_toBottomOf="@id/title">
 
             <TextView
@@ -103,7 +103,7 @@
             android:layout_marginLeft="22dp"
             android:layout_marginRight="22dp"
             android:layout_marginTop="14dp"
-            android:background="@drawable/meal_history_background"
+            android:background="@drawable/white_round_rec"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/summary_panel">
 
