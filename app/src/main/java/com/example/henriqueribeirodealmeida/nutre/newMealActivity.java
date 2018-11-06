@@ -38,6 +38,7 @@ public class newMealActivity extends AppCompatActivity {
 
         AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods);
         addedFoodList.setAdapter(adapter);
+        addedFoodList.setFocusable(false);
         setListViewHeight(addedFoodList);
     }
 
