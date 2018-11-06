@@ -2,6 +2,7 @@ package com.example.henriqueribeirodealmeida.nutre;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         TextView summaryTitle = findViewById(R.id.summary_panel_title);
         TextView summaryHeader = findViewById(R.id.summary_panel_header);
         TextView mealHistoryTitle = findViewById(R.id.meal_history_title);
+        ImageView newMealButton = findViewById(R.id.new_meal_action);
 
         //Set fonts
         Typeface balooChettanType = Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf");
@@ -127,6 +129,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Ainda não implementado.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        newMealButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, newMealActivity.class);
+                startActivity(intent);
             }
         });
     }
