@@ -7,16 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
+import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
 
-public class MealHistoryAdapter extends ArrayAdapter<Meal> {
+public class AddedFoodAdapter extends ArrayAdapter<Food> {
 
-    public MealHistoryAdapter(@NonNull Context context, ArrayList<Meal> meals) {
-        super(context, 0, meals);
+    public AddedFoodAdapter(@NonNull Context context, ArrayList<Food> foods) {
+        super(context, 0, foods);
     }
 
     @NonNull
@@ -30,7 +32,15 @@ public class MealHistoryAdapter extends ArrayAdapter<Meal> {
                     R.layout.meal_item, parent, false);
         }
 
+        Food currentItem = getItem(position);
+
+        TextView nameView = itemView.findViewById(R.id.item_name);
+        nameView.setText(currentItem.getName());
+
+        TextView quantityView = itemView.findViewById(R.id.item_info);
+        String quantityOutput = String.valueOf(currentItem.getQuantity()) + " " + currentItem.getMeasure();
+        quantityView.setText(quantityOutput);
+
         return itemView;
-        //TODO update contents inside items
     }
 }

@@ -12,6 +12,7 @@
         android:background="@drawable/white_round_rec">
 
         <ImageView
+            android:id="@+id/up_button"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_margin="16dp"
@@ -20,6 +21,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/add_meal"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_margin="16dp"
@@ -155,7 +157,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/add"
+            android:id="@+id/add_item"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="Adicionar"
@@ -176,13 +178,13 @@
             android:background="#E5E5E5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add" />
+            app:layout_constraintTop_toBottomOf="@id/add_item" />
 
         <ListView
-            android:id="@+id/meal_items_list"
+            android:id="@+id/added_food_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/add"
+            app:layout_constraintTop_toBottomOf="@id/add_item"
             android:layout_marginTop="70dp"
             android:layout_marginLeft="17dp"
             android:layout_marginRight="4dp" />
