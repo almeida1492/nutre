@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 
-@Database(entities = {Meal.class}, version = 1, exportSchema = false)
+@Database(entities = {Meal.class}, version = 2, exportSchema = false)
 public abstract class MealRoomDatabase extends RoomDatabase {
 
     public abstract MealDAO mealDao();
@@ -71,7 +71,7 @@ public abstract class MealRoomDatabase extends RoomDatabase {
                 String line;
                 while ((line = buffer.readLine()) != null) {
                     String[] str = parseCSVLine(line);
-                    if (str != null && str.length > 0) {
+                    if (str != null && str.length > 17) {
                         Meal meal = new Meal(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7], str[8], str[9], str[10], str[11], str[12], str[13], str[14], str[15], str[16], str[17]);
                         mDao.insert(meal);
                     }

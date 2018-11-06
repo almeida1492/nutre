@@ -43,17 +43,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(mMealViewModel != null) {
-            ViewModelProviders.of(this).get(MealViewModel.class);
-            mMealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
-                @Override
-                public void onChanged(@Nullable final List<Meal> meals) {
-                    for (Meal meal : meals) {
-                        Log.d("DEBUG_DB", meal.getName());
-                    }
-                }
-            });
-        }
+        mMealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
+        mMealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
+            @Override
+            public void onChanged(@Nullable final List<Meal> meals) {
+                for (Meal meal : meals) {
+                    Log.d("DEBUG_DB", "Meal name: " + meal.getName());                }
+            }
+        });
 
         TextView titleView = findViewById(R.id.title);
         RelativeLayout panelView = findViewById(R.id.summary_panel);
