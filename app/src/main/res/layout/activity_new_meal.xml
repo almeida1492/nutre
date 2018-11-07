@@ -98,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="55dp"
+                android:layout_marginRight="2dp"
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -109,12 +110,12 @@
                 app:layout_constraintRight_toLeftOf="@id/quantity_picker"
                 app:layout_constraintTop_toBottomOf="@id/meal_type_icon">
 
-                <TextView
-                    android:layout_width="80dp"
+                <AutoCompleteTextView
+                    android:id="@+id/food_picker_text_view"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:maxWidth="80dp"
                     android:text="Farinha"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
@@ -140,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="32dp"
                 android:layout_marginTop="55dp"
+                android:layout_marginLeft="2dp"
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -151,8 +153,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/meal_type_icon">
 
-                <TextView
-                    android:layout_width="80dp"
+                <AutoCompleteTextView
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"

@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -29,6 +31,32 @@ public class newMealActivity extends AppCompatActivity {
         ListView addedFoodList = findViewById(R.id.added_food_list);
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
 
+        upButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        addMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO salvar refeição em banco de dados
+            }
+        });
+
+        AutoCompleteTextView foodPickerView = findViewById(R.id.food_picker_text_view);
+        //TODO Buscar lista de alimentos em banco de dados
+        //temp
+        String[] names = new String[5];
+        names[0] = "Arroz branco";
+        names[1] = "Farinha";
+        names[2] = "Feijão preto";
+        names[3] = "Carne Vermelha";
+        names[4] = "Alface Americana";
+        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, names);
+        foodPickerView.setAdapter(autoCompleteAdapter);
+
         //temp
         ArrayList<Food> foods = new ArrayList<>();
         foods.add(new Food("Arroz Branco", 2, "colher"));
@@ -40,6 +68,7 @@ public class newMealActivity extends AppCompatActivity {
         addedFoodList.setAdapter(adapter);
         addedFoodList.setFocusable(false);
         setListViewHeight(addedFoodList);
+
     }
 
     private void setListViewHeight(ListView listView) {
