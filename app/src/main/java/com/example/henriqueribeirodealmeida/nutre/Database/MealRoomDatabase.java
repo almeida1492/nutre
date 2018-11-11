@@ -7,6 +7,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.example.henriqueribeirodealmeida.nutre.DAO.MealDAO;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
@@ -16,7 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 
-@Database(entities = {Meal.class}, version = 2, exportSchema = false)
+@Database(entities = {Meal.class}, version = 1, exportSchema = false)
 public abstract class MealRoomDatabase extends RoomDatabase {
 
     public abstract MealDAO mealDao();
@@ -40,10 +41,10 @@ public abstract class MealRoomDatabase extends RoomDatabase {
     }
 
     private static RoomDatabase.Callback sRoomDatabaseCallback =
-            new RoomDatabase.Callback(){
+            new RoomDatabase.Callback() {
 
                 @Override
-                public void onOpen (@NonNull SupportSQLiteDatabase db){
+                public void onOpen(@NonNull SupportSQLiteDatabase db) {
                     super.onOpen(db);
                     new PopulateDbAsync(INSTANCE, CONTEXT).execute();
                 }
@@ -59,8 +60,21 @@ public abstract class MealRoomDatabase extends RoomDatabase {
             mContext = context;
         }
 
+
+        public float convertStringToFloat(String str) {
+            Float f = null;
+            try {
+                f = Float.parseFloat(str);
+            } catch (Exception e) {
+                Log.d("DEBUG_PARSE", "Could not parse string to float: " + str);
+            }
+
+            return f;
+        }
+
         @Override
         protected Void doInBackground(final Void... params) {
+
             mDao.deleteAll();
             try {
                 String file = "data/food.csv";
@@ -72,16 +86,16 @@ public abstract class MealRoomDatabase extends RoomDatabase {
                 while ((line = buffer.readLine()) != null) {
                     String[] str = parseCSVLine(line);
                     if (str != null && str.length > 17) {
-                        Meal meal = new Meal(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7], str[8], str[9], str[10], str[11], str[12], str[13], str[14], str[15], str[16], str[17]);
+                        Meal meal = new Meal((str[0]), convertStringToFloat(str[1]), convertStringToFloat(str[2]), convertStringToFloat(str[3]), convertStringToFloat(str[4]), convertStringToFloat(str[5]), convertStringToFloat(str[6]), convertStringToFloat(str[7]), convertStringToFloat(str[8]), convertStringToFloat(str[9]), convertStringToFloat(str[10]), convertStringToFloat(str[11]), convertStringToFloat(str[12]), convertStringToFloat(str[13]), convertStringToFloat(str[14]), convertStringToFloat(str[15]), convertStringToFloat(str[16]), convertStringToFloat(str[17]));
                         mDao.insert(meal);
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             return null;
         }
+
 
         public static String[] parseCSVLine(String line) {
             // Create a pattern to match breaks

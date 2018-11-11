@@ -3,6 +3,7 @@ package com.example.henriqueribeirodealmeida.nutre.Entities;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 @Entity(tableName = "meals")
 public class Meal {
@@ -29,9 +30,9 @@ public class Meal {
     private float thiamine;
 
 
-    public Meal(String name, String s, String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String s11, String s12, String s13, String s14, String s15, String s16) {
-
+    public Meal() {
     }
+
 
     public Meal(String name, float energy, float carbohydrate, float protein, float totalFat, float saturatedFat, float transFat, float fibers, float sodium, float vitaminC, float calcium, float iron, float vitaminA, float selenium, float potassium, float magnesium, float vitaminE, float thiamine) {
         this.name = name;
