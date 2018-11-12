@@ -61,15 +61,14 @@ public abstract class MealRoomDatabase extends RoomDatabase {
         }
 
 
-        public float convertStringToFloat(String str) {
-            Float f = null;
+        public Float convertStringToFloat(String str) {
             try {
-                f = Float.parseFloat(str);
+                return Float.parseFloat(str);
             } catch (Exception e) {
                 Log.d("DEBUG_PARSE", "Could not parse string to float: " + str);
             }
 
-            return f;
+            return 0.0f;
         }
 
         @Override
