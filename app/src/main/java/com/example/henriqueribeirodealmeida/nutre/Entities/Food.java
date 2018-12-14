@@ -3,12 +3,12 @@ package com.example.henriqueribeirodealmeida.nutre.Entities;
 public class Food {
 
     private String name;
-    private double quantity;
+    private double quantityPerUnit;
     private String measure;
 
     public Food(String name, double quantity, String measure){
         this.name = name;
-        this.quantity = quantity;
+        this.quantityPerUnit = quantity;
         this.measure = measure;
     }
 
@@ -16,8 +16,8 @@ public class Food {
         return name;
     }
 
-    public double getQuantity(){
-        return quantity;
+    public double getQuantityPerUnit(){
+        return quantityPerUnit;
     }
 
     public String getMeasure(){

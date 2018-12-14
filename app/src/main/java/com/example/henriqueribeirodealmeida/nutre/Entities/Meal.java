@@ -5,12 +5,19 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 @Entity(tableName = "meals")
 public class Meal {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
     private String name;
+    /*private String date;*/
+    /*private HashMap<Food, Integer> foods;*/
+
+    //TODO move to Food
     private float energy;
     private float carbohydrate;
     private float protein;

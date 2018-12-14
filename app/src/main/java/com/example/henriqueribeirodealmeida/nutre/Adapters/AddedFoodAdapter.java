@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
-import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
         nameView.setText(currentItem.getName());
 
         TextView quantityView = itemView.findViewById(R.id.item_info);
-        String quantityOutput = String.valueOf(currentItem.getQuantity()) + " " + currentItem.getMeasure();
+        String quantityOutput = String.valueOf(currentItem.getQuantityPerUnit()) + " " + currentItem.getMeasure();
         quantityView.setText(quantityOutput);
 
         return itemView;

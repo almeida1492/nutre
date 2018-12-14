@@ -69,6 +69,13 @@ public class newMealActivity extends AppCompatActivity {
         addedFoodList.setFocusable(false);
         setListViewHeight(addedFoodList);
 
+        addItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO add item to the list
+            }
+        });
+
     }
 
     private void setListViewHeight(ListView listView) {
