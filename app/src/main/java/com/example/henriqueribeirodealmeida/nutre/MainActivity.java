@@ -36,11 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Meal> meals;
 
-<<<<<<< HEAD
-=======
     private MealViewModel mMealViewModel;
-
->>>>>>> de8181cf61e848cf1477daea46c8741613d2111e
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,9 +14,11 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
+import com.example.henriqueribeirodealmeida.nutre.Data.DatabaseHelper;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class newMealActivity extends AppCompatActivity {
 
@@ -47,6 +49,13 @@ public class newMealActivity extends AppCompatActivity {
 
         AutoCompleteTextView foodPickerView = findViewById(R.id.food_picker_text_view);
         //TODO Buscar lista de alimentos em banco de dados
+        //TODO Dioginis, o erro tá rolando exatamente nessas linhas de código aqui embaixo. pelo que eu entendi alí, a aplicação não tá conseguindo abrir o banco de dados
+        List<com.example.henriqueribeirodealmeida.nutre.Data.Food> newFoods = new DatabaseHelper(this).getlistFood();
+        String[] newNames = new String[1000];
+        for (int i = 0; i < newFoods.size(); i++){
+            newNames[i] = newFoods.get(i).getName();
+        }
+
         //temp
         String[] names = new String[5];
         names[0] = "Arroz branco";
@@ -54,7 +63,7 @@ public class newMealActivity extends AppCompatActivity {
         names[2] = "Feijão preto";
         names[3] = "Carne Vermelha";
         names[4] = "Alface Americana";
-        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, names);
+        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, newNames);
         foodPickerView.setAdapter(autoCompleteAdapter);
 
         //temp
