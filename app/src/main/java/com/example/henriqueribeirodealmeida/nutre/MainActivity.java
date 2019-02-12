@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Meal> meals;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
