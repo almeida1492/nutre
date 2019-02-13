@@ -1,8 +1,11 @@
 package com.example.henriqueribeirodealmeida.nutre;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -14,10 +17,11 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
-import com.example.henriqueribeirodealmeida.nutre.Data.DatabaseHelper;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
+import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class newMealActivity extends AppCompatActivity {
@@ -48,22 +52,22 @@ public class newMealActivity extends AppCompatActivity {
         });
 
         AutoCompleteTextView foodPickerView = findViewById(R.id.food_picker_text_view);
-        //TODO Buscar lista de alimentos em banco de dados
-        //TODO Dioginis, o erro tá rolando exatamente nessas linhas de código aqui embaixo. pelo que eu entendi alí, a aplicação não tá conseguindo abrir o banco de dados
-        List<com.example.henriqueribeirodealmeida.nutre.Data.Food> newFoods = new DatabaseHelper(this).getlistFood();
-        String[] newNames = new String[1000];
-        for (int i = 0; i < newFoods.size(); i++){
-            newNames[i] = newFoods.get(i).getName();
-        }
 
-        //temp
-        String[] names = new String[5];
-        names[0] = "Arroz branco";
-        names[1] = "Farinha";
-        names[2] = "Feijão preto";
-        names[3] = "Carne Vermelha";
-        names[4] = "Alface Americana";
-        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, newNames);
+        MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
+        final List<String> mealNames = new ArrayList();
+
+        mealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
+            @Override
+            public void onChanged(@Nullable final List<Meal> meals) {
+                for (Meal meal : meals) {
+                    if (meal != null && meal.getName() != null) {
+                        mealNames.add(meal.getName());
+                    }
+                }
+            }
+        });
+
+        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, mealNames);
         foodPickerView.setAdapter(autoCompleteAdapter);
 
         //temp
