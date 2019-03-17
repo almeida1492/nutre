@@ -215,6 +215,9 @@ public class Meal {
         this.thiamine = thiamine;
     }
 
-
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 
 }

@@ -1,5 +1,7 @@
 package com.example.henriqueribeirodealmeida.nutre;
 
+import android.app.Activity;
+import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -19,6 +21,8 @@ import android.widget.Toast;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.MealHistoryAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Adapters.SummaryAdapter;
+import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
+import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
@@ -34,23 +38,12 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Nutrient> summaryItems;
     private SummaryAdapter summaryAdapter;
 
-    private ArrayList<Meal> meals;
-
-    private MealViewModel mMealViewModel;
+    private ArrayList<DailyMeal> dailyMeals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mMealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
-        mMealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
-            @Override
-            public void onChanged(@Nullable final List<Meal> meals) {
-                for (Meal meal : meals) {
-                    Log.d("DEBUG_DB", "Meal name: " + meal.getName());                }
-            }
-        });
 
         TextView titleView = findViewById(R.id.title);
         RelativeLayout panelView = findViewById(R.id.summary_panel);
@@ -104,12 +97,105 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        meals = new ArrayList<>();
-        String[] str = new String[18];
+        dailyMeals = new ArrayList<>();
 
-        MealHistoryAdapter mealHistoryAdapter = new MealHistoryAdapter(this, meals);
+        final MealHistoryAdapter mealHistoryAdapter = new MealHistoryAdapter(this, dailyMeals);
         mealHistoryView.setAdapter(mealHistoryAdapter);
         setListViewHeight(mealHistoryView);
+
+        DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
+        dailyMealViewModel.getAllDailyMeals().observe(this, new Observer<List<DailyMeal>>() {
+            @Override
+            public void onChanged(@Nullable final List<DailyMeal> liveMeals) {
+                dailyMeals.clear();
+                for (DailyMeal meal : liveMeals) {
+                    if (meal != null && meal.getName() != null) {
+                        dailyMeals.add(meal);
+                    }
+                }
+                mealHistoryAdapter.notifyDataSetChanged();
+            }
+        });
+        final LifecycleOwner lifecycleOwner = this;
+        final MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
+        FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
+        foodViewModel.getAllFood().observe(this, new Observer<List<Food>>() {
+            @Override
+            public void onChanged(@Nullable final List<Food> foods) {
+                int [] mealIds = new int[foods.size()];
+                for (int i=0; i < foods.size() ; i++) {
+                    mealIds[i] = foods.get(i).getMealId();
+                    Log.d("Maroto", foods.get(i).getName());
+                }
+
+                mealViewModel.findByIds(mealIds).observe(lifecycleOwner, new Observer<List<Meal>>() {
+                    @Override
+                    public void onChanged(@Nullable final List<Meal> liveMeals) {
+                        Float energy = 0.0f;
+                        Float carbohydrate = 0.0f;
+                        Float protein = 0.0f;
+                        Float totalFat = 0.0f;
+                        Float saturatedFat = 0.0f;
+                        Float transFat = 0.0f;
+                        Float fibers = 0.0f;
+                        Float sodium = 0.0f;
+                        Float vitaminC = 0.0f;
+                        Float calcium = 0.0f;
+                        Float iron = 0.0f;
+                        Float vitaminA = 0.0f;
+                        Float selenium = 0.0f;
+                        Float potassium = 0.0f;
+                        Float magnesium = 0.0f;
+                        Float vitaminE = 0.0f;
+                        Float thiamine = 0.0f;
+
+
+                        for (Meal meal : liveMeals) {
+                            energy += meal.getEnergy();
+                            carbohydrate += meal.getCarbohydrate();
+                            protein += meal.getProtein();
+                            totalFat += meal.getTotalFat();
+                            saturatedFat += meal.getSaturatedFat();
+                            transFat += meal.getTransFat();
+                            fibers += meal.getFibers();
+                            sodium += meal.getSodium();
+                            vitaminC += meal.getVitaminC();
+                            calcium += meal.getCalcium();
+                            iron += meal.getIron();
+                            vitaminA += meal.getVitaminA();
+                            selenium += meal.getSelenium();
+                            potassium += meal.getPotassium();
+                            magnesium += meal.getMagnesium();
+                            vitaminE +=  meal.getVitaminE();
+                            thiamine += meal.getThiamine();
+
+                        }
+
+                        summaryItems.get(0).setValue(Math.round(energy));
+                        summaryItems.get(1).setValue(Math.round(carbohydrate));
+                        summaryItems.get(2).setValue(Math.round(protein));
+                        summaryItems.get(3).setValue(Math.round(totalFat));
+                        summaryItems.get(4).setValue(Math.round(saturatedFat));
+                        summaryItems.get(5).setValue(Math.round(transFat));
+                        summaryItems.get(6).setValue(Math.round(fibers));
+                        summaryItems.get(7).setValue(Math.round(sodium));
+                        summaryItems.get(8).setValue(Math.round(vitaminC));
+                        summaryItems.get(9).setValue(Math.round(calcium));
+                        summaryItems.get(10).setValue(Math.round(iron));
+                        summaryItems.get(11).setValue(Math.round(vitaminA));
+                        summaryItems.get(12).setValue(Math.round(selenium));
+                        summaryItems.get(13).setValue(Math.round(potassium));
+                        summaryItems.get(14).setValue(Math.round(magnesium));
+                        summaryItems.get(15).setValue(Math.round(vitaminE));
+                        summaryItems.get(16).setValue(Math.round(thiamine));
+
+                        Log.d("Maroto", String.valueOf(Math.round(energy)));
+
+                        summaryAdapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        });
 
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override

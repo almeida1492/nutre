@@ -7,6 +7,7 @@ import android.arch.lifecycle.LiveData;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.Repositories.MealRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MealViewModel extends AndroidViewModel {
@@ -22,6 +23,11 @@ public class MealViewModel extends AndroidViewModel {
     }
 
     LiveData<List<Meal>> getmAllMeals() { return mAllMeals; }
+
+    List<Meal> getMeals() { return mRepository.getMeals(); }
+
+    LiveData<List<Meal>> findByIds(int[] ids) { return mRepository.findByIds(ids); }
+
 
     public void insert(Meal meal) { mRepository.insert(meal); }
 }

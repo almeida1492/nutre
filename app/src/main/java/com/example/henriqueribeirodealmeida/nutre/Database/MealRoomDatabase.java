@@ -9,7 +9,11 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.example.henriqueribeirodealmeida.nutre.DAO.DailyMealDAO;
+import com.example.henriqueribeirodealmeida.nutre.DAO.FoodDAO;
 import com.example.henriqueribeirodealmeida.nutre.DAO.MealDAO;
+import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
+import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 
 import java.io.BufferedReader;
@@ -17,10 +21,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 
-@Database(entities = {Meal.class}, version = 1, exportSchema = false)
+@Database(entities = {Meal.class, Food.class, DailyMeal.class}, version = 3, exportSchema = false)
 public abstract class MealRoomDatabase extends RoomDatabase {
 
     public abstract MealDAO mealDao();
+    public abstract FoodDAO foodDao();
+    public abstract DailyMealDAO dailyMealDao();
 
     private static volatile MealRoomDatabase INSTANCE;
     private static volatile Context CONTEXT;
@@ -33,6 +39,7 @@ public abstract class MealRoomDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             MealRoomDatabase.class, "meal_database")
                             .addCallback(sRoomDatabaseCallback)
+                            .fallbackToDestructiveMigration()
                             .build();
                 }
             }
@@ -52,11 +59,13 @@ public abstract class MealRoomDatabase extends RoomDatabase {
 
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
-        private final MealDAO mDao;
+        private final MealDAO mealDao;
+        private final FoodDAO foodDao;
         private final Context mContext;
 
         PopulateDbAsync(MealRoomDatabase db, Context context) {
-            mDao = db.mealDao();
+            mealDao = db.mealDao();
+            foodDao = db.foodDao();
             mContext = context;
         }
 
@@ -74,7 +83,7 @@ public abstract class MealRoomDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(final Void... params) {
 
-            mDao.deleteAll();
+            mealDao.deleteAll();
             try {
                 String file = "data/food.csv";
                 InputStream in = mContext.getAssets().open(file);
@@ -86,7 +95,7 @@ public abstract class MealRoomDatabase extends RoomDatabase {
                     String[] str = parseCSVLine(line);
                     if (str != null && str.length > 17) {
                         Meal meal = new Meal((str[0]), convertStringToFloat(str[1]), convertStringToFloat(str[2]), convertStringToFloat(str[3]), convertStringToFloat(str[4]), convertStringToFloat(str[5]), convertStringToFloat(str[6]), convertStringToFloat(str[7]), convertStringToFloat(str[8]), convertStringToFloat(str[9]), convertStringToFloat(str[10]), convertStringToFloat(str[11]), convertStringToFloat(str[12]), convertStringToFloat(str[13]), convertStringToFloat(str[14]), convertStringToFloat(str[15]), convertStringToFloat(str[16]), convertStringToFloat(str[17]));
-                        mDao.insert(meal);
+                        mealDao.insert(meal);
                     }
                 }
             } catch (Exception e) {

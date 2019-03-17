@@ -20,4 +20,10 @@ public interface MealDAO {
 
     @Query("SELECT * from meals ORDER BY name ASC")
     LiveData<List<Meal>> getAllMeals();
+
+    @Query("SELECT * from meals ORDER BY name ASC")
+    List<Meal> getMeals();
+
+    @Query("SELECT * FROM meals WHERE id IN(:mealIds)")
+    LiveData<List<Meal>> findByIds(int[] mealIds);
 }

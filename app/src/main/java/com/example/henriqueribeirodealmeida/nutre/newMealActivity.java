@@ -1,13 +1,14 @@
 package com.example.henriqueribeirodealmeida.nutre;
 
+import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -17,14 +18,16 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
+import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class newMealActivity extends AppCompatActivity {
+
+    Meal mCurrentSelectedMeal;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,41 +46,49 @@ public class newMealActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        final DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
+        final FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
+        final ArrayList<Food> foods = new ArrayList<>();
+        final Activity activity = this;
 
         addMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO salvar refeição em banco de dados
+                DailyMeal dailyMeal = new DailyMeal("Almoço");
+                dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
             }
         });
 
-        AutoCompleteTextView foodPickerView = findViewById(R.id.food_picker_text_view);
-
         MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
-        final List<String> mealNames = new ArrayList();
+
+        final ArrayList<Meal> meals = new ArrayList<>();
+        final AutoCompleteTextView foodPickerView = findViewById(R.id.food_picker_text_view);
+
+        final ArrayAdapter<Meal> autoCompleteAdapter = new ArrayAdapter<Meal>(this, android.R.layout.simple_dropdown_item_1line, meals);
+        foodPickerView.setAdapter(autoCompleteAdapter);
 
         mealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
             @Override
-            public void onChanged(@Nullable final List<Meal> meals) {
-                for (Meal meal : meals) {
+            public void onChanged(@Nullable final List<Meal> liveMeals) {
+                autoCompleteAdapter.clear();
+                meals.clear();
+                for (Meal meal : liveMeals) {
                     if (meal != null && meal.getName() != null) {
-                        mealNames.add(meal.getName());
+                        meals.add(meal);
+                        autoCompleteAdapter.notifyDataSetChanged();
                     }
                 }
             }
         });
 
-        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, mealNames);
-        foodPickerView.setAdapter(autoCompleteAdapter);
+        foodPickerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mCurrentSelectedMeal = (Meal) parent.getItemAtPosition(position);
+            }
+        });
 
-        //temp
-        ArrayList<Food> foods = new ArrayList<>();
-        foods.add(new Food("Arroz Branco", 2, "colher"));
-        foods.add(new Food("Feijão Preto", 1, "concha"));
-        foods.add(new Food("Carne Vermelha", 1, "unidade"));
-        foods.add(new Food("Alface Americana", 1, "unidade"));
-
-        AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods);
+        final AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods);
         addedFoodList.setAdapter(adapter);
         addedFoodList.setFocusable(false);
         setListViewHeight(addedFoodList);
@@ -85,7 +96,13 @@ public class newMealActivity extends AppCompatActivity {
         addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO add item to the list
+                if (mCurrentSelectedMeal != null) {
+                    foods.add(new Food(mCurrentSelectedMeal.getName(), 1, "copo", mCurrentSelectedMeal.getId()));
+                } else {
+                    foods.add(new Food(foodPickerView.getText().toString(), 2, "colher"));
+                }
+                adapter.notifyDataSetChanged();
+                foodPickerView.clearListSelection();
             }
         });
 

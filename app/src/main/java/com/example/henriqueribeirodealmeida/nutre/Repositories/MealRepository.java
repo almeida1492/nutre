@@ -25,6 +25,10 @@ public class MealRepository {
         return mAllMeals;
     }
 
+    public List<Meal> getMeals() { return mMealDao.getMeals(); }
+
+    public LiveData<List<Meal>> findByIds(int[] ids) { return mMealDao.findByIds(ids); }
+
 
     public void insert (Meal meal) {
         new insertAsyncTask(mMealDao).execute(meal);
