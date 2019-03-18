@@ -37,7 +37,7 @@ public class newMealActivity extends AppCompatActivity {
         ImageView upButton = findViewById(R.id.up_button);
         ImageView addMeal = findViewById(R.id.add_meal);
         Button addItemButton = findViewById(R.id.add_item);
-        ListView addedFoodList = findViewById(R.id.added_food_list);
+        final ListView addedFoodList = findViewById(R.id.added_food_list);
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
 
         upButton.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +102,7 @@ public class newMealActivity extends AppCompatActivity {
                     foods.add(new Food(foodPickerView.getText().toString(), 2, "colher"));
                 }
                 adapter.notifyDataSetChanged();
+                setListViewHeight(addedFoodList);
                 foodPickerView.clearListSelection();
             }
         });

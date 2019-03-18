@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 mealHistoryAdapter.notifyDataSetChanged();
+                setListViewHeight(mealHistoryView);
             }
         });
         final LifecycleOwner lifecycleOwner = this;
