@@ -1,6 +1,5 @@
 package com.example.henriqueribeirodealmeida.nutre;
 
-import android.app.Activity;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -212,10 +211,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        userView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserActivity.class);
+                startActivity(intent);
+            }
+        });
+
         newMealButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, newMealActivity.class);
+                Intent intent = new Intent(MainActivity.this, NewMealActivity.class);
                 startActivity(intent);
             }
         });

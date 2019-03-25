@@ -25,7 +25,7 @@ import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class newMealActivity extends AppCompatActivity {
+public class NewMealActivity extends AppCompatActivity {
 
     Meal mCurrentSelectedMeal;
 

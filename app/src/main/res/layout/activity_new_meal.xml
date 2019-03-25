@@ -116,7 +116,6 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="Farinha"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
 
