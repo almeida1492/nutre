@@ -105,7 +105,7 @@ public class NewMealActivity extends AppCompatActivity {
                 }
                 adapter.notifyDataSetChanged();
                 setListViewHeight(addedFoodList);
-                foodPickerView.clearListSelection();
+                foodPickerView.setText("");
             }
         });
 
