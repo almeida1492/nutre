@@ -28,12 +28,12 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
 
         if (itemView == null) {
             itemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.meal_item, parent, false);
+                    R.layout.item_meal, parent, false);
         }
 
         Food currentItem = getItem(position);
 
-        TextView nameView = itemView.findViewById(R.id.item_name);
+        TextView nameView = itemView.findViewById(R.id.name);
         nameView.setText(currentItem.getName());
 
         TextView quantityView = itemView.findViewById(R.id.item_info);

@@ -10,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
-import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
-import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
@@ -30,12 +28,12 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
 
         if (itemView == null) {
             itemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.meal_item, parent, false);
+                    R.layout.item_meal, parent, false);
         }
 
         DailyMeal currentItem = getItem(position);
 
-        TextView nameView = itemView.findViewById(R.id.item_name);
+        TextView nameView = itemView.findViewById(R.id.name);
         nameView.setText(currentItem.getName());
 
         TextView quantityView = itemView.findViewById(R.id.item_info);

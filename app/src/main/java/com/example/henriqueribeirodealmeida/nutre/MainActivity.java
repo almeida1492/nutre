@@ -207,13 +207,6 @@ public class MainActivity extends AppCompatActivity {
         userView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Ainda não implementado.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        userView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UserActivity.class);
                 startActivity(intent);
             }

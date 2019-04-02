@@ -30,17 +30,21 @@ public class SummaryAdapter extends ArrayAdapter<Nutrient>{
 
         if (itemView == null) {
             itemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.summary_panel_item, parent, false);
+                    R.layout.item_summary_panel, parent, false);
         }
 
         Nutrient nutrient = getItem(position);
 
-        TextView nameView = itemView.findViewById(R.id.item_name);
+        TextView nameView = itemView.findViewById(R.id.name);
         nameView.setText(nutrient.getName());
 
-        TextView valueView = itemView.findViewById(R.id.item_value);
+        TextView valueView = itemView.findViewById(R.id.value);
         String valueOutput = String.valueOf(nutrient.getValue()) + nutrient.getMeasure();
         valueView.setText(valueOutput);
+
+        TextView suggestedValueView = itemView.findViewById(R.id.suggested_value);
+        String suggestedValueOutput = String.valueOf(nutrient.getValue()) + nutrient.getMeasure();
+        suggestedValueView.setText(suggestedValueOutput);
 
         return itemView;
     }

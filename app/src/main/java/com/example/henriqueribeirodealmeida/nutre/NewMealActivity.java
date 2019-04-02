@@ -46,6 +46,7 @@ public class NewMealActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
         final DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
         final FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
         final ArrayList<Food> foods = new ArrayList<>();
