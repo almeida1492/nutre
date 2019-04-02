@@ -66,6 +66,7 @@ public class NewMealActivity extends AppCompatActivity {
         final AutoCompleteTextView foodPickerView = findViewById(R.id.food_picker_text_view);
 
         final ArrayAdapter<Meal> autoCompleteAdapter = new ArrayAdapter<Meal>(this, android.R.layout.simple_dropdown_item_1line, meals);
+        foodPickerView.setDropDownWidth(-1);
         foodPickerView.setAdapter(autoCompleteAdapter);
 
         mealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {

@@ -31,7 +31,7 @@ public class UserActivity extends AppCompatActivity{
         physicalActivityOptions.add("Moderada");
         physicalActivityOptions.add("Intensa");
         ArrayAdapter<String> physicalActivityAdapter = new ArrayAdapter<String>(this, R.layout.spinner_default, physicalActivityOptions);
-        physicalActivityAdapter.setDropDownViewResource(R.layout.item_dropdown);
+        physicalActivityAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         physicalActivityView.setAdapter(physicalActivityAdapter);
     }
 }
