@@ -42,17 +42,15 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/meal_type"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/meal_type_picker"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="40dp"
-                android:text="Almoço"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="24sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:background="@null"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
                 android:id="@+id/meal_type_drop_down"
@@ -61,7 +59,7 @@
                 android:src="@drawable/arrow_drop_down"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_type" />
+                app:layout_constraintTop_toBottomOf="@id/meal_type_picker" />
 
             <ImageView
                 android:id="@+id/meal_type_icon"

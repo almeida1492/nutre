@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
@@ -39,6 +40,7 @@ public class NewMealActivity extends AppCompatActivity {
         Button addItemButton = findViewById(R.id.add_item);
         final ListView addedFoodList = findViewById(R.id.added_food_list);
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
+        final Spinner mealTypeView = findViewById(R.id.meal_type_picker);
 
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,14 +53,6 @@ public class NewMealActivity extends AppCompatActivity {
         final FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
         final ArrayList<Food> foods = new ArrayList<>();
         final Activity activity = this;
-
-        addMeal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DailyMeal dailyMeal = new DailyMeal("Almoço");
-                dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
-            }
-        });
 
         MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
 
@@ -109,6 +103,23 @@ public class NewMealActivity extends AppCompatActivity {
             }
         });
 
+        ArrayList<String> mealTypes = new ArrayList<>();
+        mealTypes.add("Café da manhã");
+        mealTypes.add("Almoço");
+        mealTypes.add("Janta");
+        mealTypes.add("Ceia");
+        ArrayAdapter<String> mealTypeAdapter = new ArrayAdapter<>(this, R.layout.default_meal_type, mealTypes);
+        mealTypeAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
+        mealTypeView.setAdapter(mealTypeAdapter);
+
+        addMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mealType = mealTypeView.getSelectedItem().toString();
+                DailyMeal dailyMeal = new DailyMeal(mealType);
+                dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
+            }
+        });
     }
 
     private void setListViewHeight(ListView listView) {
