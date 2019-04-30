@@ -22,6 +22,7 @@
             android:src="@drawable/meal_placeholder"/>
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhite"
@@ -40,13 +41,13 @@
         android:background="@color/colorPrimaryDark" />
 
     <ListView
+        android:id="@+id/nutrients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
         android:layout_marginRight="36dp"
         android:layout_marginTop="52dp"
         android:scrollbars="none"
-        android:divider="none"
         tools:listitem="@layout/item_food_detail"/>
 
 </LinearLayout>

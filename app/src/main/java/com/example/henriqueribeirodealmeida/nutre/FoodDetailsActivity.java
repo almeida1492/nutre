@@ -5,8 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
+import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class FoodDetailsActivity extends AppCompatActivity{
 
@@ -19,5 +25,11 @@ public class FoodDetailsActivity extends AppCompatActivity{
         Bundle bundle = intent.getBundleExtra("bundle");
         Meal meal = bundle.getParcelable("food");
         Log.e("maroto", meal.getName());
+
+        TextView nameView = findViewById(R.id.name);
+        ListView nutrientsView = findViewById(R.id.nutrients);
+
+        nameView.setText(meal.getName());
+
     }
 }
