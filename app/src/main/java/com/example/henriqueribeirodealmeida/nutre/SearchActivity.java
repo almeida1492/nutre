@@ -2,9 +2,13 @@ package com.example.henriqueribeirodealmeida.nutre;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
@@ -15,7 +19,7 @@ import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends AppCompatActivity{
+public class SearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +45,17 @@ public class SearchActivity extends AppCompatActivity{
                         adapter.notifyDataSetChanged();
                     }
                 }
+            }
+        });
+
+        foodListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(SearchActivity.this, FoodDetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("food", foods.get(position));
+                intent.putExtra("bundle", bundle);
+                startActivity(intent);
             }
         });
     }

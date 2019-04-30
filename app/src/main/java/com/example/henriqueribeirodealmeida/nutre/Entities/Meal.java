@@ -2,6 +2,9 @@ package com.example.henriqueribeirodealmeida.nutre.Entities;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.graphics.Bitmap;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -9,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 @Entity(tableName = "meals")
-public class Meal {
+public class Meal implements Parcelable{
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
@@ -219,5 +222,67 @@ public class Meal {
     public String toString() {
         return this.getName();
     }
+
+    protected Meal(Parcel in){
+        id = in.readInt();
+        name = in.readString();
+        energy = in.readFloat();
+        carbohydrate = in.readFloat();
+        protein = in.readFloat();
+        totalFat = in.readFloat();
+        saturatedFat = in.readFloat();
+        transFat = in.readFloat();
+        fibers = in.readFloat();
+        sodium = in.readFloat();
+        vitaminC = in.readFloat();
+        calcium = in.readFloat();
+        iron = in.readFloat();
+        vitaminA = in.readFloat();
+        selenium = in.readFloat();
+        potassium = in.readFloat();
+        magnesium = in.readFloat();
+        vitaminE = in.readFloat();
+        thiamine = in.readFloat();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeFloat(energy);
+        dest.writeFloat(carbohydrate);
+        dest.writeFloat(protein);
+        dest.writeFloat(totalFat);
+        dest.writeFloat(saturatedFat);
+        dest.writeFloat(transFat);
+        dest.writeFloat(fibers);
+        dest.writeFloat(sodium);
+        dest.writeFloat(vitaminC);
+        dest.writeFloat(calcium);
+        dest.writeFloat(iron);
+        dest.writeFloat(vitaminA);
+        dest.writeFloat(selenium);
+        dest.writeFloat(potassium);
+        dest.writeFloat(magnesium);
+        dest.writeFloat(vitaminE);
+        dest.writeFloat(thiamine);
+    }
+
+    public static final Parcelable.Creator<Meal> CREATOR = new Parcelable.Creator<Meal>() {
+        @Override
+        public Meal createFromParcel(Parcel in) {
+            return new Meal(in);
+        }
+
+        @Override
+        public Meal[] newArray(int size) {
+            return new Meal[size];
+        }
+    };
 
 }

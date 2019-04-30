@@ -29,7 +29,6 @@ public class MealRepository {
 
     public LiveData<List<Meal>> findByIds(int[] ids) { return mMealDao.findByIds(ids); }
 
-
     public void insert (Meal meal) {
         new insertAsyncTask(mMealDao).execute(meal);
     }

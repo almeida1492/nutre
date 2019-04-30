@@ -15,7 +15,7 @@ import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
 
-public class SearchAdapter extends ArrayAdapter<Meal>{
+public class SearchAdapter extends ArrayAdapter<Meal> {
 
     public SearchAdapter(@NonNull Context context, ArrayList<Meal> foods) {
         super(context, 0, foods);
@@ -32,7 +32,7 @@ public class SearchAdapter extends ArrayAdapter<Meal>{
                     R.layout.item_search, parent, false);
         }
 
-        Meal food = getItem(position);
+        final Meal food = getItem(position);
 
         TextView nameView = itemView.findViewById(R.id.name);
         nameView.setText(food.getName());
