@@ -21,6 +21,10 @@
             android:theme="@style/AppTheme">
 
         </activity>
+        <activity android:name=".SearchActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
         <activity android:name=".NewMealActivity"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">

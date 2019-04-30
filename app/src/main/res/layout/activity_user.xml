@@ -53,10 +53,11 @@
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="@android:color/black"
             android:hint="Nome"
             android:textColorHint="@android:color/darker_gray"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -64,10 +65,11 @@
 
         <EditText
             android:id="@+id/age"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:hint="Idade"
+            android:backgroundTint="@android:color/black"
             android:inputType="number"
             android:textColorHint="@android:color/darker_gray"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -75,21 +77,23 @@
 
         <EditText
             android:id="@+id/height"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:hint="Altura"
+            android:backgroundTint="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/age" />
 
         <EditText
             android:id="@+id/weight"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:hint="Peso (Kg)"
             android:inputType="number"
+            android:backgroundTint="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/height" />
