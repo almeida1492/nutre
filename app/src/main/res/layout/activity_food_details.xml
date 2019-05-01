@@ -13,11 +13,19 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="16dp"
+            android:src="@mipmap/baseline_home_white_36"/>
+
         <LinearLayout
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="22dp"
             android:orientation="horizontal"
             android:gravity="center">
 

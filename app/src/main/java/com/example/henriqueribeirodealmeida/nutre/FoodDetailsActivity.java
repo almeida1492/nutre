@@ -8,12 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.FoodDetailsAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Adapters.SummaryAdapter;
+import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
@@ -40,6 +42,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
         TextView nameView = findViewById(R.id.name);
         ListView nutrientsView = findViewById(R.id.nutrients);
+        ImageView homeView = findViewById(R.id.home);
 
         nameView.setText(meal.getName());
 
@@ -72,6 +75,14 @@ public class FoodDetailsActivity extends AppCompatActivity{
         nutrientsView.setAdapter(adapter);
         nutrientsView.setDivider(null);
         setListViewHeight(nutrientsView);
+
+        homeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodDetailsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
