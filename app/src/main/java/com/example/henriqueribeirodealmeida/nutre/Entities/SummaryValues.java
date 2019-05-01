@@ -20,7 +20,7 @@ public class SummaryValues {
     private float thiamine;
 
     //TODO might erase this constructor when integration is over
-    public SummaryValues (String name, float energy, float carbohydrate, float protein, float totalFat, float saturatedFat, float transFat, float fibers, float sodium, float vitaminC, float calcium, float iron, float vitaminA, float selenium, float potassium, float magnesium, float vitaminE, float thiamine) {
+    public SummaryValues (float energy, float carbohydrate, float protein, float totalFat, float saturatedFat, float transFat, float fibers, float sodium, float vitaminC, float calcium, float iron, float vitaminA, float selenium, float potassium, float magnesium, float vitaminE, float thiamine) {
         this.energy = energy;
         this.carbohydrate = carbohydrate;
         this.protein = protein;
