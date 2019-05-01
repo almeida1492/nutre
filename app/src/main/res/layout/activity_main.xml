@@ -90,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/summary_panel_header"
                 android:layout_marginLeft="17dp"
+                tools:listitem="@layout/item_summary_panel"
                 android:layout_marginRight="17dp"
                 android:dividerHeight="0dp" />
 

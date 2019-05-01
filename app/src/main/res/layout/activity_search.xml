@@ -14,7 +14,7 @@
         android:elevation="4dp">
 
         <EditText
-            android:id="@+id/search_view"
+            android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="21dp"

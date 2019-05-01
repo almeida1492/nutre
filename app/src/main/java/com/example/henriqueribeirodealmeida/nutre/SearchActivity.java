@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.SearchAdapter;
@@ -21,17 +21,21 @@ import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
 
+    private SearchAdapter adapter;
+    private EditText searchView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
         ListView foodListView = findViewById(R.id.foods);
+        searchView = findViewById(R.id.search);
 
         MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
         final ArrayList<Meal> foods = new ArrayList<>();
 
-        final SearchAdapter adapter = new SearchAdapter(this, foods);
+        adapter = new SearchAdapter(this, foods);
         foodListView.setAdapter(adapter);
 
         mealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
@@ -56,6 +60,23 @@ public class SearchActivity extends AppCompatActivity {
                 bundle.putParcelable("food", foods.get(position));
                 intent.putExtra("bundle", bundle);
                 startActivity(intent);
+            }
+        });
+
+        searchView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                (SearchActivity.this).adapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
     }

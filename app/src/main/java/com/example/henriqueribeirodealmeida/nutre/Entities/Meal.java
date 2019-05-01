@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 @Entity(tableName = "meals")
-public class Meal implements Parcelable{
+public class Meal implements Parcelable, Cloneable{
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
@@ -285,4 +285,12 @@ public class Meal implements Parcelable{
         }
     };
 
+    public Meal getClone() {
+        try {
+            return (Meal) super.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println (" Cloning not allowed. " );
+            return this;
+        }
+    }
 }
