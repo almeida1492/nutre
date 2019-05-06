@@ -25,7 +25,7 @@ public class UserActivity extends AppCompatActivity{
         TextView titleView = findViewById(R.id.title);
         titleView.setTypeface(notoSansType);
 
-        Spinner physicalActivityView = findViewById(R.id.physical_activity);
+        Spinner physicalActivityView = findViewById(R.id.physical_activity_spinner);
         ArrayList<String> physicalActivityOptions = new ArrayList<>();
         physicalActivityOptions.add("Baixa");
         physicalActivityOptions.add("Moderada");

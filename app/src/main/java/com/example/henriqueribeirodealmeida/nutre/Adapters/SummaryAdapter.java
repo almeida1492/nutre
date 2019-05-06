@@ -16,10 +16,11 @@ import java.util.ArrayList;
 
 public class SummaryAdapter extends ArrayAdapter<Nutrient>{
 
-    private boolean isExpanded = false;
+    private boolean isExpanded;
 
     public SummaryAdapter(@NonNull Context context, @NonNull ArrayList<Nutrient> summaryItems) {
         super(context, 0, summaryItems);
+        isExpanded = false;
     }
 
     @NonNull
