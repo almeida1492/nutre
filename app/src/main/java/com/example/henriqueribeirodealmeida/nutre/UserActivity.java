@@ -4,9 +4,12 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
 
 import java.util.ArrayList;
 
@@ -33,5 +36,6 @@ public class UserActivity extends AppCompatActivity{
         ArrayAdapter<String> physicalActivityAdapter = new ArrayAdapter<String>(this, R.layout.spinner_default, physicalActivityOptions);
         physicalActivityAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         physicalActivityView.setAdapter(physicalActivityAdapter);
+
     }
 }
