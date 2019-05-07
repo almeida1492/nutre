@@ -11,7 +11,7 @@ public class UserInfoContainer {
     private final static String AGE_KEY = "com.uticket.uticket.WebClient.AGE_KEY";
     private final static String HEIGHT_KEY = "com.uticket.uticket.WebClient.HEIGHT_KEY";
     private final static String WEIGHT_KEY = "com.uticket.uticket.WebClient.WEIGHT_KEY";
-    private final static String PHYSICAL_ACTIVITY_KEY = "com.uticket.uticket.WebClient.WEIGHT_KEY";
+    private final static String PHYSICAL_ACTIVITY_KEY = "com.uticket.uticket.WebClient.PHYSICAL_ACTIVITY_KEY";
 
     public static String getName(Context c){
         SharedPreferences sp = c.getSharedPreferences(USER_INFO_CONTAINER, Context.MODE_PRIVATE);
@@ -73,18 +73,18 @@ public class UserInfoContainer {
         editor.apply();
     }
 
-    public static String getPhysicalActivityIntensity(Context c){
+    public static int getPhysicalActivityIntensity(Context c){
         SharedPreferences sp = c.getSharedPreferences(USER_INFO_CONTAINER, Context.MODE_PRIVATE);
-        if (sp.getString(PHYSICAL_ACTIVITY_KEY, null) == null){
-            setPhysicalActivityIntensity(c, "");
-        }
-        return sp.getString(PHYSICAL_ACTIVITY_KEY, "");
+            if (sp.getInt(PHYSICAL_ACTIVITY_KEY, 0) == 0){
+                setPhysicalActivityIntensity(c, 0);
+            }
+        return sp.getInt(PHYSICAL_ACTIVITY_KEY, 0);
     }
 
-    public static void setPhysicalActivityIntensity(Context c, String intensity){
+    public static void setPhysicalActivityIntensity(Context c, int intensity){
         SharedPreferences sp = c.getSharedPreferences(USER_INFO_CONTAINER, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString(PHYSICAL_ACTIVITY_KEY, intensity);
+        editor.putInt(PHYSICAL_ACTIVITY_KEY, intensity);
         editor.apply();
     }
 }

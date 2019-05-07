@@ -56,6 +56,7 @@
                 android:layout_marginTop="12dp"
                 android:backgroundTint="@android:color/black"
                 android:hint="Nome"
+                android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray"
                 android:textSize="14sp" />
 
@@ -68,6 +69,7 @@
                 android:backgroundTint="@android:color/black"
                 android:hint="Idade"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -81,8 +83,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:backgroundTint="@android:color/black"
-                android:hint="Altura"
+                android:hint="Altura (cm)"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -96,8 +99,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:backgroundTint="@android:color/black"
-                android:hint="Peso (Kg)"
+                android:hint="Peso (kg)"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -148,7 +152,7 @@
 
 
         <Button
-            android:id="@+id/add_item"
+            android:id="@+id/confirm"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginBottom="16dp"
