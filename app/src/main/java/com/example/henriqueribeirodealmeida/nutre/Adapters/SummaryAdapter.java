@@ -44,7 +44,7 @@ public class SummaryAdapter extends ArrayAdapter<Nutrient>{
         valueView.setText(valueOutput);
 
         TextView suggestedValueView = itemView.findViewById(R.id.suggested_value);
-        String suggestedValueOutput = String.valueOf(nutrient.getValue()) + nutrient.getMeasure();
+        String suggestedValueOutput = String.valueOf(nutrient.getSuggestedValue()) + nutrient.getMeasure();
         suggestedValueView.setText(suggestedValueOutput);
 
         return itemView;

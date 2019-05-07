@@ -3,8 +3,8 @@ package com.example.henriqueribeirodealmeida.nutre.Entities;
 public class Nutrient {
 
     private String name;
-    private int value;
-
+    private double value;
+    private double suggestedValue;
     private String measure;
 
     public Nutrient(){}
@@ -23,7 +23,7 @@ public class Nutrient {
         this.name = name;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
@@ -37,5 +37,13 @@ public class Nutrient {
 
     public void setMeasure(String measure) {
         this.measure = measure;
+    }
+
+    public double getSuggestedValue() {
+        return suggestedValue;
+    }
+
+    public void setSuggestedValue(double suggestedValue) {
+        this.suggestedValue = suggestedValue;
     }
 }
