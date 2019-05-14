@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -77,29 +78,32 @@ public class NewMealActivity extends AppCompatActivity {
             }
         });
 
-        foodPickerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mCurrentSelectedMeal = (Meal) parent.getItemAtPosition(position);
-            }
-        });
-
         final AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods);
         addedFoodList.setAdapter(adapter);
         addedFoodList.setFocusable(false);
         setListViewHeight(addedFoodList);
 
+        final AutoCompleteTextView measurePickerView = findViewById(R.id.measure_picker_text_view);
         addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                double quantity = Double.parseDouble(measurePickerView.getText().toString().replaceAll("\\D+",""));
                 if (mCurrentSelectedMeal != null) {
-                    foods.add(new Food(mCurrentSelectedMeal.getName(), 1, "copo", mCurrentSelectedMeal.getId()));
+                    foods.add(new Food(mCurrentSelectedMeal.getName(), quantity, mCurrentSelectedMeal.getMeasureLabel(), mCurrentSelectedMeal.getId()));
                 } else {
-                    foods.add(new Food(foodPickerView.getText().toString(), 2, "colher"));
+                    foods.add(new Food(foodPickerView.getText().toString(), quantity, "unidade"));
                 }
                 adapter.notifyDataSetChanged();
                 setListViewHeight(addedFoodList);
                 foodPickerView.setText("");
+            }
+        });
+
+        foodPickerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mCurrentSelectedMeal = (Meal) parent.getItemAtPosition(position);
+                measurePickerView.setText("1 " + mCurrentSelectedMeal.getMeasureLabel());
             }
         });
 

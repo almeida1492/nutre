@@ -39,12 +39,14 @@ public class Meal implements Parcelable, Cloneable{
     private float vitaminE;
     private float thiamine;
 
+    private String measureLabel;
+
 
     public Meal() {
     }
 
 
-    public Meal(String name, float energy, float carbohydrate, float protein, float totalFat, float saturatedFat, float transFat, float fibers, float sodium, float vitaminC, float calcium, float iron, float vitaminA, float selenium, float potassium, float magnesium, float vitaminE, float thiamine) {
+    public Meal(String name, float energy, float carbohydrate, float protein, float totalFat, float saturatedFat, float transFat, float fibers, float sodium, float vitaminC, float calcium, float iron, float vitaminA, float selenium, float potassium, float magnesium, float vitaminE, float thiamine, String measureLabel) {
         this.name = name;
         this.energy = energy;
         this.carbohydrate = carbohydrate;
@@ -63,6 +65,7 @@ public class Meal implements Parcelable, Cloneable{
         this.magnesium = magnesium;
         this.vitaminE = vitaminE;
         this.thiamine = thiamine;
+        this.measureLabel = measureLabel;
     }
 
     @NonNull
@@ -218,6 +221,14 @@ public class Meal implements Parcelable, Cloneable{
         this.thiamine = thiamine;
     }
 
+    public String getMeasureLabel() {
+        return measureLabel;
+    }
+
+    public void setMeasureLabel(String measureLabel) {
+        this.measureLabel = measureLabel;
+    }
+
     @Override
     public String toString() {
         return this.getName();
@@ -243,6 +254,7 @@ public class Meal implements Parcelable, Cloneable{
         magnesium = in.readFloat();
         vitaminE = in.readFloat();
         thiamine = in.readFloat();
+        measureLabel = in.readString();
     }
 
     @Override
@@ -271,6 +283,7 @@ public class Meal implements Parcelable, Cloneable{
         dest.writeFloat(magnesium);
         dest.writeFloat(vitaminE);
         dest.writeFloat(thiamine);
+        dest.writeString(measureLabel);
     }
 
     public static final Parcelable.Creator<Meal> CREATOR = new Parcelable.Creator<Meal>() {

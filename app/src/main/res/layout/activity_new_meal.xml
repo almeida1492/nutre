@@ -148,12 +148,13 @@
                 app:layout_constraintTop_toBottomOf="@id/meal_type_icon">
 
                 <AutoCompleteTextView
+                    android:id="@+id/measure_picker_text_view"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:maxWidth="80dp"
-                    android:text="1 chícara"
+                    android:text="1 copo"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
             </LinearLayout>
