@@ -40,13 +40,14 @@ public class Meal implements Parcelable, Cloneable{
     private float thiamine;
 
     private String measureLabel;
+    private float unityMultiplier;
 
 
     public Meal() {
     }
 
 
-    public Meal(String name, float energy, float carbohydrate, float protein, float totalFat, float saturatedFat, float transFat, float fibers, float sodium, float vitaminC, float calcium, float iron, float vitaminA, float selenium, float potassium, float magnesium, float vitaminE, float thiamine, String measureLabel) {
+    public Meal(String name, float energy, float carbohydrate, float protein, float totalFat, float saturatedFat, float transFat, float fibers, float sodium, float vitaminC, float calcium, float iron, float vitaminA, float selenium, float potassium, float magnesium, float vitaminE, float thiamine, String measureLabel, float unityMultiplier) {
         this.name = name;
         this.energy = energy;
         this.carbohydrate = carbohydrate;
@@ -66,6 +67,7 @@ public class Meal implements Parcelable, Cloneable{
         this.vitaminE = vitaminE;
         this.thiamine = thiamine;
         this.measureLabel = measureLabel;
+        this.unityMultiplier = unityMultiplier;
     }
 
     @NonNull
@@ -229,6 +231,14 @@ public class Meal implements Parcelable, Cloneable{
         this.measureLabel = measureLabel;
     }
 
+    public float getUnityMultiplier() {
+        return unityMultiplier;
+    }
+
+    public void setUnityMultiplier(float unityMultiplier) {
+        this.unityMultiplier = unityMultiplier;
+    }
+
     @Override
     public String toString() {
         return this.getName();
@@ -255,6 +265,7 @@ public class Meal implements Parcelable, Cloneable{
         vitaminE = in.readFloat();
         thiamine = in.readFloat();
         measureLabel = in.readString();
+        unityMultiplier = in.readFloat();
     }
 
     @Override
@@ -284,6 +295,7 @@ public class Meal implements Parcelable, Cloneable{
         dest.writeFloat(vitaminE);
         dest.writeFloat(thiamine);
         dest.writeString(measureLabel);
+        dest.writeFloat(unityMultiplier);
     }
 
     public static final Parcelable.Creator<Meal> CREATOR = new Parcelable.Creator<Meal>() {

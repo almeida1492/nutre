@@ -28,6 +28,7 @@ import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -124,9 +125,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable final List<Food> foods) {
                 int [] mealIds = new int[foods.size()];
+                final HashMap<Integer, Integer> mealQuantity = new HashMap<>();
                 for (int i=0; i < foods.size() ; i++) {
-                    mealIds[i] = foods.get(i).getMealId();
-                    Log.d("Maroto", foods.get(i).getName());
+                    Food food = foods.get(i);
+                    mealIds[i] = food.getMealId();
+                    if (mealQuantity.get(food.getMealId()) == null) {
+                        mealQuantity.put(food.getMealId(), (int) food.getQuantityPerUnit());
+                    } else {
+                        int oldQuantity = mealQuantity.get(food.getMealId());
+                        mealQuantity.put(food.getDailyMealId(), oldQuantity + (int) food.getQuantityPerUnit());
+                    }
                 }
 
                 mealViewModel.findByIds(mealIds).observe(lifecycleOwner, new Observer<List<Meal>>() {
@@ -152,24 +160,24 @@ public class MainActivity extends AppCompatActivity {
 
 
                         for (Meal meal : liveMeals) {
-                            energy += meal.getEnergy();
-                            carbohydrate += meal.getCarbohydrate();
-                            protein += meal.getProtein();
-                            totalFat += meal.getTotalFat();
-                            saturatedFat += meal.getSaturatedFat();
-                            transFat += meal.getTransFat();
-                            fibers += meal.getFibers();
-                            sodium += meal.getSodium();
-                            vitaminC += meal.getVitaminC();
-                            calcium += meal.getCalcium();
-                            iron += meal.getIron();
-                            vitaminA += meal.getVitaminA();
-                            selenium += meal.getSelenium();
-                            potassium += meal.getPotassium();
-                            magnesium += meal.getMagnesium();
-                            vitaminE +=  meal.getVitaminE();
-                            thiamine += meal.getThiamine();
-
+                            int quantity = mealQuantity.get(meal.getId());
+                            energy += meal.getEnergy() * meal.getUnityMultiplier() * quantity / 100;
+                            carbohydrate += meal.getCarbohydrate() * meal.getUnityMultiplier() * quantity / 100;
+                            protein += meal.getProtein() * meal.getUnityMultiplier() * quantity / 100;
+                            totalFat += meal.getTotalFat() * meal.getUnityMultiplier() * quantity / 100;
+                            saturatedFat += meal.getSaturatedFat() * meal.getUnityMultiplier() * quantity / 100;
+                            transFat += meal.getTransFat() * meal.getUnityMultiplier() * quantity / 100;
+                            fibers += meal.getFibers() * meal.getUnityMultiplier() * quantity / 100;
+                            sodium += meal.getSodium() * meal.getUnityMultiplier() * quantity / 100;
+                            vitaminC += meal.getVitaminC() * meal.getUnityMultiplier() * quantity / 100;
+                            calcium += meal.getCalcium() * meal.getUnityMultiplier() * quantity / 100;
+                            iron += meal.getIron() * meal.getUnityMultiplier() * quantity / 100;
+                            vitaminA += meal.getVitaminA() * meal.getUnityMultiplier() * quantity / 100;
+                            selenium += meal.getSelenium() * meal.getUnityMultiplier() * quantity / 100;
+                            potassium += meal.getPotassium() * meal.getUnityMultiplier() * quantity / 100;
+                            magnesium += meal.getMagnesium() * meal.getUnityMultiplier() * quantity / 100;
+                            vitaminE +=  meal.getVitaminE() * meal.getUnityMultiplier() * quantity / 100;
+                            thiamine += meal.getThiamine() * meal.getUnityMultiplier() * quantity / 100;
                         }
 
                         summaryItems.get(0).setValue(Math.round(energy));
@@ -189,8 +197,6 @@ public class MainActivity extends AppCompatActivity {
                         summaryItems.get(14).setValue(Math.round(magnesium));
                         summaryItems.get(15).setValue(Math.round(vitaminE));
                         summaryItems.get(16).setValue(Math.round(thiamine));
-
-                        Log.d("Maroto", String.valueOf(Math.round(energy)));
 
                         summaryAdapter.notifyDataSetChanged();
                     }
@@ -221,8 +227,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        Log.e("maroto", String.valueOf(Helpers.calculateRequiredEnergy(this)));
     }
 
     @Override

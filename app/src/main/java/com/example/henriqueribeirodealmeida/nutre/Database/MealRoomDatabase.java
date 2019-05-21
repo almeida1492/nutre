@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 
-@Database(entities = {Meal.class, Food.class, DailyMeal.class}, version = 4, exportSchema = false)
+@Database(entities = {Meal.class, Food.class, DailyMeal.class}, version = 5, exportSchema = false)
 public abstract class MealRoomDatabase extends RoomDatabase {
 
     public abstract MealDAO mealDao();
@@ -95,16 +95,24 @@ public abstract class MealRoomDatabase extends RoomDatabase {
                     String[] str = parseCSVLine(line);
                     if (str != null && str.length > 17) {
                         String measureLabel = null;
+                        float baseQuantity;
                         try {
                             measureLabel = str[18];
                         } catch (Exception e) {
                             Log.e("MEASURE_LABEL", e.toString());
                         }
 
+                        try {
+                            baseQuantity = Float.parseFloat(str[19]);
+                        } catch (Exception e) {
+                            Log.e("MEASURE_LABEL", e.toString());
+                            baseQuantity = 1.0f;
+                        }
+
                         if (measureLabel == null || measureLabel.trim().equals("")) {
                             measureLabel = "unidade";
                         }
-                        Meal meal = new Meal((str[0]), convertStringToFloat(str[1]), convertStringToFloat(str[2]), convertStringToFloat(str[3]), convertStringToFloat(str[4]), convertStringToFloat(str[5]), convertStringToFloat(str[6]), convertStringToFloat(str[7]), convertStringToFloat(str[8]), convertStringToFloat(str[9]), convertStringToFloat(str[10]), convertStringToFloat(str[11]), convertStringToFloat(str[12]), convertStringToFloat(str[13]), convertStringToFloat(str[14]), convertStringToFloat(str[15]), convertStringToFloat(str[16]), convertStringToFloat(str[17]), measureLabel);
+                        Meal meal = new Meal((str[0]), convertStringToFloat(str[1]), convertStringToFloat(str[2]), convertStringToFloat(str[3]), convertStringToFloat(str[4]), convertStringToFloat(str[5]), convertStringToFloat(str[6]), convertStringToFloat(str[7]), convertStringToFloat(str[8]), convertStringToFloat(str[9]), convertStringToFloat(str[10]), convertStringToFloat(str[11]), convertStringToFloat(str[12]), convertStringToFloat(str[13]), convertStringToFloat(str[14]), convertStringToFloat(str[15]), convertStringToFloat(str[16]), convertStringToFloat(str[17]), measureLabel, baseQuantity);
                         mealDao.insert(meal);
                     }
                 }
