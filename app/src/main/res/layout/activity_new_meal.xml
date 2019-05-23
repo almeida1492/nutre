@@ -54,8 +54,8 @@
 
             <ImageView
                 android:id="@+id/meal_type_drop_down"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/arrow_drop_down"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -96,9 +96,7 @@
                 android:id="@+id/food_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
                 android:layout_marginTop="55dp"
-                android:layout_marginRight="2dp"
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -107,12 +105,12 @@
                 android:paddingRight="10dp"
                 android:paddingTop="9dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/quantity_picker"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/meal_type_icon">
 
                 <AutoCompleteTextView
                     android:id="@+id/food_picker_text_view"
-                    android:layout_width="200dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
@@ -133,9 +131,7 @@
                 android:id="@+id/quantity_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="32dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginLeft="2dp"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -143,13 +139,13 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="9dp"
-                app:layout_constraintLeft_toRightOf="@id/food_picker"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_type_icon">
+                app:layout_constraintTop_toBottomOf="@id/food_picker">
 
                 <AutoCompleteTextView
                     android:id="@+id/measure_picker_text_view"
-                    android:layout_width="60dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
@@ -170,7 +166,7 @@
                 android:text="Adicionar"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/food_picker" />
+                app:layout_constraintTop_toBottomOf="@id/quantity_picker" />
 
             <View
                 android:layout_width="match_parent"
@@ -192,6 +188,19 @@
                 android:layout_marginTop="40dp"
                 tools:listitem="@layout/item_meal"
                 app:layout_constraintTop_toBottomOf="@id/add_item" />
+
+            <TextView
+                android:id="@+id/empty"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:gravity="center"
+                android:text="Selecione os alimentos e os adicione à lista."
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17sp"
+                app:layout_constraintTop_toBottomOf="@id/add_item"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 

@@ -18,6 +18,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
@@ -47,6 +48,7 @@ public class NewMealActivity extends AppCompatActivity {
         final ListView addedFoodList = findViewById(R.id.added_food_list);
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
         final Spinner mealTypeView = findViewById(R.id.meal_type_picker);
+        final TextView emptyView = findViewById(R.id.empty);
 
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +94,7 @@ public class NewMealActivity extends AppCompatActivity {
         addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                emptyView.setVisibility(View.GONE);
                 double quantity = Double.parseDouble(measurePickerView.getText().toString().replaceAll("\\D+",""));
                 if (mCurrentSelectedMeal != null) {
                     foods.add(new Food(mCurrentSelectedMeal.getName(), quantity, mCurrentSelectedMeal.getMeasureLabel(), mCurrentSelectedMeal.getId()));
