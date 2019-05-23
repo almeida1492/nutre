@@ -131,5 +131,66 @@ public class Helpers {
 
         return energy;
     }
+
+    public static String formatDate(String raw, boolean isComplete){
+        String date, day, numMonth, month, time;
+
+        numMonth = raw.substring(5, 7);
+        day = raw.substring(8, 10);
+        time = raw.substring(11, 16);
+
+        switch (numMonth){
+            case "01":
+                month = " janeiro ";
+                break;
+            case "02":
+                month = " fevereiro ";
+                break;
+            case "03":
+                month = " março ";
+                break;
+            case "04":
+                month = " abril ";
+                break;
+            case "05":
+                month = " maio ";
+                break;
+            case "06":
+                month = " junho ";
+                break;
+            case "07":
+                month = " julho ";
+                break;
+            case "08":
+                month = " agosto ";
+                break;
+            case "09":
+                month = " setembro ";
+                break;
+            case "10":
+                month = " outubro ";
+                break;
+            case "11":
+                month = " novembro ";
+                break;
+            case "12":
+                month = " dezembro ";
+                break;
+            default:
+                month = "";
+        }
+
+        if (day.equals("01")){
+            day = "1º";
+        }
+
+        if (isComplete){
+            date = day + " de" + month + "às " + time;
+        } else {
+            date = day + " de" + month;
+        }
+
+        return date;
+    }
 }
 

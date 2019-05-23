@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 
-@Database(entities = {Meal.class, Food.class, DailyMeal.class}, version = 5, exportSchema = false)
+@Database(entities = {Meal.class, Food.class, DailyMeal.class}, version = 6, exportSchema = false)
 public abstract class MealRoomDatabase extends RoomDatabase {
 
     public abstract MealDAO mealDao();

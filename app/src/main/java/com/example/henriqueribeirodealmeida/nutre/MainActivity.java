@@ -27,7 +27,10 @@ import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -65,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         summaryTitle.setTypeface(notoSansType);
         summaryHeader.setTypeface(notoSansType);
         mealHistoryTitle.setTypeface(notoSansType);
+
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        String date = df.format(Calendar.getInstance().getTime());
+        String formattedDate = Helpers.formatDate(date, false);
+        summaryHeader.setText(formattedDate);
 
         /*ListView summaryListView = findViewById(R.id.summary);*/
         summaryValues = new SummaryValues(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);

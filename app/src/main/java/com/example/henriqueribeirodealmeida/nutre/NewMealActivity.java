@@ -24,7 +24,12 @@ import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class NewMealActivity extends AppCompatActivity {
@@ -119,8 +124,11 @@ public class NewMealActivity extends AppCompatActivity {
         addMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+                String date = df.format(Calendar.getInstance().getTime());
+
                 String mealType = mealTypeView.getSelectedItem().toString();
-                DailyMeal dailyMeal = new DailyMeal(mealType);
+                DailyMeal dailyMeal = new DailyMeal(mealType, date);
                 dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
             }
         });

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
+import com.example.henriqueribeirodealmeida.nutre.Helpers;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
@@ -37,7 +38,8 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
         nameView.setText(currentItem.getName());
 
         TextView quantityView = itemView.findViewById(R.id.item_info);
-        quantityView.setText("TODO: info");
+        String formattedDate = Helpers.formatDate(currentItem.getDate(), true);
+        quantityView.setText(formattedDate);
 
         return itemView;
         //TODO update contents inside items

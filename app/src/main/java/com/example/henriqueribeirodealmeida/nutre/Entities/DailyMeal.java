@@ -10,12 +10,14 @@ public class DailyMeal {
     @NonNull
     private int id;
     private String name;
+    private String date;
 
     public DailyMeal() {
     }
 
-    public DailyMeal(String name) {
+    public DailyMeal(String name, String date) {
         this.name = name;
+        this.date = date;
     }
 
     @NonNull
@@ -33,6 +35,14 @@ public class DailyMeal {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setDate(String date){
+        this.date = date;
+    }
+
+    public String getDate(){
+        return date;
     }
 
 }
