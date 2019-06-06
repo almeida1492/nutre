@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
@@ -17,10 +18,12 @@ import java.util.ArrayList;
 public class SummaryAdapter extends ArrayAdapter<Nutrient>{
 
     private boolean isExpanded;
+    private Context context;
 
     public SummaryAdapter(@NonNull Context context, @NonNull ArrayList<Nutrient> summaryItems) {
         super(context, 0, summaryItems);
         isExpanded = false;
+        this.context = context;
     }
 
     @NonNull
@@ -40,11 +43,13 @@ public class SummaryAdapter extends ArrayAdapter<Nutrient>{
         nameView.setText(nutrient.getName());
 
         TextView valueView = itemView.findViewById(R.id.value);
-        String valueOutput = String.valueOf(nutrient.getValue()) + nutrient.getMeasure();
+        int value = (int) nutrient.getValue();
+        String valueOutput = value + nutrient.getMeasure();
         valueView.setText(valueOutput);
 
         TextView suggestedValueView = itemView.findViewById(R.id.suggested_value);
-        String suggestedValueOutput = String.valueOf(nutrient.getSuggestedValue()) + nutrient.getMeasure();
+        int suggestedValue = (int) nutrient.getSuggestedValue();
+        String suggestedValueOutput = suggestedValue + nutrient.getMeasure();
         suggestedValueView.setText(suggestedValueOutput);
 
         return itemView;

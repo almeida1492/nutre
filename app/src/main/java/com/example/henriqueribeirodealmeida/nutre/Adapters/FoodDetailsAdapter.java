@@ -37,7 +37,8 @@ public class FoodDetailsAdapter extends ArrayAdapter<Nutrient> {
         nameView.setText(nutrient.getName());
 
         TextView valueView = itemView.findViewById(R.id.value);
-        String valueOutput = String.valueOf(nutrient.getValue()) + nutrient.getMeasure();
+        int value = (int) nutrient.getValue();
+        String valueOutput = value + nutrient.getMeasure();
         valueView.setText(valueOutput);
 
         TextView suggestedValueView = itemView.findViewById(R.id.suggested_value);

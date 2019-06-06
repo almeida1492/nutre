@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingBottom="7dp"
-    android:paddingTop="7dp">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:textSize="12sp"
-        android:textColor="@color/colorWhite"
-        tools:text="Calorias" />
+        android:orientation="horizontal"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp">
 
-    <TextView
-        android:id="@+id/value"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="12sp"
-        android:textColor="@color/colorWhite"
-        android:gravity="right"
-        tools:text="45 kcal" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="12sp"
+            android:textColor="@color/colorWhite"
+            tools:text="Calorias" />
 
-    <TextView
-        android:id="@+id/suggested_value"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="12sp"
-        android:textColor="@color/colorWhite"
-        android:gravity="right"
-        tools:text="2500 kcal" />
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:textSize="12sp"
+            android:textColor="@color/colorWhite"
+            android:gravity="right"
+            tools:text="45 kcal" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/suggested_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:textSize="12sp"
+            android:textColor="@color/colorWhite"
+            android:gravity="right"
+            tools:text="2500 kcal" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"
+        android:layout_below="@id/body"/>
+
+</RelativeLayout>

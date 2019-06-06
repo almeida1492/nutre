@@ -5,6 +5,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -248,83 +249,86 @@ public class MainActivity extends AppCompatActivity {
         summaryItems.get(0).setName("Energia");
         summaryItems.get(0).setValue((int) summaryValues.getEnergy());
         summaryItems.get(0).setSuggestedValue((int) Helpers.calculateRequiredEnergy(this));
-        summaryItems.get(0).setMeasure("kcal");
+        summaryItems.get(0).setMeasure(" kcal");
 
         summaryItems.get(1).setName("Carboidratos");
         summaryItems.get(1).setValue((int) summaryValues.getCarbohydrate());
         summaryItems.get(1).setSuggestedValue((int) ((Helpers.calculateRequiredEnergy(this) * 0.65)/4));
-        summaryItems.get(1).setMeasure("g");
+        summaryItems.get(1).setMeasure(" g");
 
         summaryItems.get(2).setName("Proteína");
         summaryItems.get(2).setValue((int) summaryValues.getProtein());
         summaryItems.get(2).setSuggestedValue(UserInfoContainer.getWeight(this));
-        summaryItems.get(2).setMeasure("g");
+        summaryItems.get(2).setMeasure(" g");
 
         summaryItems.get(3).setName("Gorduras Totais");
         summaryItems.get(3).setValue((int) summaryValues.getTotalFat());
         summaryItems.get(3).setSuggestedValue((int) ((Helpers.calculateRequiredEnergy(this) * 0.225)/9));
-        summaryItems.get(3).setMeasure("g");
+        summaryItems.get(3).setMeasure(" g");
 
         summaryItems.get(4).setName("Gordura Saturada");
         summaryItems.get(4).setValue((int) summaryValues.getSaturatedFat());
         summaryItems.get(4).setSuggestedValue((int) ((Helpers.calculateRequiredEnergy(this) * 0.07)/9));
-        summaryItems.get(4).setMeasure("g");
+        summaryItems.get(4).setMeasure(" g");
 
         summaryItems.get(5).setName("Gordura Trans");
         summaryItems.get(5).setValue((int) summaryValues.getTransFat());
-        summaryItems.get(5).setMeasure("g");
+        summaryItems.get(5).setMeasure(" g");
 
         summaryItems.get(6).setName("Fibras");
         summaryItems.get(6).setValue((int) summaryValues.getFibers());
-        summaryItems.get(6).setMeasure("g");
+        summaryItems.get(6).setSuggestedValue(25);
+        summaryItems.get(6).setMeasure(" g");
 
         summaryItems.get(7).setName("Sódio");
         summaryItems.get(7).setValue((int) summaryValues.getSodium());
-        summaryItems.get(7).setMeasure("g");
+        summaryItems.get(7).setSuggestedValue(2400);
+        summaryItems.get(7).setMeasure(" mg");
 
         summaryItems.get(8).setName("Vitamina C");
         summaryItems.get(8).setValue((int) summaryValues.getVitaminC());
         summaryItems.get(8).setSuggestedValue(45);
-        summaryItems.get(8).setMeasure("mg");
+        summaryItems.get(8).setMeasure(" mg");
 
         summaryItems.get(9).setName("Cálcio");
         summaryItems.get(9).setValue((int) summaryValues.getCalcium());
         summaryItems.get(9).setSuggestedValue(600);
-        summaryItems.get(9).setMeasure("mg");
+        summaryItems.get(9).setMeasure(" mg");
 
         summaryItems.get(10).setName("Ferro");
         summaryItems.get(10).setValue((int) summaryValues.getIron());
         summaryItems.get(10).setSuggestedValue(14);
-        summaryItems.get(10).setMeasure("mg");
+        summaryItems.get(10).setMeasure(" mg");
 
         summaryItems.get(11).setName("Vitamina A");
         summaryItems.get(11).setValue((int) summaryValues.getVitaminA());
         summaryItems.get(11).setSuggestedValue(600);
-        summaryItems.get(11).setMeasure("µg");
+        summaryItems.get(11).setMeasure(" µg");
 
-        summaryItems.get(12).setName("Celenio");
+        summaryItems.get(12).setName("Selênio");
         summaryItems.get(12).setValue((int) summaryValues.getSelenium());
         summaryItems.get(12).setSuggestedValue(34);
-        summaryItems.get(12).setMeasure("µg");
+        summaryItems.get(12).setMeasure(" µg");
 
         summaryItems.get(13).setName("Potássio");
         summaryItems.get(13).setValue((int) summaryValues.getPotassium());
-        summaryItems.get(13).setMeasure("g");
+        summaryItems.get(13).setSuggestedValue(2400);
+        summaryItems.get(13).setMeasure(" g");
 
         summaryItems.get(14).setName("Magnésio");
         summaryItems.get(14).setValue((int) summaryValues.getMagnesium());
         summaryItems.get(14).setSuggestedValue(260);
-        summaryItems.get(14).setMeasure("g");
+        summaryItems.get(14).setMeasure(" g");
 
         summaryItems.get(15).setName("Vitamina E");
         summaryItems.get(15).setValue((int) summaryValues.getVitaminE());
         summaryItems.get(15).setSuggestedValue(10);
-        summaryItems.get(15).setMeasure("mg");
+        summaryItems.get(15).setMeasure(" mg");
 
         summaryItems.get(16).setName("Tiamina");
         summaryItems.get(16).setValue((int) summaryValues.getThiamine());
         summaryItems.get(16).setSuggestedValue(1.2);
-        summaryItems.get(16).setMeasure("mg");
+        summaryItems.get(16).setMeasure(" mg");
 
     }
 

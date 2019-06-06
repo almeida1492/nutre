@@ -58,6 +58,11 @@
             android:layout_marginLeft="70dp"
             android:background="@color/colorPrimaryDark" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Composição em 100g"/>
+
         <ListView
             android:id="@+id/nutrients"
             android:layout_width="match_parent"

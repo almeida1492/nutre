@@ -89,71 +89,71 @@ public class FoodDetailsActivity extends AppCompatActivity{
     private void setSummaryItems(){
         summaryItems.get(0).setName("Energia");
         summaryItems.get(0).setValue((int) summaryValues.getEnergy());
-        summaryItems.get(0).setMeasure("kcal");
+        summaryItems.get(0).setMeasure(" kcal");
 
         summaryItems.get(1).setName("Carboidratos");
         summaryItems.get(1).setValue((int) summaryValues.getCarbohydrate());
-        summaryItems.get(1).setMeasure("g");
+        summaryItems.get(1).setMeasure(" g");
 
         summaryItems.get(2).setName("Proteína");
         summaryItems.get(2).setValue((int) summaryValues.getProtein());
-        summaryItems.get(2).setMeasure("g");
+        summaryItems.get(2).setMeasure(" g");
 
         summaryItems.get(3).setName("Gorduras Totais");
         summaryItems.get(3).setValue((int) summaryValues.getTotalFat());
-        summaryItems.get(3).setMeasure("g");
+        summaryItems.get(3).setMeasure(" g");
 
         summaryItems.get(4).setName("Gordura Saturada");
         summaryItems.get(4).setValue((int) summaryValues.getSaturatedFat());
-        summaryItems.get(4).setMeasure("g");
+        summaryItems.get(4).setMeasure(" g");
 
         summaryItems.get(5).setName("Gordura Trans");
         summaryItems.get(5).setValue((int) summaryValues.getTransFat());
-        summaryItems.get(5).setMeasure("g");
+        summaryItems.get(5).setMeasure(" g");
 
         summaryItems.get(6).setName("Fibras");
         summaryItems.get(6).setValue((int) summaryValues.getFibers());
-        summaryItems.get(6).setMeasure("g");
+        summaryItems.get(6).setMeasure(" g");
 
         summaryItems.get(7).setName("Sódio");
         summaryItems.get(7).setValue((int) summaryValues.getSodium());
-        summaryItems.get(7).setMeasure("g");
+        summaryItems.get(7).setMeasure(" mg");
 
         summaryItems.get(8).setName("Vitamina C");
         summaryItems.get(8).setValue((int) summaryValues.getVitaminC());
-        summaryItems.get(8).setMeasure("g");
+        summaryItems.get(8).setMeasure(" mg");
 
         summaryItems.get(9).setName("Cálcio");
         summaryItems.get(9).setValue((int) summaryValues.getCalcium());
-        summaryItems.get(9).setMeasure("g");
+        summaryItems.get(9).setMeasure(" mg");
 
         summaryItems.get(10).setName("Ferro");
         summaryItems.get(10).setValue((int) summaryValues.getIron());
-        summaryItems.get(10).setMeasure("g");
+        summaryItems.get(10).setMeasure(" mg");
 
         summaryItems.get(11).setName("Vitamina A");
         summaryItems.get(11).setValue((int) summaryValues.getVitaminA());
-        summaryItems.get(11).setMeasure("g");
+        summaryItems.get(11).setMeasure(" µg");
 
         summaryItems.get(12).setName("Celenio");
         summaryItems.get(12).setValue((int) summaryValues.getSelenium());
-        summaryItems.get(12).setMeasure("g");
+        summaryItems.get(12).setMeasure(" µg");
 
         summaryItems.get(13).setName("Potássio");
         summaryItems.get(13).setValue((int) summaryValues.getPotassium());
-        summaryItems.get(13).setMeasure("g");
+        summaryItems.get(13).setMeasure(" g");
 
         summaryItems.get(14).setName("Magnésio");
         summaryItems.get(14).setValue((int) summaryValues.getMagnesium());
-        summaryItems.get(14).setMeasure("g");
+        summaryItems.get(14).setMeasure(" g");
 
         summaryItems.get(15).setName("Vitamina E");
         summaryItems.get(15).setValue((int) summaryValues.getVitaminE());
-        summaryItems.get(15).setMeasure("g");
+        summaryItems.get(15).setMeasure(" mg");
 
         summaryItems.get(16).setName("Tiamina");
         summaryItems.get(16).setValue((int) summaryValues.getThiamine());
-        summaryItems.get(16).setMeasure("g");
+        summaryItems.get(16).setMeasure(" mg");
 
     }
 
