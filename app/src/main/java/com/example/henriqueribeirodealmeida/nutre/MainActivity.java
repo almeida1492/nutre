@@ -240,8 +240,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        setSummaryItems();
-        summaryAdapter.notifyDataSetChanged();
         super.onResume();
     }
 

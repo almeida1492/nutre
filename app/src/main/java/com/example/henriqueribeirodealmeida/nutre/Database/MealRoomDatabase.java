@@ -19,6 +19,7 @@ import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.regex.Pattern;
 
 @Database(entities = {Meal.class, Food.class, DailyMeal.class}, version = 6, exportSchema = false)
@@ -82,7 +83,11 @@ public abstract class MealRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
-
+            List<Meal> meals = mealDao.getMeals();
+            boolean alreadyHasMeals = !meals.isEmpty();
+            if (alreadyHasMeals) {
+                return null;
+            }
             mealDao.deleteAll();
             try {
                 String file = "data/food.csv";
