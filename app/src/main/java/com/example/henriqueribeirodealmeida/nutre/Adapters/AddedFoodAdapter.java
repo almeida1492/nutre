@@ -37,7 +37,8 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
         nameView.setText(currentItem.getName());
 
         TextView quantityView = itemView.findViewById(R.id.item_info);
-        String quantityOutput = String.valueOf(currentItem.getQuantityPerUnit()) + " " + currentItem.getMeasure();
+        int quantity = (int) currentItem.getQuantityPerUnit();
+        String quantityOutput = quantity + " (" + currentItem.getMeasure() + ")";
         quantityView.setText(quantityOutput);
 
         return itemView;

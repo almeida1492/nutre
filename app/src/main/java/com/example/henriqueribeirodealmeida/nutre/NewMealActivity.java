@@ -7,9 +7,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -25,20 +22,17 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 
-import org.w3c.dom.Text;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class NewMealActivity extends AppCompatActivity {
@@ -99,29 +93,17 @@ public class NewMealActivity extends AppCompatActivity {
         setListViewHeight(addedFoodList);
 
         final EditText measureValueView = findViewById(R.id.measure_value);
+        final TextView measureLabelView = findViewById(R.id.measure_label);
 
-        addItemButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emptyView.setVisibility(View.GONE);
-                double quantity = Double.parseDouble(measureValueView.getText().toString().replaceAll("\\D+",""));
-                if (mCurrentSelectedMeal != null) {
-                    foods.add(new Food(mCurrentSelectedMeal.getName(), quantity, mCurrentSelectedMeal.getMeasureLabel(), mCurrentSelectedMeal.getId()));
-                } else {
-                    foods.add(new Food(foodPickerView.getText().toString(), quantity, "unidade"));
-                }
-                adapter.notifyDataSetChanged();
-                setListViewHeight(addedFoodList);
-                foodPickerView.setText("");
-            }
-        });
+        measureValueView.setText("");
+        measureLabelView.setText("");
 
-        final TextView measureView = findViewById(R.id.measure_view);
         foodPickerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mCurrentSelectedMeal = (Meal) parent.getItemAtPosition(position);
-                measureView.setText(mCurrentSelectedMeal.getMeasureLabel());
+                measureLabelView.setText("(" + mCurrentSelectedMeal.getMeasureLabel() + ")");
+                measureValueView.setText("1");
             }
         });
 
@@ -144,6 +126,29 @@ public class NewMealActivity extends AppCompatActivity {
         ArrayAdapter<String> mealTypeAdapter = new ArrayAdapter<>(this, R.layout.default_meal_type, mealTypes);
         mealTypeAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         mealTypeView.setAdapter(mealTypeAdapter);
+
+        addItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!measureValueView.getText().toString().equals("")){
+                    emptyView.setVisibility(View.GONE);
+                    double quantity = Double.parseDouble(measureValueView.getText().toString().replaceAll("\\D+",""));
+                    if (mCurrentSelectedMeal != null) {
+                        foods.add(new Food(mCurrentSelectedMeal.getName(), quantity, mCurrentSelectedMeal.getMeasureLabel(), mCurrentSelectedMeal.getId()));
+                    } else {
+                        foods.add(new Food(foodPickerView.getText().toString(), quantity, "unidade"));
+                    }
+                    adapter.notifyDataSetChanged();
+                    setListViewHeight(addedFoodList);
+                    foodPickerView.setText("");
+                    foodPickerView.requestFocus();
+                    measureValueView.setText("");
+                    measureLabelView.setText("");
+                } else {
+                    Toast.makeText(getApplication(), "Indique a quantidade", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         addMeal.setOnClickListener(new View.OnClickListener() {
             @Override
