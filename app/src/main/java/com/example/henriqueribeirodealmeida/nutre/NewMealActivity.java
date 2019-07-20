@@ -3,17 +3,23 @@ package com.example.henriqueribeirodealmeida.nutre;
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -24,6 +30,8 @@ import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
+
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -90,12 +98,13 @@ public class NewMealActivity extends AppCompatActivity {
         addedFoodList.setFocusable(false);
         setListViewHeight(addedFoodList);
 
-        final AutoCompleteTextView measurePickerView = findViewById(R.id.measure_picker_text_view);
+        final EditText measureValueView = findViewById(R.id.measure_value);
+
         addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 emptyView.setVisibility(View.GONE);
-                double quantity = Double.parseDouble(measurePickerView.getText().toString().replaceAll("\\D+",""));
+                double quantity = Double.parseDouble(measureValueView.getText().toString().replaceAll("\\D+",""));
                 if (mCurrentSelectedMeal != null) {
                     foods.add(new Food(mCurrentSelectedMeal.getName(), quantity, mCurrentSelectedMeal.getMeasureLabel(), mCurrentSelectedMeal.getId()));
                 } else {
@@ -107,11 +116,23 @@ public class NewMealActivity extends AppCompatActivity {
             }
         });
 
+        final TextView measureView = findViewById(R.id.measure_view);
         foodPickerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mCurrentSelectedMeal = (Meal) parent.getItemAtPosition(position);
-                measurePickerView.setText("1 " + mCurrentSelectedMeal.getMeasureLabel());
+                measureView.setText(mCurrentSelectedMeal.getMeasureLabel());
+            }
+        });
+
+        LinearLayout quantityView = findViewById(R.id.quantity_container);
+        quantityView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                measureValueView.requestFocus();
+                measureValueView.selectAll();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(measureValueView, InputMethodManager.SHOW_IMPLICIT);
             }
         });
 
