@@ -90,7 +90,7 @@ public class NewMealActivity extends AppCompatActivity {
             }
         });
 
-        final AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods);
+        final AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods, meals);
         addedFoodList.setAdapter(adapter);
         addedFoodList.setFocusable(false);
         setListViewHeight();

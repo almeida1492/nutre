@@ -58,6 +58,7 @@ public class SearchActivity extends AppCompatActivity {
                 Intent intent = new Intent(SearchActivity.this, FoodDetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("food", adapter.getItem(position));
+                bundle.putString("caller", "SearchActivity");
                 intent.putExtra("bundle", bundle);
                 startActivity(intent);
             }

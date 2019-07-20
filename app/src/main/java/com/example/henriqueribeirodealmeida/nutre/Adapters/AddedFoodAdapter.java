@@ -1,6 +1,8 @@
 package com.example.henriqueribeirodealmeida.nutre.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -14,8 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
+import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
+import com.example.henriqueribeirodealmeida.nutre.FoodDetailsActivity;
 import com.example.henriqueribeirodealmeida.nutre.NewMealActivity;
 import com.example.henriqueribeirodealmeida.nutre.R;
+import com.example.henriqueribeirodealmeida.nutre.SearchActivity;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -23,12 +28,14 @@ import java.util.ArrayList;
 public class AddedFoodAdapter extends ArrayAdapter<Food> {
 
     ArrayList<Food> foods;
+    ArrayList<Meal> meals;
     Context context;
 
-    public AddedFoodAdapter(@NonNull Context context, ArrayList<Food> foods) {
+    public AddedFoodAdapter(@NonNull Context context, ArrayList<Food> foods, ArrayList<Meal> meals) {
         super(context, 0, foods);
         this.context = context;
         this.foods = foods;
+        this.meals = meals;
     }
 
     @NonNull
@@ -42,7 +49,7 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
                     R.layout.item_meal, parent, false);
         }
 
-        Food currentItem = getItem(position);
+        final Food currentItem = getItem(position);
 
         TextView nameView = itemView.findViewById(R.id.name);
         nameView.setText(currentItem.getName());
@@ -67,8 +74,13 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
                             public boolean onMenuItemClick(MenuItem item) {
                                 switch (item.getItemId()) {
                                     case R.id.details:
-                                        //Or Some other code you want to put here.. This is just an example.
-                                        Toast.makeText(getContext(), "detalhes", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(context, FoodDetailsActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putParcelable("food", getFoodDetails(currentItem.getName()));
+                                        bundle.putString("caller", "AddedFoodAdapter");
+                                        intent.putExtra("bundle", bundle);
+                                        context.startActivity(intent);
+
                                         break;
                                     case R.id.delete:
                                         foods.remove(position);
@@ -89,5 +101,14 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
         });
 
         return itemView;
+    }
+
+    private Meal getFoodDetails(String name){
+        for (int i = 0; i < meals.size(); i++){
+            if (meals.get(i).getName().equals(name)){
+                return meals.get(i);
+            }
+        }
+        return null;
     }
 }

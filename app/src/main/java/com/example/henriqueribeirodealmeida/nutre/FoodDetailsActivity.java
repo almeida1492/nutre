@@ -84,6 +84,9 @@ public class FoodDetailsActivity extends AppCompatActivity{
             }
         });
 
+        if (bundle.getString("caller").equals("AddedFoodAdapter")){
+            homeView.setVisibility(View.GONE);
+        }
     }
 
     private void setSummaryItems(){
