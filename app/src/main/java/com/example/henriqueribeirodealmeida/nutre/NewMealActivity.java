@@ -37,7 +37,10 @@ import java.util.List;
 
 public class NewMealActivity extends AppCompatActivity {
 
-    Meal mCurrentSelectedMeal;
+    private Meal mCurrentSelectedMeal;
+    private ListView addedFoodList;
+    private ArrayList<Food> foods;
+    private TextView emptyView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,10 +50,10 @@ public class NewMealActivity extends AppCompatActivity {
         ImageView upButton = findViewById(R.id.up_button);
         ImageView addMeal = findViewById(R.id.add_meal);
         Button addItemButton = findViewById(R.id.add_item);
-        final ListView addedFoodList = findViewById(R.id.added_food_list);
+        addedFoodList = findViewById(R.id.added_food_list);
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
         final Spinner mealTypeView = findViewById(R.id.meal_type_picker);
-        final TextView emptyView = findViewById(R.id.empty);
+        emptyView = findViewById(R.id.empty);
 
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +64,7 @@ public class NewMealActivity extends AppCompatActivity {
 
         final DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
         final FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
-        final ArrayList<Food> foods = new ArrayList<>();
+        foods = new ArrayList<>();
         final Activity activity = this;
 
         MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
@@ -90,7 +93,7 @@ public class NewMealActivity extends AppCompatActivity {
         final AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods);
         addedFoodList.setAdapter(adapter);
         addedFoodList.setFocusable(false);
-        setListViewHeight(addedFoodList);
+        setListViewHeight();
 
         final EditText measureValueView = findViewById(R.id.measure_value);
         final TextView measureLabelView = findViewById(R.id.measure_label);
@@ -139,13 +142,13 @@ public class NewMealActivity extends AppCompatActivity {
                         foods.add(new Food(foodPickerView.getText().toString(), quantity, "unidade"));
                     }
                     adapter.notifyDataSetChanged();
-                    setListViewHeight(addedFoodList);
+                    setListViewHeight();
                     foodPickerView.setText("");
                     foodPickerView.requestFocus();
                     measureValueView.setText("");
                     measureLabelView.setText("");
                 } else {
-                    Toast.makeText(getApplication(), "Indique a quantidade", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -163,29 +166,33 @@ public class NewMealActivity extends AppCompatActivity {
         });
     }
 
-    private void setListViewHeight(ListView listView) {
+    public void setListViewHeight() {
 
-        ListAdapter adapter = listView.getAdapter();
+        ListAdapter adapter = addedFoodList.getAdapter();
         int totalHeight = 0;
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.EXACTLY);
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(addedFoodList.getWidth(), View.MeasureSpec.EXACTLY);
 
         for (int i = 0; i < adapter.getCount(); i++) {
 
-            View groupItem = adapter.getView(i, null, listView);
+            View groupItem = adapter.getView(i, null, addedFoodList);
             groupItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
 
             totalHeight += groupItem.getMeasuredHeight();
         }
 
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        int height = totalHeight + (listView.getDividerHeight() * (adapter.getCount() - 1));
+        ViewGroup.LayoutParams params = addedFoodList.getLayoutParams();
+        int height = totalHeight + (addedFoodList.getDividerHeight() * (adapter.getCount() - 1));
 
         if (height < 10){
             height = 200;
         }
 
         params.height = height;
-        listView.setLayoutParams(params);
-        listView.requestLayout();
+        addedFoodList.setLayoutParams(params);
+        addedFoodList.requestLayout();
+
+        if (foods.isEmpty()){
+            emptyView.setVisibility(View.VISIBLE);
+        }
     }
 }
