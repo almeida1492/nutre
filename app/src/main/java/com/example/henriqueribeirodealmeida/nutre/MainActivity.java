@@ -27,6 +27,7 @@ import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
+import com.example.henriqueribeirodealmeida.nutre.Fragments.MealDetailsFragment;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -328,6 +329,14 @@ public class MainActivity extends AppCompatActivity {
         summaryItems.get(16).setSuggestedValue(1.2);
         summaryItems.get(16).setMeasure(" mg");
 
+    }
+
+    public void showMealDetails(Meal meal){
+        Bundle bundle = new Bundle();
+        /*bundle.putParcelable("meal", meal);*/
+        MealDetailsFragment dialog = new MealDetailsFragment();
+        dialog.setArguments(bundle);
+        dialog.show(getSupportFragmentManager(), "MealDetailsFragment");
     }
 
     private void setListViewHeight(ListView listView) {

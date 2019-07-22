@@ -38,6 +38,12 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
         this.meals = meals;
     }
 
+    public AddedFoodAdapter(@NonNull Context context, ArrayList<Food> foods) {
+        super(context, 0, foods);
+        this.context = context;
+        this.foods = foods;
+    }
+
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -60,45 +66,49 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
         quantityView.setText(quantityOutput);
 
         ImageView menuView = itemView.findViewById(R.id.menu);
-        menuView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (meals != null){
+            menuView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                switch (v.getId()) {
-                    case R.id.menu:
-                        PopupMenu popup = new PopupMenu(getContext(), v);
-                        popup.getMenuInflater().inflate(R.menu.clipboard_popup, popup.getMenu());
-                        popup.show();
-                        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(MenuItem item) {
-                                switch (item.getItemId()) {
-                                    case R.id.details:
-                                        Intent intent = new Intent(context, FoodDetailsActivity.class);
-                                        Bundle bundle = new Bundle();
-                                        bundle.putParcelable("food", getFoodDetails(currentItem.getName()));
-                                        bundle.putString("caller", "AddedFoodAdapter");
-                                        intent.putExtra("bundle", bundle);
-                                        context.startActivity(intent);
+                    switch (v.getId()) {
+                        case R.id.menu:
+                            PopupMenu popup = new PopupMenu(getContext(), v);
+                            popup.getMenuInflater().inflate(R.menu.clipboard_popup, popup.getMenu());
+                            popup.show();
+                            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(MenuItem item) {
+                                    switch (item.getItemId()) {
+                                        case R.id.details:
+                                            Intent intent = new Intent(context, FoodDetailsActivity.class);
+                                            Bundle bundle = new Bundle();
+                                            bundle.putParcelable("food", getFoodDetails(currentItem.getName()));
+                                            bundle.putString("caller", "AddedFoodAdapter");
+                                            intent.putExtra("bundle", bundle);
+                                            context.startActivity(intent);
 
-                                        break;
-                                    case R.id.delete:
-                                        foods.remove(position);
-                                        notifyDataSetChanged();
-                                        ((NewMealActivity)context).setListViewHeight();
-                                        break;
-                                    default:
-                                        break;
+                                            break;
+                                        case R.id.delete:
+                                            foods.remove(position);
+                                            notifyDataSetChanged();
+                                            ((NewMealActivity)context).setListViewHeight();
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    return true;
                                 }
-                                return true;
-                            }
-                        });
-                        break;
-                    default:
-                        break;
+                            });
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            menuView.setVisibility(View.INVISIBLE);
+        }
 
         return itemView;
     }

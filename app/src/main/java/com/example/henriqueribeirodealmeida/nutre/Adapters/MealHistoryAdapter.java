@@ -1,5 +1,6 @@
 package com.example.henriqueribeirodealmeida.nutre.Adapters;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +16,11 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
+import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.FoodDetailsActivity;
+import com.example.henriqueribeirodealmeida.nutre.Fragments.MealDetailsFragment;
 import com.example.henriqueribeirodealmeida.nutre.Helpers;
+import com.example.henriqueribeirodealmeida.nutre.MainActivity;
 import com.example.henriqueribeirodealmeida.nutre.NewMealActivity;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
@@ -24,8 +28,11 @@ import java.util.ArrayList;
 
 public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
 
+    Context context;
+
     public MealHistoryAdapter(@NonNull Context context, ArrayList<DailyMeal> dailyMeals) {
         super(context, 0, dailyMeals);
+        this.context = context;
     }
 
     @NonNull
@@ -64,6 +71,7 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
                                 switch (item.getItemId()) {
                                     case R.id.details:
                                         //TODO (Henrique) open dialog to show meal details
+                                        ((MainActivity)context).showMealDetails(new Meal());
                                         break;
                                     case R.id.delete:
                                         //TODO (Dióginis) remove meal from table
