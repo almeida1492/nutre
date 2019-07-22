@@ -156,12 +156,16 @@ public class NewMealActivity extends AppCompatActivity {
         addMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-                String date = df.format(Calendar.getInstance().getTime());
+                if (foods.size() != 0){
+                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+                    String date = df.format(Calendar.getInstance().getTime());
 
-                String mealType = mealTypeView.getSelectedItem().toString();
-                DailyMeal dailyMeal = new DailyMeal(mealType, date);
-                dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
+                    String mealType = mealTypeView.getSelectedItem().toString();
+                    DailyMeal dailyMeal = new DailyMeal(mealType, date);
+                    dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
+                } else {
+                    Toast.makeText(getApplication(), "Adicione itens nesta refeição", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
