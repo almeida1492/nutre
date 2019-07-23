@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         TextView summaryHeader = findViewById(R.id.summary_panel_header);
         TextView mealHistoryTitle = findViewById(R.id.meal_history_title);
         ImageView newMealButton = findViewById(R.id.new_meal_action);
+        TextView emptyView = findViewById(R.id.empty);
 
         //Set fonts
         Typeface balooChettanType = Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf");
@@ -238,7 +239,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Log.e("maroto", String.valueOf(UserInfoContainer.getPhysicalActivityIntensity(this)));
+        if (dailyMeals.size() == 0) {
+            emptyView.setVisibility(View.VISIBLE);
+            mealHistoryView.setVisibility(View.GONE);
+        }
     }
 
     @Override
