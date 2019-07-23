@@ -1,198 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
-
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="22dp"
-        android:text="nutre"
-        android:textColor="@color/colorWhite"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/white_round_rec"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header">
-
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="17dp"
-            android:src="@mipmap/baseline_account_circle_black_48"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/edit_text_views"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title">
-
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="12dp"
-                android:backgroundTint="@android:color/black"
-                android:hint="Nome"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:backgroundTint="@android:color/black"
-                android:hint="Idade"
-                android:inputType="number"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/name" />
-
-            <EditText
-                android:id="@+id/height"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:backgroundTint="@android:color/black"
-                android:hint="Altura (cm)"
-                android:inputType="number"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/age" />
-
-            <EditText
-                android:id="@+id/weight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:backgroundTint="@android:color/black"
-                android:hint="Peso (kg)"
-                android:inputType="number"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/height" />
-        </LinearLayout>
-
+        android:background="@color/colorPrimaryDark">
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:text="Informações do usuário"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
+            android:padding="22dp"
+            android:text="nutre"
+            android:textColor="@color/colorWhite"
+            android:textSize="24sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/icon" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-        <LinearLayout
-            android:id="@+id/physical_activity"
-            android:layout_width="match_parent"
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:gravity="center_vertical"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/white_round_rec"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_text_views">
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="17dp"
+                android:src="@mipmap/baseline_account_circle_black_48"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/physical_activity_title"
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:text="Atividade física: "
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Informações do usuário"
                 android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:textSize="17sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon" />
 
-            <Spinner
-                android:id="@+id/physical_activity_spinner"
+            <TextView
+                android:id="@+id/name_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="22dp" />
-        </LinearLayout>
+                android:text="Nome"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintLeft_toLeftOf="@id/name_container"/>
 
-        <LinearLayout
-            android:id="@+id/gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:gravity="center_vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/physical_activity">
+            <LinearLayout
+                android:id="@+id/name_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/picker_shape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="9dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="9dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_title">
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/age_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Idade"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintTop_toBottomOf="@id/name_container"
+                app:layout_constraintLeft_toLeftOf="@id/age_container"/>
+
+            <LinearLayout
+                android:id="@+id/age_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/picker_shape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="9dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="9dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/age_title">
+
+                <EditText
+                    android:id="@+id/age"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/height_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Altura (cm)"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintTop_toBottomOf="@id/name_container"
+                app:layout_constraintLeft_toLeftOf="@id/height_container"/>
+
+            <LinearLayout
+                android:id="@+id/height_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/picker_shape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="9dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="9dp"
+                app:layout_constraintRight_toRightOf="@id/name_container"
+                app:layout_constraintTop_toBottomOf="@id/height_title">
+
+                <EditText
+                    android:id="@+id/height"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/weight_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Peso (kg)"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintTop_toBottomOf="@id/height_container"
+                app:layout_constraintLeft_toLeftOf="@id/weight_container"/>
+
+            <LinearLayout
+                android:id="@+id/weight_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/picker_shape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="9dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="9dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weight_title">
+
+                <EditText
+                    android:id="@+id/weight"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/gender_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:text="Sexo: "
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:text="Sexo"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintBottom_toTopOf="@id/gender_container"
+                app:layout_constraintLeft_toLeftOf="@id/gender_container"/>
 
-            <Spinner
-                android:id="@+id/gender_spinner"
+            <LinearLayout
+                android:id="@+id/gender_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="22dp" />
-        </LinearLayout>
+                android:background="@drawable/picker_shape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="9dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="9dp"
+                app:layout_constraintLeft_toLeftOf="@id/height_container"
+                app:layout_constraintTop_toBottomOf="@id/weight_title"
+                app:layout_constraintBottom_toBottomOf="@id/weight_container">
 
+                <Spinner
+                    android:id="@+id/gender_spinner"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/blue_round_rec"
-            android:paddingLeft="9dp"
-            android:paddingRight="9dp"
-            android:text="OK"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gender" />
+            <TextView
+                android:id="@+id/physical_activity_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intensidade de atividade física"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintTop_toBottomOf="@id/weight_container"
+                app:layout_constraintLeft_toLeftOf="@id/physical_activity_container"/>
+
+            <LinearLayout
+                android:id="@+id/physical_activity_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/picker_shape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="9dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="9dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/physical_activity_title">
+
+                <Spinner
+                    android:id="@+id/physical_activity_spinner"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/blue_round_rec"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="OK"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/physical_activity_container" />
+
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
-
-</android.support.constraint.ConstraintLayout>
+</ScrollView>
