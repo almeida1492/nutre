@@ -7,8 +7,8 @@ import com.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
 
 public class Helpers {
 
-    public final static int MALE = 3;
-    public final static int FEMALE = 4;
+    public final static int MALE = 0;
+    public final static int FEMALE = 1;
 
     public final static int LOW = 0;
     public final static int REGULAR = 1;
@@ -84,8 +84,7 @@ public class Helpers {
         double age = UserInfoContainer.getAge(context);
         int height = UserInfoContainer.getHeight(context);
         double weight = UserInfoContainer.getWeight(context);
-        //TODO implement gender input
-        int gender = MALE;
+        int gender = UserInfoContainer.getGender(context);
         int physicalActivityIntensity = UserInfoContainer.getPhysicalActivityIntensity(context);
 
         double weightToUse = getWeightToUse(weight, height, gender);

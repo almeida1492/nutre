@@ -5,13 +5,14 @@ import android.content.SharedPreferences;
 
 public class UserInfoContainer {
 
-    private final static String USER_INFO_CONTAINER = "com.uticket.uticket.WebClient.USER_INFO_CONTAINER";
+    private final static String USER_INFO_CONTAINER = "USER_INFO_CONTAINER";
 
-    private final static String NAME_KEY = "com.uticket.uticket.WebClient.NAME_KEY";
-    private final static String AGE_KEY = "com.uticket.uticket.WebClient.AGE_KEY";
-    private final static String HEIGHT_KEY = "com.uticket.uticket.WebClient.HEIGHT_KEY";
-    private final static String WEIGHT_KEY = "com.uticket.uticket.WebClient.WEIGHT_KEY";
-    private final static String PHYSICAL_ACTIVITY_KEY = "com.uticket.uticket.WebClient.PHYSICAL_ACTIVITY_KEY";
+    private final static String NAME_KEY = "NAME_KEY";
+    private final static String AGE_KEY = "AGE_KEY";
+    private final static String HEIGHT_KEY = "HEIGHT_KEY";
+    private final static String WEIGHT_KEY = "WEIGHT_KEY";
+    private final static String PHYSICAL_ACTIVITY_KEY = "PHYSICAL_ACTIVITY_KEY";
+    private final static String GENDER_KEY = "GENDER_KEY";
 
     public static String getName(Context c){
         SharedPreferences sp = c.getSharedPreferences(USER_INFO_CONTAINER, Context.MODE_PRIVATE);
@@ -75,9 +76,9 @@ public class UserInfoContainer {
 
     public static int getPhysicalActivityIntensity(Context c){
         SharedPreferences sp = c.getSharedPreferences(USER_INFO_CONTAINER, Context.MODE_PRIVATE);
-            if (sp.getInt(PHYSICAL_ACTIVITY_KEY, 0) == 0){
-                setPhysicalActivityIntensity(c, 0);
-            }
+        if (sp.getInt(PHYSICAL_ACTIVITY_KEY, 0) == 0){
+            setPhysicalActivityIntensity(c, 0);
+        }
         return sp.getInt(PHYSICAL_ACTIVITY_KEY, 0);
     }
 
@@ -85,6 +86,21 @@ public class UserInfoContainer {
         SharedPreferences sp = c.getSharedPreferences(USER_INFO_CONTAINER, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(PHYSICAL_ACTIVITY_KEY, intensity);
+        editor.apply();
+    }
+
+    public static int getGender(Context c){
+        SharedPreferences sp = c.getSharedPreferences(USER_INFO_CONTAINER, Context.MODE_PRIVATE);
+        if (sp.getInt(GENDER_KEY, 0) == 0){
+            setGender(c, 0);
+        }
+        return sp.getInt(GENDER_KEY, 0);
+    }
+
+    public static void setGender(Context c, int gender){
+        SharedPreferences sp = c.getSharedPreferences(USER_INFO_CONTAINER, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(GENDER_KEY, gender);
         editor.apply();
     }
 }

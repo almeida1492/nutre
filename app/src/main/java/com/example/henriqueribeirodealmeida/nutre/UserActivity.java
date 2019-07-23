@@ -1,5 +1,6 @@
 package com.example.henriqueribeirodealmeida.nutre;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -28,6 +29,7 @@ public class UserActivity extends AppCompatActivity{
         final EditText heightView = findViewById(R.id.height);
         final EditText weightView = findViewById(R.id.weight);
         final Spinner physicalActivityView = findViewById(R.id.physical_activity_spinner);
+        final Spinner genderView = findViewById(R.id.gender_spinner);
 
         Button confirmView = findViewById(R.id.confirm);
 
@@ -46,6 +48,13 @@ public class UserActivity extends AppCompatActivity{
         physicalActivityAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         physicalActivityView.setAdapter(physicalActivityAdapter);
 
+        ArrayList<String> genderOptions = new ArrayList<>();
+        genderOptions.add("Masculino");
+        genderOptions.add("Feminino");
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, R.layout.spinner_default, genderOptions);
+        genderAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
+        genderView.setAdapter(genderAdapter);
+
         if (!UserInfoContainer.getName(this).equals("")){
             nameView.setText(UserInfoContainer.getName(this));
         }
@@ -59,6 +68,7 @@ public class UserActivity extends AppCompatActivity{
             weightView.setText(String.valueOf(UserInfoContainer.getWeight(this)));
         }
         physicalActivityView.setSelection(UserInfoContainer.getPhysicalActivityIntensity(this));
+        genderView.setSelection(UserInfoContainer.getGender(this));
 
         confirmView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +84,10 @@ public class UserActivity extends AppCompatActivity{
                     UserInfoContainer.setWeight(getApplicationContext(), Integer.valueOf(weightView.getText().toString()));
                 }
                 UserInfoContainer.setPhysicalActivityIntensity(getApplicationContext(), physicalActivityView.getSelectedItemPosition());
-                onBackPressed();
+                UserInfoContainer.setGender(getApplicationContext(), genderView.getSelectedItemPosition());
+
+                Intent intent = new Intent(UserActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

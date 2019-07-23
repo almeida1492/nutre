@@ -237,6 +237,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Log.e("maroto", String.valueOf(UserInfoContainer.getPhysicalActivityIntensity(this)));
     }
 
     @Override
