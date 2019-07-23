@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         TextView summaryHeader = findViewById(R.id.summary_panel_header);
         TextView mealHistoryTitle = findViewById(R.id.meal_history_title);
         ImageView newMealButton = findViewById(R.id.new_meal_action);
-        TextView emptyView = findViewById(R.id.empty);
+        final TextView emptyView = findViewById(R.id.empty);
 
         //Set fonts
         Typeface balooChettanType = Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf");
@@ -126,6 +126,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 mealHistoryAdapter.notifyDataSetChanged();
+                if (dailyMeals.size() == 0) {
+                    emptyView.setVisibility(View.VISIBLE);
+                    mealHistoryView.setVisibility(View.GONE);
+                }
                 setListViewHeight(mealHistoryView);
             }
         });
@@ -238,11 +242,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        if (dailyMeals.size() == 0) {
-            emptyView.setVisibility(View.VISIBLE);
-            mealHistoryView.setVisibility(View.GONE);
-        }
     }
 
     @Override

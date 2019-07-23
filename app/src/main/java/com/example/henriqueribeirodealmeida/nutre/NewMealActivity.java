@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -189,6 +190,8 @@ public class NewMealActivity extends AppCompatActivity {
                     String mealType = mealTypeView.getSelectedItem().toString();
                     DailyMeal dailyMeal = new DailyMeal(mealType, date);
                     dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
+                    Intent intent = new Intent(NewMealActivity.this, MainActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplication(), "Adicione itens nesta refeição", Toast.LENGTH_SHORT).show();
                 }
