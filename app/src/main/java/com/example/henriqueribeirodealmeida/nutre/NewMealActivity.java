@@ -53,6 +53,7 @@ public class NewMealActivity extends AppCompatActivity {
         addedFoodList = findViewById(R.id.added_food_list);
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
         final Spinner mealTypeView = findViewById(R.id.meal_type_picker);
+        final ImageView iconView = findViewById(R.id.meal_type_icon);
         emptyView = findViewById(R.id.empty);
 
         upButton.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +130,31 @@ public class NewMealActivity extends AppCompatActivity {
         ArrayAdapter<String> mealTypeAdapter = new ArrayAdapter<>(this, R.layout.default_meal_type, mealTypes);
         mealTypeAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         mealTypeView.setAdapter(mealTypeAdapter);
+
+        mealTypeView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (mealTypeView.getSelectedItem().toString()){
+                    case "Café da manhã":
+                        iconView.setImageResource(R.drawable.breakfast);
+                        break;
+                    case "Almoço":
+                        iconView.setImageResource(R.drawable.lunch);
+                        break;
+                    case "Janta":
+                        iconView.setImageResource(R.drawable.lunch);
+                        break;
+                    case "Ceia":
+                        iconView.setImageResource(R.drawable.supper);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override

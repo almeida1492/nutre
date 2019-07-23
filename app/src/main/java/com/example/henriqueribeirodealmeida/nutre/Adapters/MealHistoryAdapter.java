@@ -48,6 +48,22 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
 
         DailyMeal currentItem = getItem(position);
 
+        ImageView iconView = itemView.findViewById(R.id.icon);
+        switch (currentItem.getName()){
+            case "Café da manhã":
+                iconView.setImageResource(R.drawable.breakfast);
+                break;
+            case "Almoço":
+                iconView.setImageResource(R.drawable.lunch);
+                break;
+            case "Janta":
+                iconView.setImageResource(R.drawable.lunch);
+                break;
+            case "Ceia":
+                iconView.setImageResource(R.drawable.supper);
+                break;
+        }
+
         TextView nameView = itemView.findViewById(R.id.name);
         nameView.setText(currentItem.getName());
 

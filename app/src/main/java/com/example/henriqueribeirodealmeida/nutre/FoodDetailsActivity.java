@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.FoodDetailsAdapter;
@@ -30,6 +31,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
     private SummaryValues summaryValues;
     private ArrayList<Nutrient> summaryItems;
     private FoodDetailsAdapter adapter;
+    private ScrollView scrollContainer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
         TextView nameView = findViewById(R.id.name);
         ListView nutrientsView = findViewById(R.id.nutrients);
         ImageView homeView = findViewById(R.id.home);
+        scrollContainer = findViewById(R.id.scroll_container);
 
         nameView.setText(meal.getName());
 
@@ -184,5 +187,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
         params.height = height;
         listView.setLayoutParams(params);
         listView.requestLayout();
+
+        scrollContainer.fullScroll(View.FOCUS_UP);
     }
 }
