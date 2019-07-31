@@ -2,6 +2,7 @@ package com.example.henriqueribeirodealmeida.nutre.DAO;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
@@ -20,6 +21,9 @@ public interface DailyMealDAO {
     @Query("DELETE FROM daily_meal")
     void deleteAll();
 
-    @Query("SELECT * from daily_meal ORDER BY name ASC")
+    @Query("SELECT * from daily_meal ORDER BY date DESC")
     LiveData<List<DailyMeal>> getAllDailyMeals();
+
+    @Delete
+    void deleteMeal(DailyMeal dailyMeal);
 }

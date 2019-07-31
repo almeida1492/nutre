@@ -34,6 +34,10 @@ public class DailyMealRepository {
         new insertAsyncTask(mDailyMealDao, foods, foodViewModel, activity).execute(dailyMeal);
     }
 
+    public void delete (DailyMeal dailyMeal) {
+        new deleteAsyncTask(mDailyMealDao).execute(dailyMeal);
+    }
+
     private static class insertAsyncTask extends AsyncTask<DailyMeal, Void, Long> {
 
         private DailyMealDAO mAsyncTaskDao;
@@ -60,6 +64,21 @@ public class DailyMealRepository {
                 mFoodViewModel.insert(food);
             }
             mActivity.finish();
+        }
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<DailyMeal, Void, Void> {
+
+        private DailyMealDAO mAsyncTaskDao;
+
+        deleteAsyncTask(DailyMealDAO dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final DailyMeal... params) {
+            mAsyncTaskDao.deleteMeal(params[0]);
+            return null;
         }
     }
 }

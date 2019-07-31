@@ -32,4 +32,9 @@ public class DailyMealViewModel extends AndroidViewModel {
     public void insert(DailyMeal dailyMeal, ArrayList foods, FoodViewModel foodViewModel, Activity activity) {
         mRepository.insert(dailyMeal, foods, foodViewModel, activity);
     }
+
+    public void delete(DailyMeal dailyMeal) {
+        mRepository.delete(dailyMeal);
+    }
+
 }
