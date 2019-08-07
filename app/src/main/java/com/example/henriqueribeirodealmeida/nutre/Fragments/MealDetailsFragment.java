@@ -38,4 +38,5 @@ public class MealDetailsFragment extends DialogFragment {
         }
         return rootView;
     }
+
 }
