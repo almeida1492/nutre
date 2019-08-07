@@ -86,11 +86,11 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
                             public boolean onMenuItemClick(MenuItem item) {
                                 switch (item.getItemId()) {
                                     case R.id.details:
-                                        //TODO (Henrique) open dialog to show meal details
                                         ((MainActivity)context).showMealDetails(currentItem);
                                         break;
                                     case R.id.delete:
                                         //TODO (Dióginis) remove meal from table
+                                        ((MainActivity)context).deleteMeal(currentItem);
                                         break;
                                     default:
                                         break;

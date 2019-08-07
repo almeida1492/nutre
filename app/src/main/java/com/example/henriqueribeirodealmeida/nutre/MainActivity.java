@@ -2,6 +2,7 @@ package com.example.henriqueribeirodealmeida.nutre;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -354,6 +355,11 @@ public class MainActivity extends AppCompatActivity {
         MealDetailsFragment dialog = new MealDetailsFragment();
         dialog.setArguments(bundle);
         dialog.show(getSupportFragmentManager(), "MealDetailsFragment");
+    }
+
+    public void deleteMeal(DailyMeal meal){
+        DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
+        dailyMealViewModel.delete(meal);
     }
 
     private void setListViewHeight(ListView listView) {
