@@ -4,6 +4,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.Relation;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
@@ -19,7 +21,7 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
                 childColumns = "mealId",
                 onDelete = CASCADE),
         })
-public class Food {
+public class Food implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
@@ -94,4 +96,40 @@ public class Food {
     public void setMealId(Integer id){
         this.mealId = id;
     }
+
+    protected Food(Parcel in){
+        id = in.readInt();
+        name = in.readString();
+        quantityPerUnit = in.readDouble();
+        measure = in.readString();
+        dailyMealId = in.readInt();
+        mealId = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeDouble(quantityPerUnit);
+        dest.writeString(measure);
+        dest.writeInt(dailyMealId);
+        dest.writeInt(mealId);
+    }
+
+    public static final Parcelable.Creator<Food> CREATOR = new Parcelable.Creator<Food>() {
+        @Override
+        public Food createFromParcel(Parcel in) {
+            return new Food(in);
+        }
+
+        @Override
+        public Food[] newArray(int size) {
+            return new Food[size];
+        }
+    };
 }

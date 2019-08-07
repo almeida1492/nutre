@@ -46,7 +46,7 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
                     R.layout.item_meal, parent, false);
         }
 
-        DailyMeal currentItem = getItem(position);
+        final DailyMeal currentItem = getItem(position);
 
         ImageView iconView = itemView.findViewById(R.id.icon);
         switch (currentItem.getName()){
@@ -87,7 +87,7 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
                                 switch (item.getItemId()) {
                                     case R.id.details:
                                         //TODO (Henrique) open dialog to show meal details
-                                        ((MainActivity)context).showMealDetails(new Meal());
+                                        ((MainActivity)context).showMealDetails(currentItem);
                                         break;
                                     case R.id.delete:
                                         //TODO (Dióginis) remove meal from table

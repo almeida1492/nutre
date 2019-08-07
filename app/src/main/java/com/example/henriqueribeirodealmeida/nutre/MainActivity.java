@@ -336,9 +336,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void showMealDetails(Meal meal){
-        Bundle bundle = new Bundle();
-        /*bundle.putParcelable("meal", meal);*/
+    public void showMealDetails(DailyMeal meal){
+        final Bundle bundle = new Bundle();
+        final ArrayList<Food> foods = new ArrayList<>();
+
+        FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
+        foodViewModel.findDailyMealFoods(meal.getId()).observe(this, new Observer<List<Food>>() {
+            @Override
+            public void onChanged(@Nullable List<Food> f) {
+                if (f != null){
+                    foods.addAll(f);
+                }
+            }
+        });
+
+        bundle.putParcelableArrayList("foods", foods);
         MealDetailsFragment dialog = new MealDetailsFragment();
         dialog.setArguments(bundle);
         dialog.show(getSupportFragmentManager(), "MealDetailsFragment");

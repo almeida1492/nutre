@@ -1,5 +1,6 @@
 package com.example.henriqueribeirodealmeida.nutre.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -27,24 +28,14 @@ public class MealDetailsFragment extends DialogFragment {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
         Bundle bundle = getArguments();
+        ArrayList<Food> foods;
+        foods = bundle.getParcelableArrayList("foods");
 
-        ArrayList<Food> foods = new ArrayList<>();
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        foods.add(new Food("arroz", 1, "Colher de sopa"));
-        ArrayList<Meal> meals = new ArrayList<>();
-
-        AddedFoodAdapter adapter = new AddedFoodAdapter(getContext(), foods);
-
-        ListView foodsView = rootView.findViewById(R.id.added_food_list);
-        foodsView.setAdapter(adapter);
-
+        if (foods != null){
+            AddedFoodAdapter adapter = new AddedFoodAdapter(getContext(), foods);
+            ListView foodsView = rootView.findViewById(R.id.added_food_list);
+            foodsView.setAdapter(adapter);
+        }
         return rootView;
     }
 }
