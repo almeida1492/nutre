@@ -32,7 +32,7 @@
             <ImageView
                 android:layout_width="74dp"
                 android:layout_height="74dp"
-                android:src="@drawable/meal_placeholder"/>
+                android:src="@drawable/item"/>
 
             <TextView
                 android:id="@+id/name"
