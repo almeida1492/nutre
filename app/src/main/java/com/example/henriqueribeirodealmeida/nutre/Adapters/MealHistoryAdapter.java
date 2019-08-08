@@ -97,12 +97,7 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
             }
         });
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                menuView.performClick();
-            }
-        });
+
 
         return itemView;
     }
