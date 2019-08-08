@@ -64,7 +64,7 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
         String formattedDate = Helpers.formatDate(currentItem.getDate(), true);
         quantityView.setText(formattedDate);
 
-        ImageView menuView = itemView.findViewById(R.id.menu);
+        final ImageView menuView = itemView.findViewById(R.id.menu);
         menuView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +94,13 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
                     default:
                         break;
                 }
+            }
+        });
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuView.performClick();
             }
         });
 
