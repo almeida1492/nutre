@@ -1,9 +1,6 @@
 package com.example.henriqueribeirodealmeida.nutre.Adapters;
 
-import android.app.DialogFragment;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -16,12 +13,8 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
-import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
-import com.example.henriqueribeirodealmeida.nutre.FoodDetailsActivity;
-import com.example.henriqueribeirodealmeida.nutre.Fragments.MealDetailsFragment;
 import com.example.henriqueribeirodealmeida.nutre.Helpers;
 import com.example.henriqueribeirodealmeida.nutre.MainActivity;
-import com.example.henriqueribeirodealmeida.nutre.NewMealActivity;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
@@ -48,7 +41,7 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
 
         final DailyMeal currentItem = getItem(position);
 
-        ImageView iconView = itemView.findViewById(R.id.icon);
+        ImageView iconView = itemView.findViewById(R.id.meal_icon);
         switch (currentItem.getName()){
             case "Café da manhã":
                 iconView.setImageResource(R.drawable.breakfast);
@@ -89,7 +82,6 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
                                         ((MainActivity)context).showMealDetails(currentItem);
                                         break;
                                     case R.id.delete:
-                                        //TODO (Dióginis) remove meal from table
                                         ((MainActivity)context).deleteMeal(currentItem);
                                         break;
                                     default:

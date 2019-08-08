@@ -54,7 +54,7 @@ public class NewMealActivity extends AppCompatActivity {
         addedFoodList = findViewById(R.id.added_food_list);
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
         final Spinner mealTypeView = findViewById(R.id.meal_type_picker);
-        final ImageView iconView = findViewById(R.id.meal_type_icon);
+        final ImageView iconView = findViewById(R.id.meal_icon);
         emptyView = findViewById(R.id.empty);
 
         upButton.setOnClickListener(new View.OnClickListener() {

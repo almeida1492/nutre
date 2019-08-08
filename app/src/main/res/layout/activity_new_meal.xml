@@ -62,7 +62,7 @@
                 app:layout_constraintTop_toBottomOf="@id/meal_type_picker" />
 
             <ImageView
-                android:id="@+id/meal_type_icon"
+                android:id="@+id/meal_icon"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="12dp"
@@ -80,7 +80,7 @@
                 android:background="#E5E5E5"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_type_icon" />
+                app:layout_constraintTop_toBottomOf="@id/meal_icon" />
 
 
             <TextView
@@ -106,7 +106,7 @@
                 android:paddingTop="9dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_type_icon">
+                app:layout_constraintTop_toBottomOf="@id/meal_icon">
 
                 <AutoCompleteTextView
                     android:id="@+id/food_picker_text_view"

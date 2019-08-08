@@ -1,20 +1,18 @@
 package com.example.henriqueribeirodealmeida.nutre.Fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
-import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
@@ -30,6 +28,26 @@ public class MealDetailsFragment extends DialogFragment {
         Bundle bundle = getArguments();
         ArrayList<Food> foods;
         foods = bundle.getParcelableArrayList("foods");
+        String name = bundle.getString("name");
+
+        TextView nameView = rootView.findViewById(R.id.name);
+        nameView.setText(name);
+
+        ImageView iconView = rootView.findViewById(R.id.meal_icon);
+        switch (name){
+            case "Café da manhã":
+                iconView.setImageResource(R.drawable.breakfast);
+                break;
+            case "Almoço":
+                iconView.setImageResource(R.drawable.lunch);
+                break;
+            case "Janta":
+                iconView.setImageResource(R.drawable.lunch);
+                break;
+            case "Ceia":
+                iconView.setImageResource(R.drawable.supper);
+                break;
+        }
 
         if (foods != null){
             AddedFoodAdapter adapter = new AddedFoodAdapter(getContext(), foods);
