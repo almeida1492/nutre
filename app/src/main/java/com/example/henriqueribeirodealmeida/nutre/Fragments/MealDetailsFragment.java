@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
+import com.example.henriqueribeirodealmeida.nutre.Helpers;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class MealDetailsFragment extends DialogFragment {
         ArrayList<Food> foods;
         foods = bundle.getParcelableArrayList("foods");
         String name = bundle.getString("name");
+        String date = bundle.getString("date");
 
         TextView nameView = rootView.findViewById(R.id.name);
         nameView.setText(name);
@@ -48,6 +50,10 @@ public class MealDetailsFragment extends DialogFragment {
                 iconView.setImageResource(R.drawable.supper);
                 break;
         }
+
+        TextView dateView = rootView.findViewById(R.id.item_info);
+        String formattedDate = Helpers.formatDate(date, true);
+        dateView.setText(formattedDate);
 
         if (foods != null){
             AddedFoodAdapter adapter = new AddedFoodAdapter(getContext(), foods);

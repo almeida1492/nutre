@@ -353,6 +353,7 @@ public class MainActivity extends AppCompatActivity {
 
         bundle.putParcelableArrayList("foods", foods);
         bundle.putString("name", meal.getName());
+        bundle.putString("date", meal.getDate());
         MealDetailsFragment dialog = new MealDetailsFragment();
         dialog.setArguments(bundle);
         dialog.show(getSupportFragmentManager(), "MealDetailsFragment");

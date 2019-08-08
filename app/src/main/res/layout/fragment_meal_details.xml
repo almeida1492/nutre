@@ -9,8 +9,6 @@
     android:layout_marginBottom="30dp"
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
-    android:paddingRight="16dp"
-    android:paddingLeft="16dp"
     android:paddingBottom="50dp"
     android:orientation="vertical">
 
@@ -27,6 +25,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:text="Almoço"/>
 
+
     <ImageView
         android:id="@+id/meal_icon"
         android:layout_width="50dp"
@@ -37,15 +36,26 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name" />
 
+    <TextView
+        android:id="@+id/item_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1º de julho às 12:34"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/meal_icon" />
+
     <View
         android:id="@+id/divider1"
         android:layout_width="100dp"
         android:layout_height="1dp"
-        android:layout_marginTop="25dp"
         android:background="#E5E5E5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/meal_icon" />
+        app:layout_constraintTop_toBottomOf="@id/item_info" />
 
     <ListView
         android:id="@+id/added_food_list"
