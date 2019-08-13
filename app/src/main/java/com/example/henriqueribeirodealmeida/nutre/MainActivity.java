@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                         mealQuantity.put(food.getMealId(), (int) food.getQuantityPerUnit());
                     } else {
                         int oldQuantity = mealQuantity.get(food.getMealId());
-                        mealQuantity.put(food.getDailyMealId(), oldQuantity + (int) food.getQuantityPerUnit());
+                        mealQuantity.put(food.getMealId(), oldQuantity + (int) food.getQuantityPerUnit());
                     }
                 }
 
