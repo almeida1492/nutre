@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_round_rec"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:minWidth="800dp"
+    android:gravity="center_horizontal"
+    android:paddingBottom="50dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="22dp"
+        android:textSize="22dp"
+        android:textColor="@android:color/black"
+        android:text="Atividade física"/>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:background="#E5E5E5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Atividade física leve: \n\nAtividades em que se passa a maior parte do tempo
+sentado. Exemplo: datilógrafos, relojoeiros, secretárias etc.\n\nAtividade física moderada: \n\nAtividades em que se passa a maio parte do tempo
+em movimento ou em pé: estudantes, professores, lavadeiras etc.).\n\nAtividade física intensa: \n\nAtividades em que se passa a maior parte do tempo em
+movimento e com emprego de força física. Exemplo: jardineiros, lavradores,
+carregadores, atletas etc."
+        android:textColor="@android:color/black" />
+
+</LinearLayout>

@@ -10,10 +10,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
+import com.example.henriqueribeirodealmeida.nutre.Fragments.MealDetailsFragment;
+import com.example.henriqueribeirodealmeida.nutre.Fragments.PhysicalActivityInfoFragment;
 
 import java.util.ArrayList;
 
@@ -30,6 +33,7 @@ public class UserActivity extends AppCompatActivity{
         final EditText weightView = findViewById(R.id.weight);
         final Spinner physicalActivityView = findViewById(R.id.physical_activity_spinner);
         final Spinner genderView = findViewById(R.id.gender_spinner);
+        ImageView helpView = findViewById(R.id.help);
 
         Button confirmView = findViewById(R.id.confirm);
 
@@ -69,6 +73,14 @@ public class UserActivity extends AppCompatActivity{
         }
         physicalActivityView.setSelection(UserInfoContainer.getPhysicalActivityIntensity(this));
         genderView.setSelection(UserInfoContainer.getGender(this));
+
+        helpView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PhysicalActivityInfoFragment dialog = new PhysicalActivityInfoFragment();
+                dialog.show(getSupportFragmentManager(), "PhysicalActivityInfoFragment");
+            }
+        });
 
         confirmView.setOnClickListener(new View.OnClickListener() {
             @Override
