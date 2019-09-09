@@ -30,6 +30,7 @@ import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
 import com.example.henriqueribeirodealmeida.nutre.Fragments.MealDetailsFragment;
 
+import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -357,6 +358,29 @@ public class MainActivity extends AppCompatActivity {
         MealDetailsFragment dialog = new MealDetailsFragment();
         dialog.setArguments(bundle);
         dialog.show(getSupportFragmentManager(), "MealDetailsFragment");
+    }
+
+    public void editMeal(DailyMeal meal){
+        final Bundle bundle = new Bundle();
+        final ArrayList<Food> foods = new ArrayList<>();
+
+        final String mealType = meal.getName();
+
+        FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
+        foodViewModel.findDailyMealFoods(meal.getId()).observe(this, new Observer<List<Food>>() {
+            @Override
+            public void onChanged(@Nullable List<Food> f) {
+                if (f != null){
+                    foods.addAll(f);
+                    ArrayList<Food> foodClone = new ArrayList<>(foods);
+                    Intent intent = new Intent(MainActivity.this, NewMealActivity.class);
+                    bundle.putParcelableArrayList("foods", foodClone);
+                    bundle.putString("name", mealType);
+                    intent.putExtra("bundle", bundle);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     public void deleteMeal(DailyMeal meal){

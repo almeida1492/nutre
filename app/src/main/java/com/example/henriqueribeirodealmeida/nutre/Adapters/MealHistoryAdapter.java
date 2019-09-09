@@ -81,6 +81,9 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
                                     case R.id.details:
                                         ((MainActivity)context).showMealDetails(currentItem);
                                         break;
+                                    case R.id.edit:
+                                        ((MainActivity)context).editMeal(currentItem);
+                                        break;
                                     case R.id.delete:
                                         ((MainActivity)context).deleteMeal(currentItem);
                                         break;
@@ -96,8 +99,6 @@ public class MealHistoryAdapter extends ArrayAdapter<DailyMeal> {
                 }
             }
         });
-
-
 
         return itemView;
     }

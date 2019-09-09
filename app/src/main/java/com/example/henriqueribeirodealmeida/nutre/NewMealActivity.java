@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -48,6 +49,12 @@ public class NewMealActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_meal);
 
+        boolean updateFlag = false;
+        String name = "";
+        foods = new ArrayList<>();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getBundleExtra("bundle");
+
         ImageView upButton = findViewById(R.id.up_button);
         ImageView addMeal = findViewById(R.id.add_meal);
         Button addItemButton = findViewById(R.id.add_item);
@@ -56,6 +63,13 @@ public class NewMealActivity extends AppCompatActivity {
         final Spinner mealTypeView = findViewById(R.id.meal_type_picker);
         final ImageView iconView = findViewById(R.id.meal_icon);
         emptyView = findViewById(R.id.empty);
+
+        if (bundle != null){
+            name = bundle.getString("name");
+            foods = bundle.getParcelableArrayList("foods");
+            updateFlag = true;
+            emptyView.setVisibility(View.GONE);
+        }
 
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +80,6 @@ public class NewMealActivity extends AppCompatActivity {
 
         final DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
         final FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
-        foods = new ArrayList<>();
         final Activity activity = this;
 
         MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
@@ -132,6 +145,8 @@ public class NewMealActivity extends AppCompatActivity {
         mealTypeAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         mealTypeView.setAdapter(mealTypeAdapter);
 
+        mealTypeView.setSelection(mealTypes.indexOf(name));
+
         mealTypeView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -180,18 +195,23 @@ public class NewMealActivity extends AppCompatActivity {
             }
         });
 
+        final boolean flag = updateFlag;
         addMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (foods.size() != 0){
-                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-                    String date = df.format(Calendar.getInstance().getTime());
+                    if (flag){
+                        //TODO DIOGINIS implement code to update db
+                    } else {
+                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+                        String date = df.format(Calendar.getInstance().getTime());
 
-                    String mealType = mealTypeView.getSelectedItem().toString();
-                    DailyMeal dailyMeal = new DailyMeal(mealType, date);
-                    dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
-                    Intent intent = new Intent(NewMealActivity.this, MainActivity.class);
-                    startActivity(intent);
+                        String mealType = mealTypeView.getSelectedItem().toString();
+                        DailyMeal dailyMeal = new DailyMeal(mealType, date);
+                        dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);
+                        Intent intent = new Intent(NewMealActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
                 } else {
                     Toast.makeText(getApplication(), "Adicione itens nesta refeição", Toast.LENGTH_SHORT).show();
                 }
