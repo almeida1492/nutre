@@ -76,7 +76,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
             summaryItems.add(new Nutrient());
         }
         if (bundle.getString("caller").equals("AddedFoodAdapter")){
-            homeView.setVisibility(View.GONE);
+            homeView.setVisibility(View.INVISIBLE);
             double totalQuantity;
             double quantity = bundle.getDouble("quantity");
 
@@ -168,7 +168,6 @@ public class FoodDetailsActivity extends AppCompatActivity{
         summaryItems.get(16).setName("Tiamina");
         summaryItems.get(16).setValue((int) (summaryValues.getThiamine() * factor));
         summaryItems.get(16).setMeasure(" mg");
-
     }
 
     private void setListViewHeight(ListView listView) {
