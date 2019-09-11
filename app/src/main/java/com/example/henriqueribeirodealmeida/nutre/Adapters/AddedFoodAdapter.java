@@ -61,7 +61,7 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
         nameView.setText(currentItem.getName());
 
         TextView quantityView = itemView.findViewById(R.id.item_info);
-        int quantity = (int) currentItem.getQuantityPerUnit();
+        final int quantity = (int) currentItem.getQuantityPerUnit();
         String quantityOutput = "Qtd.: " + quantity + " (" + currentItem.getMeasure() + ")";
         quantityView.setText(quantityOutput);
 
@@ -85,6 +85,7 @@ public class AddedFoodAdapter extends ArrayAdapter<Food> {
                                             Bundle bundle = new Bundle();
                                             bundle.putParcelable("food", getFoodDetails(currentItem.getName()));
                                             bundle.putString("caller", "AddedFoodAdapter");
+                                            bundle.putDouble("quantity", quantity);
                                             intent.putExtra("bundle", bundle);
                                             context.startActivity(intent);
 
