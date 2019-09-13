@@ -365,6 +365,7 @@ public class MainActivity extends AppCompatActivity {
         final ArrayList<Food> foods = new ArrayList<>();
 
         final String mealType = meal.getName();
+        final int mealId = meal.getId();
 
         FoodViewModel foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
         foodViewModel.findDailyMealFoods(meal.getId()).observe(this, new Observer<List<Food>>() {
@@ -376,6 +377,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, NewMealActivity.class);
                     bundle.putParcelableArrayList("foods", foodClone);
                     bundle.putString("name", mealType);
+                    bundle.putInt("dailyMealId", mealId);
                     intent.putExtra("bundle", bundle);
                     startActivity(intent);
                 }

@@ -26,4 +26,7 @@ public interface DailyMealDAO {
 
     @Delete
     void deleteMeal(DailyMeal dailyMeal);
+
+    @Query("UPDATE daily_meal SET name = :name WHERE id = :id")
+    void update(int id, String name);
 }

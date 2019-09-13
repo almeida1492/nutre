@@ -27,4 +27,6 @@ public class FoodViewModel extends AndroidViewModel {
     LiveData<List<Food>> findDailyMealFoods(int dailyMealId) { return mRepository.getAllDailyMealFood(dailyMealId); }
 
     public void insert(Food food) { mRepository.insert(food); }
+
+    public void delete(Food food) { mRepository.delete(food); }
 }

@@ -37,4 +37,7 @@ public class DailyMealViewModel extends AndroidViewModel {
         mRepository.delete(dailyMeal);
     }
 
+    public void update(DailyMeal dailyMeal, ArrayList newFoods, ArrayList foodsToBeDeleted, FoodViewModel foodViewModel, Activity activity) {
+        mRepository.update(dailyMeal, newFoods, foodsToBeDeleted, foodViewModel, activity);
+    }
 }

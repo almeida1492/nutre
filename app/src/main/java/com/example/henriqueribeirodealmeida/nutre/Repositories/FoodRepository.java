@@ -15,7 +15,6 @@ import java.util.List;
 public class FoodRepository {
 
     private FoodDAO mFoodDao;
-    private LiveData<List<Food>> mDailyMealFoods;
 
     public FoodRepository(Application application) {
         MealRoomDatabase db = MealRoomDatabase.getDatabase(application);
@@ -46,6 +45,25 @@ public class FoodRepository {
         @Override
         protected Void doInBackground(final Food... params) {
             mAsyncTaskDao.insert(params[0]);
+            return null;
+        }
+    }
+
+    public void delete(Food food) {
+        new deleteAsyncTask(mFoodDao).execute(food);
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<Food, Void, Void> {
+
+        private FoodDAO mAsyncTaskDao;
+
+        deleteAsyncTask(FoodDAO dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Food... params) {
+            mAsyncTaskDao.delete(params[0]);
             return null;
         }
     }

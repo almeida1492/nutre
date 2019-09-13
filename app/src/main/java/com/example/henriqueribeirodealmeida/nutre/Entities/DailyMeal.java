@@ -20,6 +20,11 @@ public class DailyMeal {
         this.date = date;
     }
 
+    public DailyMeal(int id, String name) {
+        this.name = name;
+        this.id = id;
+    }
+
     @NonNull
     public int getId() {
         return id;

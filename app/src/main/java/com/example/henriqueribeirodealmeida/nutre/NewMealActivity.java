@@ -42,6 +42,7 @@ public class NewMealActivity extends AppCompatActivity {
     private Meal mCurrentSelectedMeal;
     private ListView addedFoodList;
     private ArrayList<Food> foods;
+    private ArrayList<Food> oldFoods;
     private TextView emptyView;
 
     @Override
@@ -51,7 +52,9 @@ public class NewMealActivity extends AppCompatActivity {
 
         boolean updateFlag = false;
         String name = "";
+        int id = 0;
         foods = new ArrayList<>();
+        oldFoods = new ArrayList<>();
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra("bundle");
 
@@ -66,10 +69,14 @@ public class NewMealActivity extends AppCompatActivity {
 
         if (bundle != null){
             name = bundle.getString("name");
+            id = bundle.getInt("dailyMealId");
             foods = bundle.getParcelableArrayList("foods");
+            oldFoods = new ArrayList<>(foods);
             updateFlag = true;
             emptyView.setVisibility(View.GONE);
         }
+
+        final int dailyMealId = id;
 
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,12 +207,35 @@ public class NewMealActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (foods.size() != 0){
+                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+                    String date = df.format(Calendar.getInstance().getTime());
                     if (flag){
-                        //TODO DIOGINIS implement code to update db
-                    } else {
-                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-                        String date = df.format(Calendar.getInstance().getTime());
+                        String mealType = mealTypeView.getSelectedItem().toString();
+                        DailyMeal dailyMeal = new DailyMeal(dailyMealId, mealType);
 
+                        ArrayList<Food> newFoods = new ArrayList<>();
+                        ArrayList<Food> foodsToKeep = new ArrayList<>();
+                        ArrayList<Food> foodsToBeDeleted = new ArrayList<>();
+
+                        for (Food food : foods) {
+                            if (food.getDailyMealId() == 0) {
+                                newFoods.add(food);
+                            } else {
+                                foodsToKeep.add(food);
+                            }
+                        }
+
+                        for (Food food : oldFoods) {
+                            if (!foodsToKeep.contains(food)){
+                                foodsToBeDeleted.add(food);
+                            }
+                        }
+
+
+                        dailyMealViewModel.update(dailyMeal, newFoods, foodsToBeDeleted, foodViewModel, activity);
+                        Intent intent = new Intent(NewMealActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    } else {
                         String mealType = mealTypeView.getSelectedItem().toString();
                         DailyMeal dailyMeal = new DailyMeal(mealType, date);
                         dailyMealViewModel.insert(dailyMeal, foods, foodViewModel, activity);

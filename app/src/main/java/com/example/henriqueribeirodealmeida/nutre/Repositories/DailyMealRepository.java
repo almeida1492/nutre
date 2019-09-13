@@ -34,10 +34,6 @@ public class DailyMealRepository {
         new insertAsyncTask(mDailyMealDao, foods, foodViewModel, activity).execute(dailyMeal);
     }
 
-    public void delete (DailyMeal dailyMeal) {
-        new deleteAsyncTask(mDailyMealDao).execute(dailyMeal);
-    }
-
     private static class insertAsyncTask extends AsyncTask<DailyMeal, Void, Long> {
 
         private DailyMealDAO mAsyncTaskDao;
@@ -67,6 +63,10 @@ public class DailyMealRepository {
         }
     }
 
+    public void delete (DailyMeal dailyMeal) {
+        new deleteAsyncTask(mDailyMealDao).execute(dailyMeal);
+    }
+
     private static class deleteAsyncTask extends AsyncTask<DailyMeal, Void, Void> {
 
         private DailyMealDAO mAsyncTaskDao;
@@ -78,6 +78,41 @@ public class DailyMealRepository {
         @Override
         protected Void doInBackground(final DailyMeal... params) {
             mAsyncTaskDao.deleteMeal(params[0]);
+            return null;
+        }
+    }
+
+    public void update(DailyMeal dailyMeal, ArrayList newFoods, ArrayList foodsToBeDeleted, FoodViewModel foodViewModel, Activity activity) {
+        new updateAsyncTask(mDailyMealDao, newFoods, foodsToBeDeleted, foodViewModel, activity).execute(dailyMeal);
+    }
+
+    private static class updateAsyncTask extends AsyncTask<DailyMeal, Void, Void> {
+
+        private DailyMealDAO mAsyncTaskDao;
+        private ArrayList<Food> mFoods;
+        private ArrayList<Food> mFoodsToBeDeleted;
+        private FoodViewModel mFoodViewModel;
+        private Activity mActivity;
+
+        updateAsyncTask(DailyMealDAO dao, ArrayList<Food> foods, ArrayList<Food> foodsToBeDeleted, FoodViewModel foodViewModel, Activity activity) {
+            mAsyncTaskDao = dao;
+            mFoods = foods;
+            mFoodsToBeDeleted = foodsToBeDeleted;
+            mFoodViewModel = foodViewModel;
+            mActivity = activity;
+        }
+
+        @Override
+        protected Void doInBackground(final DailyMeal ...params) {
+            mAsyncTaskDao.update(params[0].getId(), params[0].getName());
+            for (Food food : mFoods) {
+                food.setDailyMealId(params[0].getId());
+                mFoodViewModel.insert(food);
+            }
+            for (Food food : mFoodsToBeDeleted) {
+                mFoodViewModel.delete(food);
+            }
+            mActivity.finish();
             return null;
         }
     }
