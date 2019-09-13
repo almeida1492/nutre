@@ -109,6 +109,9 @@ public class NewMealActivity extends AppCompatActivity {
                 mCurrentSelectedMeal = (Meal) parent.getItemAtPosition(position);
                 measureLabelView.setText("(" + mCurrentSelectedMeal.getMeasureLabel() + ")");
                 measureValueView.setText("1");
+
+                InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(foodPickerView.getWindowToken(), 0);
             }
         });
 
