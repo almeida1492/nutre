@@ -2,15 +2,12 @@ package com.example.henriqueribeirodealmeida.nutre;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.GradientDrawable;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,7 +15,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.MealHistoryAdapter;
 import com.example.henriqueribeirodealmeida.nutre.Adapters.SummaryAdapter;
@@ -52,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         TextView titleView = findViewById(R.id.title);
         RelativeLayout panelView = findViewById(R.id.summary_panel);
         final ListView summaryView = findViewById(R.id.summary);
         final View panelMask = findViewById(R.id.panel_mask);
         final ListView mealHistoryView = findViewById(R.id.meal_history);
         ImageView searchView = findViewById(R.id.search_action);
-        ImageView userView = findViewById(R.id.user_action);
         TextView summaryTitle = findViewById(R.id.summary_panel_title);
         TextView summaryHeader = findViewById(R.id.summary_panel_header);
         TextView mealHistoryTitle = findViewById(R.id.meal_history_title);
@@ -213,25 +209,24 @@ public class MainActivity extends AppCompatActivity {
                         summaryItems.get(14).setValue(Math.round(magnesium));
                         summaryItems.get(15).setValue(Math.round(vitaminE));
                         summaryItems.get(16).setValue(Math.round(thiamine));
-
                         summaryAdapter.notifyDataSetChanged();
+
+
+
                     }
+
+
                 });
+
             }
+
         });
+
 
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        userView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, UserActivity.class);
                 startActivity(intent);
             }
         });

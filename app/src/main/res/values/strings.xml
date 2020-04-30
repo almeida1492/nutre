@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Nutre</string>
+    <string name="title_activity_first_scree">FirstScree</string>
+    <string name="title_activity_export_pdf">ExportPdf</string>
 </resources>

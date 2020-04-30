@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
@@ -39,16 +38,20 @@ public class SummaryAdapter extends ArrayAdapter<Nutrient>{
 
         Nutrient nutrient = getItem(position);
 
+
         TextView nameView = itemView.findViewById(R.id.name);
         nameView.setText(nutrient.getName());
 
         TextView valueView = itemView.findViewById(R.id.value);
+
         int value = (int) nutrient.getValue();
+
         String valueOutput = value + nutrient.getMeasure();
         valueView.setText(valueOutput);
 
         TextView suggestedValueView = itemView.findViewById(R.id.suggested_value);
         int suggestedValue = (int) nutrient.getSuggestedValue();
+
         String suggestedValueOutput = suggestedValue + nutrient.getMeasure();
         suggestedValueView.setText(suggestedValueOutput);
 

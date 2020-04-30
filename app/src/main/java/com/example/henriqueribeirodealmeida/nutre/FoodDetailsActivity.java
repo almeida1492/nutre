@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -15,13 +13,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Adapters.FoodDetailsAdapter;
-import com.example.henriqueribeirodealmeida.nutre.Adapters.SummaryAdapter;
-import com.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import com.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FoodDetailsActivity extends AppCompatActivity{
@@ -42,10 +37,13 @@ public class FoodDetailsActivity extends AppCompatActivity{
         Bundle bundle = intent.getBundleExtra("bundle");
         Meal meal = bundle.getParcelable("food");
 
+
         TextView nameView = findViewById(R.id.name);
         ListView nutrientsView = findViewById(R.id.nutrients);
         ImageView homeView = findViewById(R.id.home);
         scrollContainer = findViewById(R.id.scroll_container);
+
+
 
         nameView.setText(meal.getName());
 
@@ -69,9 +67,12 @@ public class FoodDetailsActivity extends AppCompatActivity{
                 meal.getVitaminE(),
                 meal.getThiamine());
 
+
         for (int i = 0; i < NUTRIENTS_COUNT; i++){
             summaryItems.add(new Nutrient());
+
         }
+
         setSummaryItems();
 
         adapter = new FoodDetailsAdapter(this, summaryItems);
@@ -93,6 +94,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
     }
 
     private void setSummaryItems(){
+
         summaryItems.get(0).setName("Energia");
         summaryItems.get(0).setValue((int) summaryValues.getEnergy());
         summaryItems.get(0).setMeasure(" kcal");
@@ -104,6 +106,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
         summaryItems.get(2).setName("Proteína");
         summaryItems.get(2).setValue((int) summaryValues.getProtein());
         summaryItems.get(2).setMeasure(" g");
+
 
         summaryItems.get(3).setName("Gorduras Totais");
         summaryItems.get(3).setValue((int) summaryValues.getTotalFat());

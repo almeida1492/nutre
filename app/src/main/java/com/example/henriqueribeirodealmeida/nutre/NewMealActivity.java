@@ -143,6 +143,7 @@ public class NewMealActivity extends AppCompatActivity {
                         iconView.setImageResource(R.drawable.breakfast);
                         break;
                     case "Almoço":
+                        //almoco e janta tem a mesma imagem
                         iconView.setImageResource(R.drawable.lunch);
                         break;
                     case "Janta":

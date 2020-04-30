@@ -2,6 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     android:layout_width="match_parent">
 
@@ -23,14 +24,17 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="35dp"
-            android:paddingRight="35dp"
             android:layout_marginBottom="45dp"
             android:background="@drawable/white_round_rec"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.774"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header">
+            app:layout_constraintTop_toBottomOf="@id/header"
+            app:layout_constraintVertical_bias="0.0">
 
             <ImageView
                 android:id="@+id/meal_icon"
@@ -47,11 +51,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:text="Informações do usuário"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
-                android:layout_marginTop="16dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/meal_icon" />
@@ -62,28 +66,31 @@
                 android:layout_height="wrap_content"
                 android:text="Nome"
                 android:textColor="@android:color/darker_gray"
-                app:layout_constraintTop_toBottomOf="@id/title"
-                app:layout_constraintLeft_toLeftOf="@id/name_container"/>
+                app:layout_constraintLeft_toLeftOf="@id/name_container"
+                app:layout_constraintTop_toBottomOf="@id/title" />
 
             <LinearLayout
                 android:id="@+id/name_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="9dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="9dp"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name_title">
 
                 <EditText
                     android:id="@+id/name"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:background="@null"
                     android:backgroundTint="@color/colorAccent"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
@@ -93,11 +100,11 @@
                 android:id="@+id/age_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Idade"
                 android:layout_marginTop="16dp"
+                android:text="Idade"
                 android:textColor="@android:color/darker_gray"
-                app:layout_constraintTop_toBottomOf="@id/name_container"
-                app:layout_constraintLeft_toLeftOf="@id/age_container"/>
+                app:layout_constraintLeft_toLeftOf="@id/age_container"
+                app:layout_constraintTop_toBottomOf="@id/name_container" />
 
             <LinearLayout
                 android:id="@+id/age_container"
@@ -106,10 +113,10 @@
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="9dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="9dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/age_title">
 
@@ -117,6 +124,8 @@
                     android:id="@+id/age"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
                     android:backgroundTint="@color/colorAccent"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
@@ -126,11 +135,11 @@
                 android:id="@+id/height_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Altura (cm)"
                 android:layout_marginTop="16dp"
+                android:text="Altura (cm)"
                 android:textColor="@android:color/darker_gray"
-                app:layout_constraintTop_toBottomOf="@id/name_container"
-                app:layout_constraintLeft_toLeftOf="@id/height_container"/>
+                app:layout_constraintLeft_toLeftOf="@id/height_container"
+                app:layout_constraintTop_toBottomOf="@id/name_container" />
 
             <LinearLayout
                 android:id="@+id/height_container"
@@ -139,10 +148,10 @@
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="9dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="9dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
                 app:layout_constraintRight_toRightOf="@id/name_container"
                 app:layout_constraintTop_toBottomOf="@id/height_title">
 
@@ -150,6 +159,8 @@
                     android:id="@+id/height"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
                     android:backgroundTint="@color/colorAccent"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
@@ -159,11 +170,11 @@
                 android:id="@+id/weight_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Peso (kg)"
                 android:layout_marginTop="16dp"
+                android:text="Peso (kg)"
                 android:textColor="@android:color/darker_gray"
-                app:layout_constraintTop_toBottomOf="@id/height_container"
-                app:layout_constraintLeft_toLeftOf="@id/weight_container"/>
+                app:layout_constraintLeft_toLeftOf="@id/weight_container"
+                app:layout_constraintTop_toBottomOf="@id/height_container" />
 
             <LinearLayout
                 android:id="@+id/weight_container"
@@ -172,10 +183,10 @@
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="9dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="9dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/weight_title">
 
@@ -183,6 +194,8 @@
                     android:id="@+id/weight"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
                     android:backgroundTint="@color/colorAccent"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
@@ -192,11 +205,11 @@
                 android:id="@+id/gender_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sexo"
                 android:layout_marginTop="16dp"
+                android:text="Sexo"
                 android:textColor="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@id/gender_container"
-                app:layout_constraintLeft_toLeftOf="@id/gender_container"/>
+                app:layout_constraintLeft_toLeftOf="@id/gender_container" />
 
             <LinearLayout
                 android:id="@+id/gender_container"
@@ -205,13 +218,13 @@
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="9dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="9dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
+                app:layout_constraintBottom_toBottomOf="@id/weight_container"
                 app:layout_constraintLeft_toLeftOf="@id/height_container"
-                app:layout_constraintTop_toBottomOf="@id/weight_title"
-                app:layout_constraintBottom_toBottomOf="@id/weight_container">
+                app:layout_constraintTop_toBottomOf="@id/weight_title">
 
                 <Spinner
                     android:id="@+id/gender_spinner"
@@ -223,34 +236,34 @@
                 android:id="@+id/physical_activity_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Intensidade de atividade física"
                 android:layout_marginTop="16dp"
+                android:text="Intensidade de atividade física"
                 android:textColor="@android:color/darker_gray"
-                app:layout_constraintTop_toBottomOf="@id/weight_container"
-                app:layout_constraintLeft_toLeftOf="@id/physical_activity_container"/>
+                app:layout_constraintLeft_toLeftOf="@id/physical_activity_container"
+                app:layout_constraintTop_toBottomOf="@id/weight_container" />
 
             <ImageView
                 android:id="@+id/help"
-                android:src="@drawable/help_outline_black_18dp"
                 android:layout_width="50dp"
                 android:layout_height="16dp"
                 android:paddingRight="16dp"
                 android:paddingBottom="2dp"
-                app:layout_constraintLeft_toRightOf="@id/physical_activity_title"
-                app:layout_constraintBottom_toBottomOf="@id/physical_activity_title"/>
+                android:src="@drawable/help_outline_black_18dp"
+                app:layout_constraintBottom_toBottomOf="@id/physical_activity_title"
+                app:layout_constraintLeft_toRightOf="@id/physical_activity_title" />
 
             <LinearLayout
                 android:id="@+id/physical_activity_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="9dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="9dp"
-                android:layout_marginTop="6dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/physical_activity_title">
 
@@ -264,18 +277,35 @@
                 android:id="@+id/confirm"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:layout_marginBottom="30dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/blue_round_rec"
                 android:paddingLeft="14dp"
-                android:paddingRight="14dp"
                 android:paddingTop="6dp"
+                android:paddingRight="14dp"
                 android:paddingBottom="6dp"
                 android:text="OK"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/physical_activity_container" />
+
+            <TextView
+                android:id="@+id/alerta"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="23dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/confirm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/physical_activity_container" />
 
         </android.support.constraint.ConstraintLayout>
 

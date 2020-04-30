@@ -1,18 +1,26 @@
 package com.example.henriqueribeirodealmeida.nutre.Entities;
 
-public class Nutrient {
+import android.support.v7.app.AppCompatActivity;
+
+public class Nutrient extends AppCompatActivity {
+
 
     private String name;
     private double value;
     private double suggestedValue;
     private String measure;
+    private int human;
 
-    public Nutrient(){}
+
+    public Nutrient() {
+    }
 
     public Nutrient(String name, int value, String measure) {
         this.name = name;
         this.value = value;
         this.measure = measure;
+
+
     }
 
     public String getName() {
@@ -25,10 +33,12 @@ public class Nutrient {
 
     public double getValue() {
         return value;
+
     }
 
     public void setValue(int value) {
         this.value = value;
+
     }
 
     public String getMeasure() {
@@ -45,5 +55,14 @@ public class Nutrient {
 
     public void setSuggestedValue(double suggestedValue) {
         this.suggestedValue = suggestedValue;
+
     }
+
+
+
+
+
+
 }
+
+

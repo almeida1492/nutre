@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,18 +14,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
-import com.example.henriqueribeirodealmeida.nutre.Fragments.MealDetailsFragment;
 import com.example.henriqueribeirodealmeida.nutre.Fragments.PhysicalActivityInfoFragment;
 
 import java.util.ArrayList;
 
 public class UserActivity extends AppCompatActivity{
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+        final TextView alerta = findViewById(R.id.alerta);
         final EditText nameView = findViewById(R.id.name);
         final EditText ageView = findViewById(R.id.age);
         final EditText heightView = findViewById(R.id.height);
@@ -74,6 +74,7 @@ public class UserActivity extends AppCompatActivity{
         physicalActivityView.setSelection(UserInfoContainer.getPhysicalActivityIntensity(this));
         genderView.setSelection(UserInfoContainer.getGender(this));
 
+
         helpView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,23 +86,43 @@ public class UserActivity extends AppCompatActivity{
         confirmView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserInfoContainer.setName(getApplicationContext(), nameView.getText().toString());
-                if (!ageView.getText().toString().equals("")){
-                    UserInfoContainer.setAge(getApplicationContext(), Integer.valueOf(ageView.getText().toString()));
+                String name   = nameView.getText().toString();
+                String age    = ageView.getText().toString();
+                String height = heightView.getText().toString();
+                String weight = weightView.getText().toString();
+
+
+                UserInfoContainer.setName(getApplicationContext(), name);
+
+                if (!age.equals("")) {
+                    UserInfoContainer.setAge(getApplicationContext(), Integer.valueOf(age));
                 }
-                if (!heightView.getText().toString().equals("")){
-                    UserInfoContainer.setHeight(getApplicationContext(), Integer.valueOf(heightView.getText().toString()));
+
+                if (!height.equals("")) {
+                    UserInfoContainer.setHeight(getApplicationContext(), Integer.valueOf(height));
                 }
-                if (!weightView.getText().toString().equals("")){
-                    UserInfoContainer.setWeight(getApplicationContext(), Integer.valueOf(weightView.getText().toString()));
+
+                if (!weight.equals("")) {
+                    UserInfoContainer.setWeight(getApplicationContext(), Integer.valueOf(weight));
                 }
+
                 UserInfoContainer.setPhysicalActivityIntensity(getApplicationContext(), physicalActivityView.getSelectedItemPosition());
                 UserInfoContainer.setGender(getApplicationContext(), genderView.getSelectedItemPosition());
 
-                Intent intent = new Intent(UserActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+                if (name.isEmpty() || age.isEmpty() || height.isEmpty() || weight.isEmpty()){
+
+                    alerta.setText("Preencha corretamente !!");
+
+
+                } else {
+
+                    Intent intent = new Intent(UserActivity.this, FirstScree.class);
+                    startActivity(intent);
+
+                }
+            }});
+
+
 
     }
 }

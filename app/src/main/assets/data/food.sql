@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS `food` (
-	`name`	Text,
+	`name`	    Text,
 	`energy`	Float,
 	`carbohydrate`	Float,
 	`protein`	Float,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `food` (
 	`sodium`	Float,
 	`vitaminC`	Float,
 	`calcium`	Float,
-	`iron`	Float,
+	`iron`	    Float,
 	`vitaminA`	Float,
 	`selenium`	Float,
 	`potassium`	Float,
@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `food` (
 );
 INSERT INTO `food` VALUES (NULL,'Energia','Carboidrato','Proteína','Total fat','Saturated Fat','Trans Fat','Fibra Alimentar','Sódio','Vitamina C','Cálcio','Ferro','Vitamin A','Selenium','Potássio','Magnésio','Vitamin E','Tiamina'),
  ('Descrição dos alimentos','(kcal)','(g)','(g)','(g)','(mg)','(mcg)','(g)','(mg)','(mg)','(mg)','(mg)','(mg)','(mg)','(mg)','(mg)','(mg)','(mg)'),
+
  ('Arroz, integral, cozido',124.0,25.8,2.6,1.0,'NA','NA',2.7,1.0,NULL,5.0,0.3,0.02,106.0,75.0,59.0,0.7,0.08),
  ('Arroz, integral, cru',360.0,77.5,7.3,1.9,'NA','NA',4.8,2.0,NULL,8.0,0.9,0.07,251.0,173.0,110.0,1.4,0.26),
  ('Arroz, tipo 1, cozido',128.0,28.1,2.5,0.2,'NA','NA',1.6,1.0,NULL,4.0,0.1,0.02,18.0,15.0,2.0,0.5,'Tr'),
@@ -650,5 +651,6 @@ INSERT INTO `food` VALUES (NULL,'Energia','Carboidrato','Proteína','Total fat',
  ('Pinhão, cozido',174.0,43.9,3.0,0.7,'NA','NA',15.6,1.0,27.7,16.0,0.8,0.18,166.0,727.0,53.0,0.8,'Tr'),
  ('Pupunha, cozida',219.0,29.6,2.5,12.8,'NA','NA',4.3,1.0,2.2,28.0,0.5,0.28,49.0,303.0,25.0,0.3,'Tr'),
  ('Noz, crua',620.0,18.4,14.0,59.4,'NA','NA',7.2,5.0,'Tr',105.0,2.0,0.75,396.0,533.0,153.0,2.1,0.38),
+ ('Pizza',2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0),
  (NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 COMMIT;

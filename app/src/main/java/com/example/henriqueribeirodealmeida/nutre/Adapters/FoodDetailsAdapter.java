@@ -14,6 +14,8 @@ import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
 
+import static com.example.henriqueribeirodealmeida.nutre.R.id;
+
 public class FoodDetailsAdapter extends ArrayAdapter<Nutrient> {
 
     public FoodDetailsAdapter(@NonNull Context context, @NonNull ArrayList<Nutrient> summaryItems) {
@@ -31,19 +33,26 @@ public class FoodDetailsAdapter extends ArrayAdapter<Nutrient> {
                     R.layout.item_summary_panel, parent, false);
         }
 
+
         Nutrient nutrient = getItem(position);
 
-        TextView nameView = itemView.findViewById(R.id.name);
+        TextView nameView = itemView.findViewById(id.name);
         nameView.setText(nutrient.getName());
 
-        TextView valueView = itemView.findViewById(R.id.value);
+
+        TextView valueView = itemView.findViewById(id.value);
+
+
         int value = (int) nutrient.getValue();
+
+
         String valueOutput = value + nutrient.getMeasure();
         valueView.setText(valueOutput);
 
-        TextView suggestedValueView = itemView.findViewById(R.id.suggested_value);
+        TextView suggestedValueView = itemView.findViewById(id.suggested_value);
         suggestedValueView.setVisibility(View.GONE);
 
         return itemView;
     }
+
 }
