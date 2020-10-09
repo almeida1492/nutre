@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         panelView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // This method call returns the panel status towards view expansion from the adapter
+                // This method call returns the panel status towards view expansion from the adapterijieowj
                 boolean isExpanded = summaryAdapter.notifyClickToExpand();
 
                 if (isExpanded){
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
                 setListViewHeight(summaryView);
             }
-        });
+        });//
 
         dailyMeals = new ArrayList<>();
 
