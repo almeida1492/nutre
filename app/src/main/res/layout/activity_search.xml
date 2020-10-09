@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/colorPrimaryDark">
 
     <RelativeLayout
         android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#EEEEEE"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="60dp"
+        android:background="@drawable/picker"
+        android:layout_marginTop="32dp"
         android:elevation="4dp">
 
         <EditText
@@ -18,24 +22,75 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="21dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="21dp"
-            android:layout_marginTop="12dp"
-            android:hint="Digite o nome"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:backgroundTint="@android:color/black"
+            android:background="@null"
+            android:gravity="center"
+            android:hint="Digite o nome do alimento"
+            android:imeOptions="actionSearch"
             android:lines="1"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="?attr/actionMenuTextColor"
+            android:textSize="15sp"
+            app:fontFamily="@font/baloo_chettan" />
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/foods"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="1dp"
-        android:divider="#EEEEEE"
-        android:footerDividersEnabled="true"
-        android:headerDividersEnabled="true"
-        tools:listitem="@layout/item_search"/>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/meal_history_panel"
+        android:layout_width="320dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="22dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="22dp"
+        android:background="@drawable/white_round_rec"
+        app:layout_constraintTop_toBottomOf="@id/summary_panel">
+
+        <ListView
+
+            android:id="@+id/foods"
+            android:layout_width="300dp"
+            android:layout_height="380dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            android:divider="@null"
+            android:dividerHeight="4dp"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_search" >
+
+        </ListView>
+
+        <Button
+            android:id="@+id/new_food1"
+            android:layout_width="278dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="150dp"
+            android:rotation="10"
+            android:background="@drawable/picker"
+            android:text="Não encontrou seu alimento ?!\nAdicione um novo aqui !!"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/picker"
+        android:layout_marginTop="32dp"
+        android:text="Voltar" />
 
 </LinearLayout>

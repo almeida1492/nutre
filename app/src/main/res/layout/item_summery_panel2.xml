@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:orientation="vertical"
+    >
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="11sp"
+            android:textColor="@color/colorWhite"
+            tools:text="Calorias" />
+
+        <ImageView
+            android:id="@+id/silhueta"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:src="@mipmap/human_0"
+          />
+
+    <TextView
+        android:id="@+id/porcent"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="27dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="8sp"
+        android:textStyle="bold|italic"
+        tools:text="10%" />
+
+
+    <TextView
+        android:id="@+id/value2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="124dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="9sp"
+        android:textStyle="bold|italic"
+        tools:text="Ingerido:" />
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="120dp"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="9sp"
+        android:textStyle="bold|italic"
+        tools:text="45 kcal" />
+
+
+    <TextView
+        android:id="@+id/suggested_value2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="143dp"
+        android:gravity="left"
+        android:textColor="@color/colorWhite"
+        android:textSize="9sp"
+        android:textStyle="bold|italic"
+        tools:text="Sugerido:" />
+
+
+    <TextView
+        android:id="@+id/suggested_value"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="140dp"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="9sp"
+        android:textStyle="bold|italic"
+        tools:text="2500 kcal" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"
+       android:layout_marginTop="165dp"/>
+
+
+
+
+
+</RelativeLayout>

@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <ImageView
@@ -60,6 +61,7 @@
             android:background="@color/colorPrimaryDark" />
 
         <TextView
+            android:id="@+id/quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Composição em 100g"/>
@@ -70,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="48dp"
             android:layout_marginRight="48dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="42dp"
             tools:listitem="@layout/item_food_detail"/>
 
