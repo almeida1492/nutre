@@ -400,7 +400,7 @@ double helper;
 
         summaryItems.get(1).setName("Água");
         summaryItems.get(1).setValue((int) summaryValues.getWater());
-        summaryItems.get(1).setSuggestedValue((int) ((helper * 0.65)/4));
+        summaryItems.get(1).setSuggestedValue(UserInfoContainer.getWeight(this)*35);
         summaryItems.get(1).setMeasure(" ml");
 
         summaryItems.get(2).setName("Carboidrato");
