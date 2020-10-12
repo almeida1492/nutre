@@ -233,7 +233,6 @@ double helper;
 
             @Override
             public void onChanged(@Nullable final List<Food> foods) {
-               // foods.clear();
 
                 int [] mealIds = new int[foods.size()];
                 final HashMap<Integer, Integer> mealQuantity = new HashMap<>();
@@ -248,11 +247,10 @@ double helper;
                                 mealQuantity.put(food.getMealId(), (int) food.getQuantityPerUnit());
 
                             } else {
-                              //  if (foods.get(i).getDate().substring(0, 10).equals(CalendarDate)) {//edit
 
                                     int oldQuantity = mealQuantity.get(food.getMealId());
                                     mealQuantity.put(food.getMealId(), oldQuantity + (int) food.getQuantityPerUnit());
-                               // }
+
                             }
 
                     }catch(NullPointerException e){
