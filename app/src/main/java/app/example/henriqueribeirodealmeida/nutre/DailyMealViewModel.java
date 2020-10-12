@@ -20,11 +20,11 @@ public class DailyMealViewModel extends AndroidViewModel {
     public DailyMealViewModel (Application application) {
         super(application);
         mRepository = new DailyMealRepository(application);
-        mAllDailyMeals = mRepository.getAllDailyMeals();
+       //mAllDailyMeals = mRepository.getAllDailyMeals();
     }
 
-    LiveData<List<DailyMeal>> getAllDailyMeals() {
-        return mAllDailyMeals;
+    LiveData<List<DailyMeal>> getAllDailyMeals(String date) {
+        return mRepository.getAllDailyMeals(date);
     }
 
     public void insert(DailyMeal dailyMeal, ArrayList foods, FoodViewModel foodViewModel, Activity activity) {

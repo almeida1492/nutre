@@ -200,7 +200,7 @@ double helper;
         DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
 
         //daily meal started
-        dailyMealViewModel.getAllDailyMeals().observe(this, new Observer<List<DailyMeal>>() {
+        dailyMealViewModel.getAllDailyMeals(CalendarDate+"%").observe(this, new Observer<List<DailyMeal>>() {
             @Override
             public void onChanged(@Nullable final List<DailyMeal> liveMeals) {
                dailyMeals.clear();
@@ -229,7 +229,7 @@ double helper;
             }
         });
 
-        foodViewModel.getAllFood().observe(this, new Observer<List<Food>>() {
+        foodViewModel.getAllFood(CalendarDate+"%").observe(this, new Observer<List<Food>>() {
 
             @Override
             public void onChanged(@Nullable final List<Food> foods) {

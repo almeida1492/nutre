@@ -19,8 +19,8 @@ public interface DailyMealDAO {
     @Query("DELETE FROM daily_meal")
     void deleteAll();
 
-    @Query("SELECT * from daily_meal ORDER BY date DESC LIMIT 15 ")
-    LiveData<List<DailyMeal>> getAllDailyMeals();
+    @Query("SELECT * from daily_meal WHERE daily_meal.date LIKE (:date) ORDER BY date DESC LIMIT 15 ")
+    LiveData<List<DailyMeal>> getAllDailyMeals(String date);
 
     @Delete
     void deleteMeal(DailyMeal dailyMeal);

@@ -20,7 +20,7 @@ public class FoodViewModel extends AndroidViewModel {
         mRepository = new FoodRepository(application);
     }
 
-    LiveData<List<Food>> getAllFood() { return mRepository.getAllFood(); }
+    LiveData<List<Food>> getAllFood(String date) { return mRepository.getAllFood(date); }
 
     LiveData<List<Food>> findDailyMealFoods(int dailyMealId) {
         return mRepository.getAllDailyMealFood(dailyMealId); }

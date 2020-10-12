@@ -23,8 +23,8 @@ public class FoodRepository {
         return mFoodDao.findDailyMealFoods(dailyMealId);
     }
 
-    public LiveData<List<Food>> getAllFood() {
-        return mFoodDao.getAllFood();
+    public LiveData<List<Food>> getAllFood(String date) {
+        return mFoodDao.getAllFood(date);
     }
 
 

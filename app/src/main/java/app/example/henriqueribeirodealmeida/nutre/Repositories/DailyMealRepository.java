@@ -24,11 +24,11 @@ public class DailyMealRepository {
     public DailyMealRepository(Application application) {
         MealRoomDatabase db = MealRoomDatabase.getDatabase(application);
         mDailyMealDao = db.dailyMealDao();
-        mAllDailyMeals = mDailyMealDao.getAllDailyMeals();
+        //mAllDailyMeals = mDailyMealDao.getAllDailyMeals();
     }
 
-    public LiveData<List<DailyMeal>> getAllDailyMeals() {
-        return mAllDailyMeals;
+    public LiveData<List<DailyMeal>> getAllDailyMeals(String date) {
+        return mDailyMealDao.getAllDailyMeals(date);
     }
 
     //insert

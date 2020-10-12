@@ -22,8 +22,8 @@ public interface FoodDAO {
     @Query("SELECT * FROM food WHERE dailyMealId=:dailyMealId")
     LiveData<List<Food>> findDailyMealFoods(final int dailyMealId);
 
-    @Query("SELECT * FROM food f INNER JOIN meals m ON m.id = f.mealId")
-    LiveData<List<Food>> getAllFood();
+    @Query("SELECT * FROM food f INNER JOIN meals m ON m.id = f.mealId INNER JOIN daily_meal d ON d.id = f.dailyMealId WHERE d.date LIKE (:date)")
+    LiveData<List<Food>> getAllFood(String date);
 
     @Delete
     void delete(Food food);
