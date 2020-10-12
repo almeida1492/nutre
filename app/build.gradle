@@ -6,7 +6,7 @@ android {
         applicationId "app.example.henriqueribeirodealmeida.nutre"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 14
+        versionCode 15
         versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

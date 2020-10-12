@@ -143,8 +143,8 @@ Nutrient requiredenergy;
                     UserInfoContainer.setHeight(getApplicationContext(), Integer.valueOf(height));
                     UserInfoContainer.setWeight(getApplicationContext(), Integer.valueOf(weight));
 
-                    imc.setText("Valores de IMC de referência:\n "+ formatador.format( Helpers.calculateIMC(UserActivity.this)));
-                    valorEnergetico.setText("Valor energético \npara manter seu peso atual ou escolhido:\n"+formatador1.format(UserInfoContainer.getEnergy(getApplicationContext()))+"\tKcal");
+                    imc.setText("Seu IMC atual é:\n "+ formatador.format( Helpers.calculateIMC(UserActivity.this)));
+                    valorEnergetico.setText("Valor energético para\n manter seu peso atual:\n"+formatador1.format(UserInfoContainer.getEnergy(getApplicationContext()))+"\tKcal");
 
 
                     findViewById(R.id.valorpadrao).setOnClickListener(new View.OnClickListener() {

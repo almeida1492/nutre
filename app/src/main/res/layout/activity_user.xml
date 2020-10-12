@@ -317,6 +317,16 @@
                     android:text="IMC"
                     android:textColor="@android:color/darker_gray" />
 
+                <TextView
+                    android:id="@+id/imc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:text="Valores de IMC de referência:"
+                    android:textColor="@android:color/darker_gray" />
+
                 <ImageView
                     android:id="@+id/info_IMC"
                     android:layout_width="70dp"
@@ -340,7 +350,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     android:gravity="center"
-                    android:text="Valor energetico"
+                    android:text="Valor energetico\n"
                     android:textColor="@android:color/darker_gray" />
 
 
