@@ -85,9 +85,6 @@ public class FoodDetailsActivity extends AppCompatActivity{
             factor = totalQuantity / 100;
 
         }
-        //meal.setUnity(meal.getUnity());
-        String Unity =  meal.getUnity();//teste
-
         quantityView.setText("Composição em  100g" );
 
         setSummaryItems();

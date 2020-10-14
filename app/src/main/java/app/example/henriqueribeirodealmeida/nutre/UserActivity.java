@@ -31,7 +31,6 @@ import java.util.ArrayList;
 
 public class UserActivity extends AppCompatActivity{
 
-Nutrient requiredenergy;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,8 +82,8 @@ Nutrient requiredenergy;
         genderAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         genderView.setAdapter(genderAdapter);
 
-        ArrayList<String> EnergeticOption = new ArrayList<>();
-        EnergeticOption.add("-ppppppp");
+        final ArrayList<String> EnergeticOption = new ArrayList<>();
+        EnergeticOption.add("Continuar com o calculado\n pelo aplicativo");
         EnergeticOption.add("Valor padrão de 2000 Kcal");
         EnergeticOption.add("Digite seu próprio valor energético");
         ArrayAdapter<String> EnergyAdaper = new ArrayAdapter<>(this,R.layout.spinner_default,EnergeticOption);
@@ -155,35 +154,39 @@ Nutrient requiredenergy;
                     imc.setText("Seu IMC atual é:\n "+ formatador.format( Helpers.calculateIMC(UserActivity.this)));
                     valorEnergetico.setText("Valor energético para\n manter seu peso atual:\n"+formatador1.format(UserInfoContainer.getEnergy(getApplicationContext()))+"\tKcal");
 
- /*
-                    findViewById(R.id.valorpadrao).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
 
-                            UserInfoContainer.setEnergy(getApplicationContext(),2000);
-                        }
-                    });
-
-                    if( !valorEscolhido.getText().toString().isEmpty()) {
-                        if (Integer.valueOf(valorEscolhido.getText().toString()) > 1000) {
-
-                            UserInfoContainer.setEnergy(getApplicationContext(), Integer.valueOf(valorEscolhido.getText().toString()));
-                        }
-                    }
-                        */
-                    UserInfoContainer.setEnergy(getApplicationContext(), (int) Helpers.calculateRequiredEnergy(UserActivity.this));
                     findViewById(R.id.ok2).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            switch(Energeticvalue.getSelectedItemPosition()){
+                                case(0):
+                                    UserInfoContainer.setEnergy(getApplicationContext(), (int) Helpers.calculateRequiredEnergy(UserActivity.this));
+                                    valorEscolhido.setVisibility(View.GONE);
+                                    new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
+                                    break;
+                                case(1):
+                                    UserInfoContainer.setEnergy(getApplicationContext(),2000);
+                                    valorEscolhido.setVisibility(View.GONE);
+                                    new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
+                                    break;
+                                case(2):
+                                    valorEscolhido.setVisibility(View.VISIBLE);
+                                    if (!valorEscolhido.getText().toString().isEmpty()) {
+                                        UserInfoContainer.setEnergy(getApplicationContext(), Integer.valueOf(valorEscolhido.getText().toString()));
 
-                            new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
+                                        new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
+                                    }
+                                    break;
+
                             }
+
+                        }
+
                     });
 
 
                 }
             }});
-
 
          SharedPreferences pref = getSharedPreferences("ActivityPREF", Context.MODE_PRIVATE);
          SharedPreferences.Editor edt = pref.edit();
