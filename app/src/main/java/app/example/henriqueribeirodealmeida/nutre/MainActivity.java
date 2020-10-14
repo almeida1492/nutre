@@ -63,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
     private SummaryAdapter summaryAdapter;
     private ArrayList<DailyMeal> dailyMeals;
     private String CalendarDate;
-    private ArrayList<Food> food; // edit
-double helper;
+    double helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,7 +186,6 @@ double helper;
         });
 
         dailyMeals = new ArrayList<>();
-        food = new ArrayList<>();//edit
 
         final MealHistoryAdapter mealHistoryAdapter = new MealHistoryAdapter(this, dailyMeals, CalendarDate);
         mealHistoryView.setAdapter(mealHistoryAdapter);

@@ -36,7 +36,6 @@ public class UserActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-
         final EditText nameView = findViewById(R.id.name);
         final EditText ageView = findViewById(R.id.age);
         final EditText heightView = findViewById(R.id.height);
@@ -55,8 +54,6 @@ public class UserActivity extends AppCompatActivity{
 
        // final TextView textoIMC = findViewById(R.id.textoIMC);
         ImageView infoIMC = findViewById(R.id.info_IMC);
-
-
 
         linearIMC.setVisibility(View.GONE);
 
@@ -130,10 +127,10 @@ public class UserActivity extends AppCompatActivity{
                 String age    = ageView.getText().toString();
                 String height = heightView.getText().toString();
                 String weight = weightView.getText().toString();
-
-
+                
                 UserInfoContainer.setPhysicalActivityIntensity(getApplicationContext(), physicalActivityView.getSelectedItemPosition());
                 UserInfoContainer.setGender(getApplicationContext(), genderView.getSelectedItemPosition());
+
 
                 if (name.isEmpty() || age.isEmpty() || height.isEmpty() || weight.isEmpty()){
                     Toast.makeText(UserActivity.this, "Preencha corretamente ", Toast.LENGTH_SHORT).show();
@@ -150,6 +147,8 @@ public class UserActivity extends AppCompatActivity{
                     UserInfoContainer.setAge(getApplicationContext(),    Integer.valueOf(age));
                     UserInfoContainer.setHeight(getApplicationContext(), Integer.valueOf(height));
                     UserInfoContainer.setWeight(getApplicationContext(), Integer.valueOf(weight));
+
+                    UserInfoContainer.setEnergy(getApplicationContext(), (int) Helpers.calculateRequiredEnergy(UserActivity.this));
 
                     imc.setText("Seu IMC atual é:\n "+ formatador.format( Helpers.calculateIMC(UserActivity.this)));
                     valorEnergetico.setText("Valor energético para\n manter seu peso atual:\n"+formatador1.format(UserInfoContainer.getEnergy(getApplicationContext()))+"\tKcal");

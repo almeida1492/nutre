@@ -121,12 +121,28 @@
                 app:layout_constraintTop_toBottomOf="@+id/spinner_food_image"
                 tools:layout_editor_absoluteX="32dp"
                 app:layout_goneMarginTop="10dp"/>
-
+<!--
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginBottom="2dp"
+                android:padding="5dp"
+                android:background="@drawable/blue_round_rec"
+                android:text="Não encontrou algum alimento?\n crie um agora"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@+id/food_picker"
+                app:layout_constraintStart_toEndOf="@+id/text_alimento"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_food_image" />
+-->
             <TextView
                 android:id="@+id/text_alimento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alimento"
+
                 android:textColor="@android:color/darker_gray"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toTopOf="@id/food_picker"
@@ -257,6 +273,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/add_item" />
+
+
 
         </android.support.constraint.ConstraintLayout>
 
