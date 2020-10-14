@@ -373,9 +373,9 @@ dependendo de suas necessidades energéticas."
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:text="Se você quiser é posivel escolher um valor padrão ou
-seu proprio valor energético"
+seu proprio valor energético."
                     android:textColor="@android:color/darker_gray" />
-
+<!--
                 <Button
                     android:id="@+id/valorpadrao"
                     android:layout_width="wrap_content"
@@ -385,7 +385,7 @@ seu proprio valor energético"
                     android:text="\tValor padrão de 2000Kcal\t"
                     android:textSize="13sp"
                     android:typeface="normal" />
-
+-->
                 <TextView
                     android:id="@+id/o"
                     android:layout_width="wrap_content"
@@ -393,8 +393,30 @@ seu proprio valor energético"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="15dp"
                     android:gravity="center"
-                    android:text="ou"
+                    android:text="Escolha aqui:"
                     android:textColor="@android:color/darker_gray" />
+            <LinearLayout
+                android:id="@+id/a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/picker_shape"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="9dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
+                >
+
+                <Spinner
+                    android:id="@+id/EnergeticValue"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
 
                 <EditText
                     android:id="@+id/valorescolhido"

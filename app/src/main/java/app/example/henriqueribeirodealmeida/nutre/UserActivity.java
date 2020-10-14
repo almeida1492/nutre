@@ -44,6 +44,7 @@ Nutrient requiredenergy;
         final EditText weightView = findViewById(R.id.weight);
         final Spinner physicalActivityView = findViewById(R.id.physical_activity_spinner);
         final Spinner genderView = findViewById(R.id.gender_spinner);
+        final Spinner Energeticvalue = findViewById(R.id.EnergeticValue);
         ImageView helpView = findViewById(R.id.help);
         Button confirmView = findViewById(R.id.confirm);
 
@@ -81,6 +82,14 @@ Nutrient requiredenergy;
         ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, R.layout.spinner_default, genderOptions);
         genderAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
         genderView.setAdapter(genderAdapter);
+
+        ArrayList<String> EnergeticOption = new ArrayList<>();
+        EnergeticOption.add("-ppppppp");
+        EnergeticOption.add("Valor padrão de 2000 Kcal");
+        EnergeticOption.add("Digite seu próprio valor energético");
+        ArrayAdapter<String> EnergyAdaper = new ArrayAdapter<>(this,R.layout.spinner_default,EnergeticOption);
+        EnergyAdaper.setDropDownViewResource(R.layout.item_spinner_dropdown);
+        Energeticvalue.setAdapter(EnergyAdaper);
 
         if (!UserInfoContainer.getName(this).equals("")){
             nameView.setText(UserInfoContainer.getName(this));
@@ -146,7 +155,7 @@ Nutrient requiredenergy;
                     imc.setText("Seu IMC atual é:\n "+ formatador.format( Helpers.calculateIMC(UserActivity.this)));
                     valorEnergetico.setText("Valor energético para\n manter seu peso atual:\n"+formatador1.format(UserInfoContainer.getEnergy(getApplicationContext()))+"\tKcal");
 
-
+ /*
                     findViewById(R.id.valorpadrao).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -161,7 +170,7 @@ Nutrient requiredenergy;
                             UserInfoContainer.setEnergy(getApplicationContext(), Integer.valueOf(valorEscolhido.getText().toString()));
                         }
                     }
-
+                        */
                     UserInfoContainer.setEnergy(getApplicationContext(), (int) Helpers.calculateRequiredEnergy(UserActivity.this));
                     findViewById(R.id.ok2).setOnClickListener(new View.OnClickListener() {
                         @Override
