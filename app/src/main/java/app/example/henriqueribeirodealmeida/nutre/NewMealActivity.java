@@ -74,7 +74,7 @@ public class NewMealActivity extends AppCompatActivity {
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
         final EditText mealTypeView = findViewById(R.id.meal_type_picker);
         emptyView = findViewById(R.id.empty);
-        final Button pathNewMeal = findViewById(R.id.newmeal_path);
+        //final Button pathNewMeal = findViewById(R.id.newmeal_path);
 
         initList();
 
@@ -93,7 +93,7 @@ public class NewMealActivity extends AppCompatActivity {
             mealTypeView.setText(bundle.getString("name"));
             updateFlag = true;
             emptyView.setVisibility(View.GONE);
-            pathNewMeal.setVisibility(View.GONE);//incomleto
+            //pathNewMeal.setVisibility(View.GONE);//incomleto
         }
 
 

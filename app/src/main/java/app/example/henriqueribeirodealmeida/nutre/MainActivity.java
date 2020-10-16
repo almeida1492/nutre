@@ -1,5 +1,6 @@
 package app.example.henriqueribeirodealmeida.nutre;
 
+import android.animation.ObjectAnimator;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
@@ -181,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void changeVisibility(boolean visible) {
                 findViewById(R.id.litlle_button).setRotation(visible ?180:0);
-
                 TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(800));
 
                 // This method call returns the panel status towards view expansion from the adapter
@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
                                 magnesium += meal.getMagnesium() * meal.getUnityMultiplier() * quantity / 100;
                                 thiamine += meal.getThiamine() * meal.getUnityMultiplier() * quantity / 100;
 
-                                                            }//for
+                                                            }
 
                                     summaryItems.get(0).setValue(Math.round(energy));
                                     summaryItems.get(1).setValue(Math.round(water));
@@ -343,6 +343,13 @@ public class MainActivity extends AppCompatActivity {
         });//
 
 
+           rotate(titleView);
+           rotate(userView);
+           rotate(searchView);
+           rotate(newMealButton);
+           rotate(floatButton);
+           rotate(calendar);
+           
 
         floatButton.setOnClickListener(new VisibleToggleClickListener() {
 
@@ -357,7 +364,7 @@ public class MainActivity extends AppCompatActivity {
 
                 textfloatb.setVisibility(visible?View.GONE:View.VISIBLE);
                 textfloatb.setTranslationX(visible?0:-200);
-                textfloatb.setText(visible?"":  dailyMeals.isEmpty()?   "Adicione sua primeira\nrefeição do dia.": "Adicione uma Refeição.");
+                textfloatb.setText(visible?"":  dailyMeals.isEmpty()? "Adicione sua primeira\nrefeição do dia.": "Adicione uma Refeição.");
 
 
             }
@@ -630,6 +637,13 @@ public class MainActivity extends AppCompatActivity {
     public void showDatePicker(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "date picker");
+    }
+
+    public void rotate(View view){
+        ObjectAnimator titleview = ObjectAnimator.ofFloat(view, "rotation", 360);
+        titleview.start();
+        titleview.setDuration(1000);
+
     }
 
 }
