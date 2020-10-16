@@ -127,7 +127,6 @@ public class UserActivity extends AppCompatActivity{
                 String age    = ageView.getText().toString();
                 String height = heightView.getText().toString();
                 String weight = weightView.getText().toString();
-                
                 UserInfoContainer.setPhysicalActivityIntensity(getApplicationContext(), physicalActivityView.getSelectedItemPosition());
                 UserInfoContainer.setGender(getApplicationContext(), genderView.getSelectedItemPosition());
 
@@ -147,7 +146,6 @@ public class UserActivity extends AppCompatActivity{
                     UserInfoContainer.setAge(getApplicationContext(),    Integer.valueOf(age));
                     UserInfoContainer.setHeight(getApplicationContext(), Integer.valueOf(height));
                     UserInfoContainer.setWeight(getApplicationContext(), Integer.valueOf(weight));
-
                     UserInfoContainer.setEnergy(getApplicationContext(), (int) Helpers.calculateRequiredEnergy(UserActivity.this));
 
                     imc.setText("Seu IMC atual é:\n "+ formatador.format( Helpers.calculateIMC(UserActivity.this)));
@@ -174,6 +172,8 @@ public class UserActivity extends AppCompatActivity{
                                         UserInfoContainer.setEnergy(getApplicationContext(), Integer.valueOf(valorEscolhido.getText().toString()));
 
                                         new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
+                                    }else{
+                                        Toast.makeText(UserActivity.this, "Preencha o campo corretamente", Toast.LENGTH_SHORT).show();
                                     }
                                     break;
 

@@ -74,7 +74,7 @@ public class NewMealActivity extends AppCompatActivity {
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
         final EditText mealTypeView = findViewById(R.id.meal_type_picker);
         emptyView = findViewById(R.id.empty);
-
+        final Button pathNewMeal = findViewById(R.id.newmeal_path);
 
         initList();
 
@@ -84,8 +84,6 @@ public class NewMealActivity extends AppCompatActivity {
 
 
         if (bundle != null){
-           id2 = bundle.getInt("foodvalues");//teste
-
             name = bundle.getString("name");
             id = bundle.getInt("dailyMealId");
             foods = bundle.getParcelableArrayList("foods");
@@ -95,6 +93,7 @@ public class NewMealActivity extends AppCompatActivity {
             mealTypeView.setText(bundle.getString("name"));
             updateFlag = true;
             emptyView.setVisibility(View.GONE);
+            pathNewMeal.setVisibility(View.GONE);//incomleto
         }
 
 
@@ -137,6 +136,10 @@ public class NewMealActivity extends AppCompatActivity {
         foodPickerView.setDropDownWidth(-1);
         foodPickerView.setAdapter(autoCompleteAdapter);
 
+
+
+
+
         mealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
             @Override
             public void onChanged(@Nullable final List<Meal> liveMeals) {
@@ -146,15 +149,30 @@ public class NewMealActivity extends AppCompatActivity {
                     if (meal != null && meal.getName() != null) {
                         meals.add(meal);
                         autoCompleteAdapter.notifyDataSetChanged();
-                    }
-                }
-            }
-        });
 
+
+                    }
+
+                }
+
+            }
+
+        });
+/*
+if (adapter.isEmpty() ) {
+            pathNewMeal.setVisibility(View.VISIBLE);
+        } else {
+            pathNewMeal.setVisibility(View.GONE);
+        }
+*/
         final AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods, meals);
         addedFoodList.setAdapter(adapter);
         addedFoodList.setFocusable(false);
         setListViewHeight();
+
+
+
+
 
         measureValueView.setText("");
         measureLabelView.setText("");
@@ -186,7 +204,6 @@ public class NewMealActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!measureValueView.getText().toString().equals("") &  !mealTypeView.getText().toString().equals("")){
-
 
                     emptyView.setVisibility(View.GONE);
                     double quantity = Double.parseDouble(measureValueView.getText().toString());//.replaceAll("\\D+","")

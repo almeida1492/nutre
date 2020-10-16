@@ -18,7 +18,7 @@
         android:focusable="true">
     <TextView
         android:id="@+id/textView_scree"
-        android:layout_width="351dp"
+        android:layout_width="wrap_content"
         android:layout_height="236dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
@@ -50,49 +50,41 @@
 
         <ImageView
             android:id="@+id/user_action"
-            android:layout_width="36dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="69dp"
-            android:layout_marginLeft="69dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="48dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
             android:layout_marginBottom="16dp"
             android:src="@mipmap/round_account_circle_white_36"
             app:layout_constraintBottom_toTopOf="@+id/search_action"
-            app:layout_constraintEnd_toStartOf="@+id/text_info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_info"
-            android:layout_width="170dp"
+            android:layout_width="match_parent"
             android:layout_height="35sp"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
             android:gravity="center|left"
-            android:text="  - Informações do usuário "
+            android:text="\t  - Informações do usuário "
             android:textColor="@color/colorWhite"
             android:textSize="13sp"
+            android:textAlignment="center"
             app:fontFamily="sans-serif-smallcaps"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="104dp" />
 
         <ImageView
             android:id="@+id/search_action"
             android:layout_width="36dp"
             android:layout_height="40dp"
-            android:layout_marginStart="69dp"
-            android:layout_marginLeft="69dp"
-            android:layout_marginTop="104dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
             android:src="@mipmap/baseline_search_white_36"
-            app:layout_constraintEnd_toStartOf="@+id/text_search"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/user_action" />
 
         <Button
             android:id="@+id/initial_button"
@@ -114,19 +106,16 @@
 
         <TextView
             android:id="@+id/text_search"
-            android:layout_width="170dp"
+            android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_marginTop="106dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:gravity="center|left"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
             android:text="  - Buscar alimentos "
             android:textColor="@color/colorWhite"
             android:textSize="13sp"
             app:fontFamily="sans-serif-smallcaps"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/text_info"
+            tools:layout_editor_absoluteX="115dp" />
 
 
     </android.support.constraint.ConstraintLayout>
