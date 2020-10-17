@@ -12,13 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="app.example.henriqueribeirodealmeida.nutre.FirstScree">
+        <activity android:name="app.example.henriqueribeirodealmeida.nutre.SplashScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
+
+
 
         <activity android:name="app.example.henriqueribeirodealmeida.nutre.MainActivity"
                   android:theme="@style/AppTheme"/>

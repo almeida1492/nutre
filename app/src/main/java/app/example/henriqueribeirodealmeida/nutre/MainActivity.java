@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.GridView;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Fragment fragment = getSupportFragmentManager().findFragmentByTag("date picker");
         if(fragment != null) getSupportFragmentManager().beginTransaction().remove(fragment).commit();
 
@@ -349,7 +350,7 @@ public class MainActivity extends AppCompatActivity {
            rotate(newMealButton);
            rotate(floatButton);
            rotate(calendar);
-           
+
 
         floatButton.setOnClickListener(new VisibleToggleClickListener() {
 
