@@ -38,9 +38,8 @@
         android:layout_marginRight="32dp"
         android:gravity="center"
         android:lineSpacingExtra="3dp"
-        android:text="Índice de Massa Corporal é um parâmetro utilizado para saber
-se o peso está de acordo com a altura da pessoa, o que pode interferir diretamente na saúde
-e qualidade de vida da pessoa."
+        android:text="O índice de massa corporal (IMC) é um parâmetro utilizado
+ para avaliar de forma rápida se a pessoa está com o peso abaixo da normalidade, dentro da faixa normal ou com algum grau de sobrepeso ou obesidade."
         android:textColor="@android:color/black"
         android:textSize="13sp" />
 
@@ -68,10 +67,9 @@ esse índice, lembrando-se sempre de que outros fatores podem afetar o peso de u
         android:gravity="center"
         android:textSize="13sp"
         android:lineSpacingExtra="3dp"
-        android:text="Assim sendo, o IMC apresenta suas limitações e nunca deve ser usado como
-único padrão para avaliar se uma pessoa está ou não acima do peso. Esse índice, quando usado
-como única forma de avaliação, pode levar a um diagnóstico impreciso e consequentemente a um
-tratamento ineficiente. \n\n IMC menor que 18,5 - Abaixo do peso\n IMC entre 18,5 e 24,9 - Peso normal\n
+        android:text="Embora seja simples de ser calculado, o IMC apresenta limitações.
+Por este motivo se eu resultado não é decisivo. Apenas um profissional qualificado pode dar
+o diagnóstico correto sobre o seu estado nutricional. \n\n IMC menor que 18,5 - Abaixo do peso\n IMC entre 18,5 e 24,9 - Peso normal\n
 IMC entre 24,9 e 29,9 - Acima do peso\nIMC maior que 29,9 - Obesidade"
         android:textColor="@android:color/black" />
 

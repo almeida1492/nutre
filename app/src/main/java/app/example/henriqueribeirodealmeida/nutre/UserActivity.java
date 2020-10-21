@@ -82,9 +82,9 @@ public class UserActivity extends AppCompatActivity{
         genderView.setAdapter(genderAdapter);
 
         final ArrayList<String> EnergeticOption = new ArrayList<>();
-        EnergeticOption.add("Continuar com o calculado\n pelo aplicativo");
-        EnergeticOption.add("Valor padrão de 2000 Kcal");
-        EnergeticOption.add("Digite seu próprio valor energético");
+        EnergeticOption.add("Usar o valor energético aproximado\n para manter seu peso atual");
+        EnergeticOption.add("Valor energético\n padrão de 2.000 Kcal");
+        EnergeticOption.add("Utilizar outro valor energético");
         ArrayAdapter<String> EnergyAdaper = new ArrayAdapter<>(this,R.layout.spinner_default,EnergeticOption);
         EnergyAdaper.setDropDownViewResource(R.layout.item_spinner_dropdown);
         Energeticvalue.setAdapter(EnergyAdaper);

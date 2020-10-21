@@ -363,20 +363,10 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     android:gravity="center"
-                    android:text="Seus valores diários podem ser maiores ou menores
-dependendo de suas necessidades energéticas."
+                    android:text="Selecione abaixo o valor energético a ser utilizado
+como referência nas suas avaliações."
                     android:textColor="@android:color/darker_gray" />
 
-                <TextView
-                    android:id="@+id/texto_valorenergetico2"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="Se você quiser é posivel escolher um valor padrão ou
-seu proprio valor energético."
-                    android:textColor="@android:color/darker_gray" />
 <!--
                 <Button
                     android:id="@+id/valorpadrao"

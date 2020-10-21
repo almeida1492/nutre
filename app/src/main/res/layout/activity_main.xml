@@ -23,7 +23,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="9dp"
-
             android:padding="23dp"
             android:text="nutre"
             android:textColor="@color/colorWhite"
@@ -277,6 +276,27 @@
             app:layout_constraintTop_toBottomOf="@+id/summary_panel"
             app:maxImageSize="54dp" />
 
+        <TextView
+            android:id="@+id/text_floatbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:elevation="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone"
+            android:text="Adicione sua Refeição."
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="normal"
+            app:fontFamily="@font/allerta"
+            app:layout_constraintBottom_toTopOf="@+id/meal_history_panel"
+            app:layout_constraintStart_toEndOf="@+id/floatingButton"
+            app:layout_constraintTop_toBottomOf="@+id/summary_panel" />
+
         <android.support.constraint.ConstraintLayout
             android:id="@+id/meal_history_panel"
             android:layout_width="match_parent"
@@ -327,26 +347,7 @@
                 app:layout_constraintTop_toBottomOf="@id/meal_history_title" />
         </android.support.constraint.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/text_floatbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:elevation="15dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="12dp"
-            android:visibility="gone"
-            android:text="Adicione sua Refeição."
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:typeface="normal"
-            app:fontFamily="@font/allerta"
-            app:layout_constraintBottom_toTopOf="@+id/meal_history_panel"
-            app:layout_constraintStart_toEndOf="@+id/floatingButton"
-            app:layout_constraintTop_toBottomOf="@+id/summary_panel" />
+
 
 
     </android.support.constraint.ConstraintLayout>
