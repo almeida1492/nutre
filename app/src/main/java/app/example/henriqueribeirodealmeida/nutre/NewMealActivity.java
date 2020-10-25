@@ -172,10 +172,6 @@ if (adapter.isEmpty() ) {
         addedFoodList.setFocusable(false);
         setListViewHeight();
 
-
-
-
-
         measureValueView.setText("");
         measureLabelView.setText("");
 
@@ -282,6 +278,8 @@ if (adapter.isEmpty() ) {
                         Bundle bundle = new Bundle();
                         bundle.putInt("foodicon", foodicon.getFoodImage());
                         intent.putExtra("bundle", bundle);
+
+
                         startActivity(intent);
                     }
 

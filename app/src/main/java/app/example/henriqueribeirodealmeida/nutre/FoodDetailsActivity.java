@@ -37,7 +37,6 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_details);
 
@@ -82,12 +81,13 @@ public class FoodDetailsActivity extends AppCompatActivity{
             homeView.setVisibility(View.INVISIBLE);
             double totalQuantity;
             double quantity = bundle.getDouble("quantity");
-
+            String unity = meal.getUnity();
             totalQuantity = quantity * meal.getUnityMultiplier();
             factor = totalQuantity / 100;
 
         }
-        quantityView.setText("Composição em  100g" );
+        //quantityView.setText("Composição em  100g" );
+        quantityView.setText("Composição em "+meal.getUnityMultiplier()*factor + " g");
 
         setSummaryItems();
 

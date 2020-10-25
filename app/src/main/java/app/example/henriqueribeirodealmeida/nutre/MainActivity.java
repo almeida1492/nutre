@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         Fragment fragment = getSupportFragmentManager().findFragmentByTag("date picker");
         if(fragment != null) getSupportFragmentManager().beginTransaction().remove(fragment).commit();
 
@@ -185,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.litlle_button).setRotation(visible ?180:0);
                 TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(800));
 
+
                 // This method call returns the panel status towards view expansion from the adapter
                 panelMask.setVisibility(visible? View.INVISIBLE:View.VISIBLE);
                 summaryAdapter.notifyClickToExpand();
@@ -203,6 +206,8 @@ public class MainActivity extends AppCompatActivity {
         final MealViewModel mealViewModel     = ViewModelProviders.of(this).get(MealViewModel.class);
         FoodViewModel foodViewModel           = ViewModelProviders.of(this).get(FoodViewModel.class);
         DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
+
+
 
         //daily meal started
         dailyMealViewModel.getAllDailyMeals(CalendarDate+"%").observe(this, new Observer<List<DailyMeal>>() {

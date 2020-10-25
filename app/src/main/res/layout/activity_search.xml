@@ -7,7 +7,7 @@
     android:animateLayoutChanges="true"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/first_screen">
 
     <RelativeLayout
         android:id="@+id/search_bar"

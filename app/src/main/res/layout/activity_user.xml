@@ -364,7 +364,7 @@
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:text="Selecione abaixo o valor energético a ser utilizado
-como referência nas suas avaliações."
+como referência\n nas suas avaliações."
                     android:textColor="@android:color/darker_gray" />
 
 <!--
