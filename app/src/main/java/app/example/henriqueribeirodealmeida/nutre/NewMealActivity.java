@@ -1,5 +1,6 @@
 package app.example.henriqueribeirodealmeida.nutre;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -8,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -56,7 +59,6 @@ public class NewMealActivity extends AppCompatActivity {
     private FoodImageAdapter mAdapter;
 
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -76,7 +78,12 @@ public class NewMealActivity extends AppCompatActivity {
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
         final EditText mealTypeView = findViewById(R.id.meal_type_picker);
         emptyView = findViewById(R.id.empty);
-        //final Button pathNewMeal = findViewById(R.id.newmeal_path);
+        final Button pathNewMeal = findViewById(R.id.new_food_path);
+
+
+
+
+
 
         initList();
 
@@ -95,7 +102,7 @@ public class NewMealActivity extends AppCompatActivity {
             mealTypeView.setText(bundle.getString("name"));
             updateFlag = true;
             emptyView.setVisibility(View.GONE);
-            //pathNewMeal.setVisibility(View.GONE);//incomleto
+            pathNewMeal.setVisibility(View.GONE);
         }
 
 
@@ -138,10 +145,6 @@ public class NewMealActivity extends AppCompatActivity {
         foodPickerView.setDropDownWidth(-1);
         foodPickerView.setAdapter(autoCompleteAdapter);
 
-
-
-
-
         mealViewModel.getmAllMeals().observe(this, new Observer<List<Meal>>() {
             @Override
             public void onChanged(@Nullable final List<Meal> liveMeals) {
@@ -160,13 +163,46 @@ public class NewMealActivity extends AppCompatActivity {
             }
 
         });
-/*
-if (adapter.isEmpty() ) {
-            pathNewMeal.setVisibility(View.VISIBLE);
-        } else {
-            pathNewMeal.setVisibility(View.GONE);
-        }
-*/
+
+
+
+
+        foodPickerView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(autoCompleteAdapter.getCount() < 2 ){
+                        pathNewMeal.setVisibility(View.VISIBLE);
+
+
+                            ObjectAnimator titleview = ObjectAnimator.ofFloat(pathNewMeal, "rotation", 720);
+                            titleview.start();
+                            titleview.setDuration(1000);
+
+                            pathNewMeal.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    new TrocaDeTela(NewMealActivity.this, NewFood.class, R.anim.mover_esquerda, R.anim.fade_in);
+
+                                }
+                            });
+                }else{
+                    pathNewMeal.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        pathNewMeal.setVisibility(View.GONE);
         final AddedFoodAdapter adapter = new AddedFoodAdapter(this, foods, meals);
         addedFoodList.setAdapter(adapter);
         addedFoodList.setFocusable(false);
@@ -201,6 +237,7 @@ if (adapter.isEmpty() ) {
         addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pathNewMeal.setVisibility(View.GONE);
                 if (!measureValueView.getText().toString().equals("") &  !mealTypeView.getText().toString().equals("")){
 
                     emptyView.setVisibility(View.GONE);

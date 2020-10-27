@@ -158,11 +158,13 @@ public class UserActivity extends AppCompatActivity{
                         public void onClick(View v) {
                             switch(Energeticvalue.getSelectedItemPosition()){
                                 case(0):
+                                    valorEscolhido.setVisibility(View.GONE);
                                     UserInfoContainer.setEnergy(getApplicationContext(), (int) Helpers.calculateRequiredEnergy(UserActivity.this));
                                     valorEscolhido.setVisibility(View.GONE);
                                     new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
                                     break;
                                 case(1):
+                                    valorEscolhido.setVisibility(View.GONE);
                                     UserInfoContainer.setEnergy(getApplicationContext(),2000);
                                     valorEscolhido.setVisibility(View.GONE);
                                     new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
@@ -173,8 +175,6 @@ public class UserActivity extends AppCompatActivity{
                                         UserInfoContainer.setEnergy(getApplicationContext(), Integer.valueOf(valorEscolhido.getText().toString()));
 
                                         new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
-                                    }else{
-                                        Toast.makeText(UserActivity.this, "Preencha o campo corretamente", Toast.LENGTH_SHORT).show();
                                     }
                                     break;
 

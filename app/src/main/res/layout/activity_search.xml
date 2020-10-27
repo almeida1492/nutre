@@ -8,20 +8,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/first_screen">
+    <ImageView
+        android:id="@+id/button"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_gravity="right"
+        android:layout_margin="16dp"
+        android:src="@mipmap/baseline_home_white_36"/>
 
     <RelativeLayout
         android:id="@+id/search_bar"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:animateLayoutChanges="true"
         android:layout_gravity="center"
         android:layout_height="60dp"
         android:background="@drawable/picker"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="2dp"
         android:elevation="4dp">
 
         <EditText
             android:id="@+id/search"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="21dp"
             android:layout_marginTop="20dp"
@@ -86,13 +93,6 @@
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:background="@drawable/picker"
-        android:layout_marginTop="32dp"
-        android:text="Voltar" />
+
 
 </LinearLayout>

@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -37,7 +38,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        Button button = findViewById(R.id.button);
+        ImageView button = findViewById(R.id.button);
         ListView foodListView = findViewById(R.id.foods);
         searchView = findViewById(R.id.search);
 

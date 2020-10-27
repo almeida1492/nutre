@@ -234,7 +234,10 @@
                 <Spinner
                     android:id="@+id/gender_spinner"
                     android:layout_width="110dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:popupBackground="@null"
+                    android:padding="4dp"/>
             </LinearLayout>
 
             <TextView
@@ -275,7 +278,11 @@
                 <Spinner
                     android:id="@+id/physical_activity_spinner"
                     android:layout_width="250dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:popupBackground="@null"
+                    android:padding="4dp"
+                    />
             </LinearLayout>
 
             <Button
@@ -406,7 +413,10 @@ como referência\n nas suas avaliações."
                     android:layout_width="wrap_content"
                     android:gravity="center"
                     android:layout_gravity="center"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:popupBackground="@null"
+                    android:padding="4dp"/>
             </LinearLayout>
 
 
@@ -417,7 +427,7 @@ como referência\n nas suas avaliações."
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:background="@drawable/picker_shape_blue"
-                    android:hint="\t\t\t"
+                    android:hint="\t\t_ _ _ _\t\t"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
                     android:padding="10dp"

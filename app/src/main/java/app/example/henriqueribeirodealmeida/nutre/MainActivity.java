@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<DailyMeal> dailyMeals;
     private String CalendarDate;
     double helper;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -357,13 +359,11 @@ public class MainActivity extends AppCompatActivity {
            rotate(calendar);
 
 
-        floatButton.setOnClickListener(new VisibleToggleClickListener() {
 
+
+        floatButton.setOnClickListener(new VisibleToggleClickListener() {
             @Override
             protected void changeVisibility(boolean visible) {
-                floatButton.animate().setDuration(850);
-                floatButton.animate().rotation(visible ? 0 :-180);
-                floatButton.animate().translationX(visible?0:-200);
 
                 TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(1200));
 
@@ -372,8 +372,13 @@ public class MainActivity extends AppCompatActivity {
                 textfloatb.setTranslationX(visible?0:-200);
                 textfloatb.setText(visible?"":  dailyMeals.isEmpty()? "Adicione sua primeira\nrefeição do dia.": "Adicione uma Refeição.");
 
+                floatButton.animate().setDuration(850);
+                floatButton.animate().translationX(visible?0:-200);
+                floatButton.animate().rotation(visible ?0 :-180);
 
             }
+
+
         });
 
         textfloatb.setOnClickListener(new View.OnClickListener() {

@@ -56,13 +56,13 @@
                 android:id="@+id/meal_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"
-                android:text="NOME DA REFEIÇÃO:"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="12sp"
+                android:gravity="center_vertical"
+                android:text="Nome da Refeição:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toTopOf="@id/food_option_name"
-                app:layout_constraintStart_toStartOf="@id/food_option_name" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <LinearLayout
                 android:id="@+id/food_option_name"
@@ -116,33 +116,33 @@
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:background="#E5E5E5"
                 app:layout_constraintBottom_toTopOf="@+id/text_alimento"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_food_image"
                 tools:layout_editor_absoluteX="32dp"
                 app:layout_goneMarginTop="10dp"/>
-<!--
+
             <Button
-                android:id="@+id/newmeal_path"
+                android:id="@+id/new_food_path"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="11dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginBottom="2dp"
-                android:padding="5dp"
-                android:background="@drawable/blue_round_rec"
-                android:text="Não encontrou algum\n alimento? crie um agora"
-                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:layout_marginStart="18dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/picker_shape_blue"
+                android:padding="6dp"
+                android:text="Inserir novo\n alimento no banco"
+                android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@+id/food_picker"
-                app:layout_constraintStart_toEndOf="@+id/text_alimento"
-                app:layout_constraintTop_toBottomOf="@+id/spinner_food_image" />
--->
+                app:layout_constraintStart_toEndOf="@+id/text_alimento" />
+
             <TextView
                 android:id="@+id/text_alimento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alimento"
-
                 android:textColor="@android:color/darker_gray"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toTopOf="@id/food_picker"
@@ -244,9 +244,9 @@
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="32dp"
+                android:layout_marginLeft="34dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="32dp"
+                android:layout_marginRight="34dp"
                 android:background="#E5E5E5"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

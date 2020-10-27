@@ -87,7 +87,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
         }
         //quantityView.setText("Composição em  100g" );
-        quantityView.setText("Composição em "+meal.getUnityMultiplier()*factor + " g");
+        quantityView.setText("Composição em "+ factor + " g");
 
         setSummaryItems();
 
