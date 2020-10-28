@@ -43,4 +43,7 @@ dependencies {
 
     //Animation
     implementation "com.andkulikov:transitionseverywhere:1.8.1"
+
+    
+
 }

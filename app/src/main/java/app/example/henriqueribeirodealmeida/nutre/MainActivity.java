@@ -99,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
         final ImageView userView      =  transitionsContainer.findViewById(R.id.user_action);
         final ImageView calendar      = transitionsContainer.findViewById(R.id.calendar_action);
         final ImageView newFood       =  transitionsContainer.findViewById(R.id.new_food);
-        final FloatingActionButton floatButton      = findViewById(R.id.floatingButton);
-        final TextView textfloatb      = transitionsContainer.findViewById(R.id.text_floatbutton);
 
         //Set fonts
         Typeface balooChettanType = Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf");
@@ -355,39 +353,7 @@ public class MainActivity extends AppCompatActivity {
            rotate(userView);
            rotate(searchView);
            rotate(newMealButton);
-           rotate(floatButton);
            rotate(calendar);
-
-
-
-
-        floatButton.setOnClickListener(new VisibleToggleClickListener() {
-            @Override
-            protected void changeVisibility(boolean visible) {
-
-                TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(1200));
-
-
-                textfloatb.setVisibility(visible?View.GONE:View.VISIBLE);
-                textfloatb.setTranslationX(visible?0:-200);
-                textfloatb.setText(visible?"":  dailyMeals.isEmpty()? "Adicione sua primeira\nrefeição do dia.": "Adicione uma Refeição.");
-
-                floatButton.animate().setDuration(850);
-                floatButton.animate().translationX(visible?0:-200);
-                floatButton.animate().rotation(visible ?0 :-180);
-
-            }
-
-
-        });
-
-        textfloatb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new TrocaDeTela(MainActivity.this,NewMealActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
-            }
-        });
-
 
         newFood.setOnClickListener(new View.OnClickListener() {
             @Override

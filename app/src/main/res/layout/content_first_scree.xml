@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="28dp"
             android:layout_marginBottom="16dp"
             android:src="@mipmap/round_account_circle_white_36"
             app:layout_constraintBottom_toTopOf="@+id/search_action"
@@ -65,15 +65,15 @@
             android:id="@+id/text_info"
             android:layout_width="match_parent"
             android:layout_height="35sp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:gravity="center|left"
-            android:text="\t  - Informações do usuário "
+            android:text="\t  Informações do usuário "
             android:textColor="@color/colorWhite"
             android:textSize="13sp"
             android:textAlignment="center"
             app:fontFamily="sans-serif-smallcaps"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="104dp" />
+            />
 
         <ImageView
             android:id="@+id/search_action"
@@ -85,6 +85,57 @@
             android:src="@mipmap/baseline_search_white_36"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_action" />
+
+        <ImageView
+            android:id="@+id/new_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:visibility="visible"
+            android:src="@mipmap/baseline_add_circle_white_36"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_action"
+
+            />
+        <TextView
+            android:id="@+id/text_newmeal"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="  Adicionar nova refeição"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintTop_toBottomOf="@+id/search_action"
+            />
+
+        <ImageView
+            android:id="@+id/new_food2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_add_white_24dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/new_meal" />
+
+        <TextView
+            android:id="@+id/variavel"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="   Inserir novo alimento\n no banco de dados"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintTop_toBottomOf="@+id/new_meal"
+            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/initial_button"
@@ -110,7 +161,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="  - Buscar alimentos "
+            android:text="  Buscar alimento"
             android:textColor="@color/colorWhite"
             android:textSize="13sp"
             app:fontFamily="sans-serif-smallcaps"

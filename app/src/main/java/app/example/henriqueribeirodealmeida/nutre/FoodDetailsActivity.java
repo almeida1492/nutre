@@ -34,6 +34,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
     private FoodDetailsAdapter adapter;
     private ScrollView scrollContainer;
     private double factor;
+    private double totalQuantity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,15 +80,22 @@ public class FoodDetailsActivity extends AppCompatActivity{
         }
         if (bundle.getString("caller").equals("AddedFoodAdapter")){
             homeView.setVisibility(View.INVISIBLE);
-            double totalQuantity;
+
             double quantity = bundle.getDouble("quantity");
-            String unity = meal.getUnity();
+
             totalQuantity = quantity * meal.getUnityMultiplier();
             factor = totalQuantity / 100;
 
         }
-        //quantityView.setText("Composição em  100g" );
-        quantityView.setText("Composição em "+ factor + " g");
+
+        if(factor==1){
+
+            quantityView.setText("Composição em  100g" );
+
+        }else{
+            quantityView.setText("Composição em "+ (int)totalQuantity + " g");
+
+        }
 
         setSummaryItems();
 

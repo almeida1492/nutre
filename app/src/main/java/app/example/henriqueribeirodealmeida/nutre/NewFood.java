@@ -146,15 +146,4 @@ public class NewFood extends AppCompatActivity {
         }
 
     }
-
-    public Float convertStringToFloat(String str) {
-        try {
-            return Float.parseFloat(str);
-        } catch (Exception e) {
-            Log.d("DEBUG_PARSE", "Could not parse string to float: " + str);
-        }
-
-        return 0.0f;
-    }
-
 }

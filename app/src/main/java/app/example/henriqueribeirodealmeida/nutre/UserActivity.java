@@ -1,5 +1,6 @@
 package app.example.henriqueribeirodealmeida.nutre;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +12,7 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,6 +60,8 @@ public class UserActivity extends AppCompatActivity{
 
         linearIMC.setVisibility(View.GONE);
 
+
+
         Typeface balooChettanType = Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf");
         Typeface notoSansType = Typeface.createFromAsset(getAssets(), "fonts/NotoSans-Regular.ttf");
         TextView headerView = findViewById(R.id.header);
@@ -66,6 +70,7 @@ public class UserActivity extends AppCompatActivity{
         titleView.setTypeface(notoSansType);
 
         ArrayList<String> physicalActivityOptions = new ArrayList<>();
+        physicalActivityOptions.add("-");
         physicalActivityOptions.add("Baixa");
         physicalActivityOptions.add("Moderada");
         physicalActivityOptions.add("Intensa");
@@ -74,6 +79,7 @@ public class UserActivity extends AppCompatActivity{
         physicalActivityView.setAdapter(physicalActivityAdapter);
 
         ArrayList<String> genderOptions = new ArrayList<>();
+        genderOptions.add("-");
         genderOptions.add("Masculino");
         genderOptions.add("Feminino");
         ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, R.layout.spinner_default, genderOptions);
@@ -132,7 +138,7 @@ public class UserActivity extends AppCompatActivity{
                 UserInfoContainer.setGender(getApplicationContext(), genderView.getSelectedItemPosition());
 
 
-                if (name.isEmpty() || age.isEmpty() || height.isEmpty() || weight.isEmpty()){
+                if (name.isEmpty() || age.isEmpty() || height.isEmpty() || weight.isEmpty() ||  physicalActivityView.getSelectedItemPosition() ==0 || genderView.getSelectedItemPosition() ==0){
                     Toast.makeText(UserActivity.this, "Preencha corretamente ", Toast.LENGTH_SHORT).show();
 
                     linearIMC.setVisibility(View.GONE);
@@ -193,5 +199,9 @@ public class UserActivity extends AppCompatActivity{
          edt.putBoolean("activity_executed", true);
          edt.commit();
     }
+
+
 }
+
+
 

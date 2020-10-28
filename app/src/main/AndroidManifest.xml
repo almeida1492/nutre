@@ -20,10 +20,9 @@
             </intent-filter>
         </activity>
 
-
-
-
-
+        <activity
+            android:name="app.example.henriqueribeirodealmeida.nutre.NewFood"
+            android:theme="@style/AppTheme"/>
 
         <activity android:name="app.example.henriqueribeirodealmeida.nutre.MainActivity"
                   android:theme="@style/AppTheme"/>
@@ -46,8 +45,7 @@
             android:parentActivityName="app.example.henriqueribeirodealmeida.nutre.MainActivity"
             android:theme="@style/AppTheme" />
 
-        <activity
-            android:name="app.example.henriqueribeirodealmeida.nutre.NewFood"/>
+
 
 
         <meta-data
