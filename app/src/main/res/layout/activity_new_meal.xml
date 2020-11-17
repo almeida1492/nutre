@@ -38,16 +38,17 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <Button
                 android:id="@+id/add_meal"
-                android:layout_width="50dp"
-                android:layout_height="28dp"
-                android:layout_margin="16dp"
-                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:background="@drawable/first_screen"
                 android:gravity="center"
                 android:text="Salvar"
-                android:textColor="#39255C"
-                android:textSize="15sp"
+                android:visibility="invisible"
+                android:textColor="#FFF"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

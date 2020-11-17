@@ -83,14 +83,13 @@
             android:id="@+id/new_food1"
             android:layout_width="278dp"
             android:layout_height="60dp"
-            android:layout_marginTop="150dp"
-            android:rotation="10"
             android:background="@drawable/picker"
             android:text="Não encontrou seu alimento ?!\nAdicione um novo aqui !!"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/foods" />
     </android.support.constraint.ConstraintLayout>
 
 

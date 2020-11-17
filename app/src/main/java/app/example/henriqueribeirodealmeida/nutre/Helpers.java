@@ -8,12 +8,12 @@ import app.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
 
 public class Helpers {
 
-    public final static int MALE = 0;
-    public final static int FEMALE = 1;
+    public final static int MALE = 1;
+    public final static int FEMALE = 2;
 
-    public final static int LOW = 0;
-    public final static int REGULAR = 1;
-    public final static int INTENSE = 2;
+    public final static int LOW = 1;
+    public final static int REGULAR = 2;
+    public final static int INTENSE = 3;
 
     private Helpers() {
     }

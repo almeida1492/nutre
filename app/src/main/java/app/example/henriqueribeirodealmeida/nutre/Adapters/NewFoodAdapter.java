@@ -1,8 +1,11 @@
 package app.example.henriqueribeirodealmeida.nutre.Adapters;
 
 import android.content.Context;
+import android.inputmethodservice.ExtractEditText;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
+import android.support.v7.widget.AppCompatEditText;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +46,8 @@ public class NewFoodAdapter  extends ArrayAdapter<Nutrient> {
         TextView typeView = itemView.findViewById(R.id.type);
         typeView.setText(nutrient.getMeasure());
 
+
+
         NumberPicker value = itemView.findViewById(R.id.valorAdd);
 
 
@@ -64,6 +69,8 @@ public class NewFoodAdapter  extends ArrayAdapter<Nutrient> {
                 nutrient.setAddValue(newVal);
             }
         });
+
+
 
 
         return itemView;

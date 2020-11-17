@@ -72,17 +72,13 @@ public class NewMealActivity extends AppCompatActivity {
         final Bundle bundle = intent.getBundleExtra("bundle");
 
         ImageView upButton = findViewById(R.id.up_button);
-        TextView addMeal = findViewById(R.id.add_meal);
+        final TextView addMeal = findViewById(R.id.add_meal);
         Button addItemButton = findViewById(R.id.add_item);
         addedFoodList = findViewById(R.id.added_food_list);
         ScrollView mainScrollView = findViewById(R.id.main_scroll_view);
         final EditText mealTypeView = findViewById(R.id.meal_type_picker);
         emptyView = findViewById(R.id.empty);
         final Button pathNewMeal = findViewById(R.id.new_food_path);
-
-
-
-
 
 
         initList();
@@ -103,6 +99,7 @@ public class NewMealActivity extends AppCompatActivity {
             updateFlag = true;
             emptyView.setVisibility(View.GONE);
             pathNewMeal.setVisibility(View.GONE);
+            addMeal.setVisibility(View.INVISIBLE);
         }
 
 
@@ -239,7 +236,7 @@ public class NewMealActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pathNewMeal.setVisibility(View.GONE);
                 if (!measureValueView.getText().toString().equals("") &  !mealTypeView.getText().toString().equals("")){
-
+                    addMeal.setVisibility(View.VISIBLE);
                     emptyView.setVisibility(View.GONE);
                     double quantity = Double.parseDouble(measureValueView.getText().toString());//.replaceAll("\\D+","")
 

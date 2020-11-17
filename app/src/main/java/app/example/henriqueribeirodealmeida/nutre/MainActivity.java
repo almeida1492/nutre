@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
         if(savedInstanceState==null){
             formattedDate = Helpers.formatDate(date, false);
         }else{
@@ -159,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
 
         final String CalendarDate = tempCalendarDate;
         summaryHeader.setText(formattedDate);
+
+
 
         /*ListView summaryListView = findViewById(R.id.summary);*/
         summaryValues = new SummaryValues(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
@@ -620,6 +623,10 @@ public class MainActivity extends AppCompatActivity {
         ObjectAnimator titleview = ObjectAnimator.ofFloat(view, "rotation", 360);
         titleview.start();
         titleview.setDuration(1000);
+
+    }
+
+    public void onDataSet(){
 
     }
 
