@@ -222,15 +222,5 @@ public class Helpers {
 
         return date;
     }
-
-    public static double otherRequiredEnergy(Context context){
-
-
-        int helper = (int) calculateRequiredEnergy(context);
-
-        return helper;
-    }
-
-
 }
 

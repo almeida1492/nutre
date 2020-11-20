@@ -299,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 energy += meal.getEnergy() * meal.getUnityMultiplier() * quantity / 100;
                                 carbohydrate += meal.getCarbohydrate() * meal.getUnityMultiplier() * quantity / 100;
-                                water += meal.getWater() * meal.getUnityMultiplier() * quantity / 100;
+                                water += meal.getWater()  * quantity /* * meal.getUnityMultiplier() * quantity / 100 */;
                                 protein += meal.getProtein() * meal.getUnityMultiplier() * quantity / 100;
                                 totalFat += meal.getTotalFat() * meal.getUnityMultiplier() * quantity / 100;
                                 saturatedFat += meal.getSaturatedFat() * meal.getUnityMultiplier() * quantity / 100;
@@ -346,11 +346,10 @@ public class MainActivity extends AppCompatActivity {
                                     }
 
 
-                    }//
-                });//
-            }//
-        });//
-
+                    }
+                });
+            }
+        });
 
            rotate(titleView);
            rotate(userView);
@@ -407,7 +406,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void setSummaryItems(){
         helper = UserInfoContainer.getEnergy(this);
-        //helper = (int)Helpers.calculateRequiredEnergy(this);
 
         summaryItems.get(0).setName("Energia");
         summaryItems.get(0).setValue((int) summaryValues.getEnergy());

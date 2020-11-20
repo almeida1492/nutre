@@ -1,4 +1,5 @@
 package app.example.henriqueribeirodealmeida.nutre;
+import android.arch.persistence.room.Query;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.app.ActivityCompat;
@@ -91,6 +92,7 @@ public class NewFood extends AppCompatActivity {
                 String MedidaCasual    = String.valueOf(medida_casual.getSelectedItem());
                 String UnityMultiplier = quant_unidade.getText().toString();
                 String Multiplicador   =  multiplicador.getText().toString();
+
 
 
                    if (!Nome.isEmpty() && !MedidaCasual.isEmpty() && !Unidade.isEmpty() && !Multiplicador.isEmpty() &&  Integer.valueOf(Multiplicador) != 0 && Unidade!= "-" && MedidaCasual != "-" ) {
