@@ -1,39 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.henriqueribeirodealmeida.nutre">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/round_icon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/round_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name="app.example.henriqueribeirodealmeida.nutre.FirstScree">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserActivity"
-            android:theme="@style/AppTheme">
 
-        </activity>
-        <activity android:name=".SearchActivity"
-            android:theme="@style/AppTheme">
+        <activity
+            android:name="app.example.henriqueribeirodealmeida.nutre.NewFood"
+            android:theme="@style/AppTheme"/>
 
-        </activity>
-        <activity android:name=".FoodDetailsActivity"
-            android:theme="@style/AppTheme">
+        <activity android:name="app.example.henriqueribeirodealmeida.nutre.MainActivity"
+                  android:theme="@style/AppTheme"/>
 
-        </activity>
-        <activity android:name=".NewMealActivity"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity">
 
-        </activity>
+        <activity
+            android:name="app.example.henriqueribeirodealmeida.nutre.UserActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name="app.example.henriqueribeirodealmeida.nutre.SearchActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name="app.example.henriqueribeirodealmeida.nutre.FoodDetailsActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name="app.example.henriqueribeirodealmeida.nutre.NewMealActivity"
+            android:parentActivityName="app.example.henriqueribeirodealmeida.nutre.MainActivity"
+            android:theme="@style/AppTheme" />
+
+
+
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

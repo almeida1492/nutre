@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CsvFileAttributes">
+    <option name="attributeMap">
+      <map>
+        <entry key="C:\Users\UENF\Downloads\newfoodtable.csv">
+          <value>
+            <Attribute>
+              <option name="valueSeparator" value="COMMA" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\app\src\main\assets\data\newfoodtable.csv">
+          <value>
+            <Attribute>
+              <option name="valueSeparator" value="SEMICOLON" />
+            </Attribute>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

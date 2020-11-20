@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_round_rec"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:minWidth="800dp"
+    android:gravity="center_horizontal"
+    android:paddingBottom="30dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="22dp"
+        android:text="Índice de Massa Corporal"
+        android:textColor="@android:color/black"
+        android:textSize="22dp" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="#E5E5E5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:text="O índice de massa corporal (IMC) é um parâmetro utilizado
+ para avaliar de forma rápida se a pessoa está com o peso abaixo da normalidade, dentro da faixa normal ou com algum grau de sobrepeso ou obesidade."
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="32dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="32dp"
+    android:gravity="center"
+        android:textSize="13sp"
+    android:lineSpacingExtra="3dp"
+    android:text=" É importante avaliar atentamente
+esse índice, lembrando-se sempre de que outros fatores podem afetar o peso de uma pessoa."
+    android:textColor="@android:color/black" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:lineSpacingExtra="3dp"
+        android:text="Embora seja simples de ser calculado, o IMC apresenta limitações.
+Por este motivo se eu resultado não é decisivo. Apenas um profissional qualificado pode dar
+o diagnóstico correto sobre o seu estado nutricional. \n\n IMC menor que 18,5 - Abaixo do peso\n IMC entre 18,5 e 24,9 - Peso normal\n
+IMC entre 24,9 e 29,9 - Acima do peso\nIMC maior que 29,9 - Obesidade"
+        android:textColor="@android:color/black" />
+
+
+</LinearLayout>

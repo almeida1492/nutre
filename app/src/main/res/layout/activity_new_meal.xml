@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_scroll_view"
@@ -11,18 +12,22 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark">
+        android:background="@drawable/first_screen"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/white_round_rec"
             android:paddingBottom="16dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="16dp"
-            android:background="@drawable/white_round_rec">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <ImageView
                 android:id="@+id/up_button"
@@ -33,62 +38,114 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+            <Button
                 android:id="@+id/add_meal"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_margin="16dp"
-                android:src="@drawable/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:background="@drawable/first_screen"
+                android:gravity="center"
+                android:text="Salvar"
+                android:visibility="invisible"
+                android:textColor="#FFF"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Spinner
-                android:id="@+id/meal_type_picker"
-                android:layout_width="200dp"
+            <TextView
+                android:id="@+id/meal_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="40dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:background="@null"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:gravity="center_vertical"
+                android:text="Nome da Refeição:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@id/food_option_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageView
-                android:id="@+id/meal_type_drop_down"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/arrow_drop_down"
+            <LinearLayout
+                android:id="@+id/food_option_name"
+                android:layout_width="210dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/picker_shape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_type_picker" />
+                app:layout_constraintTop_toBottomOf="@id/add_meal">
 
-            <ImageView
-                android:id="@+id/meal_icon"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="12dp"
-                android:src="@drawable/meal_placeholder"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_type_drop_down" />
+
+                <EditText
+                    android:id="@+id/meal_type_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:inputType="text"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+
+            <Spinner
+                android:id="@+id/spinner_food_image"
+                android:spinnerMode="dropdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/food_picker"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/food_option_name"
+                app:layout_constraintVertical_bias="0.175" />
 
             <View
+                android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:background="#E5E5E5"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_icon" />
+                app:layout_constraintBottom_toTopOf="@+id/text_alimento"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_food_image"
+                tools:layout_editor_absoluteX="32dp"
+                app:layout_goneMarginTop="10dp"/>
 
+            <Button
+                android:id="@+id/new_food_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="18dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/picker_shape_blue"
+                android:padding="6dp"
+                android:text="Inserir novo\n alimento no banco"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/food_picker"
+                app:layout_constraintStart_toEndOf="@+id/text_alimento" />
 
             <TextView
+                android:id="@+id/text_alimento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alimento"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 app:layout_constraintBottom_toTopOf="@id/food_picker"
                 app:layout_constraintStart_toStartOf="@id/food_picker" />
 
@@ -96,25 +153,27 @@
                 android:id="@+id/food_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="9dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="9dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_icon">
+                app:layout_constraintTop_toBottomOf="@id/spinner_food_image">
 
                 <AutoCompleteTextView
                     android:id="@+id/food_picker_text_view"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
+                    android:background="@null"
                     android:inputType="text"
                     android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintTop_toBottomOf="@id/spinner_food_image"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -123,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:text="Quantidade"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 app:layout_constraintBottom_toTopOf="@id/quantity_container"
                 app:layout_constraintStart_toStartOf="@id/quantity_container" />
 
@@ -135,31 +194,35 @@
                 android:background="@drawable/picker_shape"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="9dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="9dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="9dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/food_picker">
 
                 <EditText
                     android:id="@+id/measure_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="25dp"
                     android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textSize="12sp"
+                    android:digits="0123456789."
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
                     android:selectAllOnFocus="true"
-                    android:inputType="number"
-                    android:textColor="@android:color/black"/>
+                    android:background="@null"
+                    android:text="1"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/measure_label"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="1"
+                    android:gravity="center|left"
                     android:maxWidth="80dp"
+                    android:maxLines="1"
                     android:text="copo"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp" />
@@ -179,11 +242,12 @@
                 app:layout_constraintTop_toBottomOf="@id/quantity_container" />
 
             <View
+                android:id="@+id/view3"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"
+                android:layout_marginLeft="34dp"
                 android:layout_marginTop="25dp"
+                android:layout_marginRight="34dp"
                 android:background="#E5E5E5"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -193,10 +257,10 @@
                 android:id="@+id/added_food_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:animateLayoutChanges="true"
                 android:layout_marginTop="40dp"
-                tools:listitem="@layout/item_meal"
-                app:layout_constraintTop_toBottomOf="@id/add_item" />
+                app:layout_constraintTop_toBottomOf="@id/add_item"
+                tools:listitem="@layout/item_meal" />
 
             <TextView
                 android:id="@+id/empty"
@@ -207,9 +271,11 @@
                 android:text="Selecione os alimentos e os adicione à lista."
                 android:textColor="@android:color/darker_gray"
                 android:textSize="17sp"
-                app:layout_constraintTop_toBottomOf="@id/add_item"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_item" />
+
+
 
         </android.support.constraint.ConstraintLayout>
 

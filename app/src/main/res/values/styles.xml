@@ -2,13 +2,15 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlHighlight">@color/colorAccent</item>
-        <item name="colorControlActivated">@color/colorAccent</item>
-        <item name="colorControlNormal">@color/colorAccent</item>
+            <item name="colorPrimary">@color/colorPrimary</item>
+             <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+             <item name="colorAccent">@color/colorAccent</item>
+             <item name="colorControlHighlight">@color/colorAccent</item>
+             <item name="colorControlActivated">@color/colorAccent</item>
+             <item name="colorControlNormal">@color/colorAccent</item>
+
     </style>
 
     <style name="colorPickerStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
@@ -16,5 +18,26 @@
         <item name="android:cacheColorHint">@android:color/transparent</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="NumberPickerTheme" parent="Theme.AppCompat">
+
+
+
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+        <item name="background">@drawable/picker_shape_blue</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+
 
 </resources>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+    <android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/first_screen"
+        android:focusable="true">
+    <TextView
+        android:id="@+id/textView_scree"
+        android:layout_width="wrap_content"
+        android:layout_height="236dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:gravity="center"
+        android:text="nutre"
+        android:textColor="#ffff"
+        android:textSize="100sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="357dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/picker_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/user_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="16dp"
+            android:src="@mipmap/round_account_circle_white_36"
+            app:layout_constraintBottom_toTopOf="@+id/search_action"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_info"
+            android:layout_width="match_parent"
+            android:layout_height="35sp"
+            android:layout_marginTop="30dp"
+            android:gravity="center|left"
+            android:text="\t  Informações do usuário "
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            android:textAlignment="center"
+            app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/search_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/baseline_search_white_36"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_action" />
+
+        <ImageView
+            android:id="@+id/new_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:visibility="visible"
+            android:src="@mipmap/baseline_add_circle_white_36"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_action"
+
+            />
+        <TextView
+            android:id="@+id/text_newmeal"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="  Adicionar nova refeição"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintTop_toBottomOf="@+id/search_action"
+            />
+
+        <ImageView
+            android:id="@+id/new_food2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_add_white_24dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/new_meal" />
+
+        <TextView
+            android:id="@+id/variavel"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="   Inserir novo alimento\n no banco de dados"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintTop_toBottomOf="@+id/new_meal"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+            android:id="@+id/initial_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginLeft="84dp"
+            android:layout_marginEnd="84dp"
+            android:layout_marginRight="84dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/first_screen"
+            android:gravity="center"
+            android:text="Começar"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/text_search"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="  Buscar alimento"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintTop_toBottomOf="@+id/text_info"
+            tools:layout_editor_absoluteX="115dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>

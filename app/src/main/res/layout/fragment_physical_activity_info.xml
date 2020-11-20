@@ -32,10 +32,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
+        android:gravity="center"
         android:layout_marginRight="32dp"
         android:layout_marginTop="24dp"
-        android:text="Atividade física leve: \n\nAtividades em que se passa a maior parte do tempo
-sentado. Exemplo: datilógrafos, relojoeiros, secretárias etc.\n\nAtividade física moderada: \n\nAtividades em que se passa a maio parte do tempo
+        android:text="Atividade física leve: \n\nAtividades em que se passa a maior parte do tempo sentado. Exemplo: datilógrafos, relojoeiros, secretárias etc.\n\nAtividade física moderada: \n\nAtividades em que se passa a maio parte do tempo
 em movimento ou em pé: estudantes, professores, lavadeiras etc.).\n\nAtividade física intensa: \n\nAtividades em que se passa a maior parte do tempo em
 movimento e com emprego de força física. Exemplo: jardineiros, lavradores,
 carregadores, atletas etc."

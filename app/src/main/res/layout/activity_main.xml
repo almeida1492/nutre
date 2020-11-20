@@ -1,58 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:animateLayoutChanges="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
+        android:id="@+id/transitions_container"
+        android:animateLayoutChanges="true"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/first_screen"
         android:paddingBottom="17dp"
-        tools:context=".MainActivity">
+        tools:context="app.example.henriqueribeirodealmeida.nutre.MainActivity"
+        >
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="22dp"
+            android:layout_marginLeft="9dp"
+            android:padding="23dp"
             android:text="nutre"
             android:textColor="@color/colorWhite"
-            android:textSize="24sp"
+            android:textSize="26sp"
+            app:layout_constrainedHeight="true"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/summary_panel_header"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="62dp"
+            android:gravity="center|left"
+            android:text="5 de setembro"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:elevation="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/forma_geometrica"
+            app:layout_constraintTop_toTopOf="parent">
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/new_food"
+            android:layout_width="25dp"
+            android:layout_height="67dp"
+            android:elevation="5dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/baseline_add_purple"
+            app:layout_constraintRight_toLeftOf="@id/calendar_action"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/addAlimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:elevation="5dp"
+            android:text=" Incluir novo\nalimento"
+            android:textColor="@color/colorWhite"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/allerta"
+            app:layout_constraintRight_toLeftOf="@id/calendar_action"
+            app:layout_constraintTop_toTopOf="@id/new_food"
+            tools:ignore="MissingConstraints" />
+
+
+        <ImageView
+            android:id="@+id/calendar_action"
+            android:layout_width="25dp"
+            android:layout_height="67dp"
+            android:layout_marginRight="27dp"
+            android:elevation="5dp"
+            android:onClick="showDatePicker"
+            android:src="@drawable/calendar_blue"
+            app:layout_constraintRight_toLeftOf="@id/user_action"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginRight="18dp"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:text="Calendário"
+            android:textColor="@color/colorWhite"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/allerta"
+            app:layout_constraintRight_toLeftOf="@id/user_action"
+            app:layout_constraintTop_toTopOf="@id/calendar_action"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/new_meal_action"
             android:layout_width="25dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="22dp"
-            android:src="@mipmap/baseline_add_circle_white_36"
+            android:layout_height="67dp"
+            android:layout_marginRight="20dp"
+            android:elevation="5dp"
+            android:src="@mipmap/baseline_add_circle_blue_36"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/create"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginRight="13dp"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:text="Adicionar\nRefeição"
+            android:textColor="@color/colorWhite"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/allerta"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/new_meal_action"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/search_action"
             android:layout_width="25dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="12dp"
+            android:layout_height="67dp"
+            android:layout_marginRight="20dp"
+            android:elevation="5dp"
             android:src="@mipmap/baseline_search_white_36"
             app:layout_constraintRight_toLeftOf="@id/new_meal_action"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginRight="16dp"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:text="Buscar\nAlimento"
+            android:textColor="@color/colorWhite"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/allerta"
+            app:layout_constraintRight_toLeftOf="@id/new_meal_action"
+            app:layout_constraintTop_toTopOf="@id/search_action"
+            tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/user_action"
             android:layout_width="25dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="12dp"
-            android:src="@mipmap/round_account_circle_white_36"
+            android:layout_height="67dp"
+            android:layout_marginRight="24dp"
+            android:elevation="5dp"
+            android:src="@mipmap/baseline_account_circle_purple_48"
             app:layout_constraintRight_toLeftOf="@id/search_action"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/User"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="12dp"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:text="Informações\nde\n Usuario"
+            android:textColor="@color/colorWhite"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:typeface="normal"
+            app:fontFamily="@font/allerta"
+            app:layout_constraintRight_toLeftOf="@id/search_action"
+            app:layout_constraintTop_toTopOf="@id/user_action"
+            tools:ignore="MissingConstraints" />
+
 
         <RelativeLayout
             android:id="@+id/summary_panel"
@@ -60,21 +199,26 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_marginRight="22dp"
-            android:background="@drawable/blue_round_rec"
-            android:paddingBottom="24dp"
+            android:background="@drawable/picker_shape_blue"
+            android:paddingBottom="44dp"
             app:layout_constraintTop_toBottomOf="@id/title">
+
 
             <TextView
                 android:id="@+id/summary_panel_title"
-                android:layout_width="match_parent"
+                android:layout_width="1000dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="17dp"
-                android:paddingTop="12dp"
-                android:paddingBottom="7dp"
-                android:text="Total diário"
-                android:textColor="@color/colorPrimary" />
+                android:paddingTop="20dp"
+                android:elevation="5dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="23sp"
+                android:gravity="center"
+                android:paddingBottom="1dp"
+                android:text="Avaliação da refeição"
+                android:textColor="@color/colorWhite" />
 
             <ImageView
+                android:id="@+id/litlle_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -82,72 +226,27 @@
                 android:layout_margin="16dp"
                 android:src="@mipmap/baseline_keyboard_arrow_down_white_18" />
 
-            <TextView
-                android:id="@+id/summary_panel_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/summary_panel_title"
-                android:paddingLeft="17dp"
-                android:paddingBottom="7dp"
-                android:text="25 de setembro"
-                android:textColor="@color/colorWhite"
-                android:textSize="24sp" />
-
-            <LinearLayout
-                android:id="@+id/titles"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/summary_panel_header"
-                android:layout_marginLeft="17dp"
-                android:layout_marginRight="17dp"
-                android:layout_marginBottom="7dp">
-
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Energia\n e nutrientes"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/value"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
-                    android:gravity="right"
-                    android:text="Quantidade\n ingerida"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/suggested_value"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
-                    android:gravity="right"
-                    android:text="Quantidade\n sugerida"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@id/titles"
-                android:layout_marginLeft="17dp"
-                android:layout_marginRight="17dp"
-                android:background="@drawable/divider" />
+                android:layout_below="@id/summary_panel_title"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/colorWhite" />
 
-            <ListView
+
+
+            <GridView
                 android:id="@+id/summary"
+                android:numColumns="3"
+                android:animateLayoutChanges="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/titles"
+                android:layout_below="@id/summary_panel_title"
+                android:layout_marginTop="24dp"
                 android:layout_marginLeft="17dp"
                 android:layout_marginRight="17dp"
-                tools:listitem="@layout/item_summary_panel" />
+                tools:listitem="@layout/item_summery_panel2" />
 
             <View
                 android:id="@+id/panel_mask"
@@ -162,10 +261,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="22dp"
             android:background="@drawable/white_round_rec"
-            app:layout_constraintTop_toBottomOf="@id/summary_panel">
+            app:layout_constraintTop_toBottomOf="@+id/summary_panel">
 
             <TextView
                 android:id="@+id/meal_history_title"
@@ -175,7 +274,7 @@
                 android:paddingTop="12dp"
                 android:paddingBottom="7dp"
                 android:text="Refeições"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimary"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -184,9 +283,10 @@
                 android:id="@+id/meal_history"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
                 android:layout_marginBottom="16dp"
-                app:layout_constraintTop_toBottomOf="@id/meal_history_title"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/meal_history_title"
                 tools:listitem="@layout/item_meal" />
 
             <TextView
@@ -196,15 +296,18 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="61dp"
                 android:gravity="center"
-                android:visibility="gone"
                 android:text="Você ainda não adicionou nenhuma refeição"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="17sp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/meal_history_title" />
         </android.support.constraint.ConstraintLayout>
+
+
+
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
