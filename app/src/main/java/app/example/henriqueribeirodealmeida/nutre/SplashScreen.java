@@ -34,11 +34,6 @@ public class SplashScreen extends AppCompatActivity {
         titleview.start();
         titleview.setDuration(1000);
 
-
-
-
-
-
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
