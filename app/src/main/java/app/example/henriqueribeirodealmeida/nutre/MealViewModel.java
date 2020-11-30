@@ -27,7 +27,7 @@ public class MealViewModel extends AndroidViewModel {
 
     LiveData<List<Meal>> findByIds(int[] ids) { return mRepository.findByIds(ids); }
 
-    LiveData<List<Meal>> deleteByIds(int[] id) { return mRepository.deleteByIds(id); } //teste
+
 
 
     public void insert(Meal meal) { mRepository.insert(meal); }
