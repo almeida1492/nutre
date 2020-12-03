@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
         summaryAdapter = new SummaryAdapter(this, summaryItems, CalendarDate);
         summaryView.setAdapter(summaryAdapter);
         summaryView.setHorizontalSpacing(3);
-        summaryView.setVerticalSpacing(20);
+        summaryView.setVerticalSpacing(21);
         setGridViewHeight(summaryView);
 
 
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void changeVisibility(boolean visible) {
                 findViewById(R.id.litlle_button).setRotation(visible ?180:0);
-                TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(800));
+              //  TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(800));
 
 
                 // This method call returns the panel status towards view expansion from the adapter
