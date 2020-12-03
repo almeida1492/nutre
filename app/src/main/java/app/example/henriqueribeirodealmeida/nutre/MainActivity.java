@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ViewGroup transitionsContainer = findViewById(R.id.transitions_container);
         final TextView  titleView          = transitionsContainer.findViewById(R.id.title);
-        final RelativeLayout panelView     = findViewById(R.id.summary_panel);
+        final RelativeLayout panelView     = findViewById(R.id.summary_panel);//aqui
         final GridView  summaryView        = findViewById(R.id.summary);
         final View      panelMask          = findViewById(R.id.panel_mask);
         final ListView  mealHistoryView    = findViewById(R.id.meal_history);
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void changeVisibility(boolean visible) {
                 findViewById(R.id.litlle_button).setRotation(visible ?180:0);
-                TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(800));
+               // TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(800));
 
 
                 // This method call returns the panel status towards view expansion from the adapter

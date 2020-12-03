@@ -27,8 +27,7 @@ public interface MealDAO {
     @Query("SELECT * FROM meals WHERE id IN(:mealIds)")
     LiveData<List<Meal>> findByIds(int[] mealIds);
     //TESTE
-    @Query("DELETE FROM meals WHERE id IN(:mealId)")
-    LiveData<List<Meal>> deleteByIds(int[] mealId);
+
 
 
 
