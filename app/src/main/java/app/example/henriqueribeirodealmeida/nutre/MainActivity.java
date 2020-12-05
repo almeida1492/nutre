@@ -113,9 +113,11 @@ public class MainActivity extends AppCompatActivity {
         DateFormat cdf = new SimpleDateFormat("yyyy-MM-dd");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        System.out.println(prefs);
         String tempCalendarDate = prefs.getString(DATETIMEKEY, null);
 
-        final String date = df.format(Calendar.getInstance().getTime());
+        final String date = df.format(Calendar.getInstance().getTime()); //dia de hoje
+
         final String formattedDate;
 
         if (tempCalendarDate!=null) {

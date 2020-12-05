@@ -207,7 +207,7 @@ public class Helpers {
                 month = " dezembro ";
                 break;
             default:
-                month = "";
+                month = " ";
         }
 
         if (day.equals("01")){
