@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         DateFormat cdf = new SimpleDateFormat("yyyy-MM-dd");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        System.out.println(prefs);
+
         String tempCalendarDate = prefs.getString(DATETIMEKEY, null);
 
         final String date = df.format(Calendar.getInstance().getTime()); //dia de hoje
@@ -135,11 +135,12 @@ public class MainActivity extends AppCompatActivity {
 
             if(c.get(Calendar.MONTH) < 10){
                 month = "0"+String.valueOf(c.get(Calendar.MONTH));
+
             }else{
                 month = String.valueOf(c.get(Calendar.MONTH));
             }
 
-            String year = String.valueOf(c.get(Calendar.YEAR));
+            String year = String.valueOf(c.get(Calendar.YEAR)-1);
             String day;
 
             if(c.get(Calendar.DAY_OF_MONTH) < 10){
@@ -148,10 +149,13 @@ public class MainActivity extends AppCompatActivity {
                 day = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
             }
 
+           if( month.equals("00"))month="12";
+
+
             tempCalendarDate = year +"-"+month+"-"+day;
 
-        }
 
+        }
 
 
         if(savedInstanceState==null){
@@ -160,10 +164,10 @@ public class MainActivity extends AppCompatActivity {
             formattedDate = Helpers.formatDate(tempCalendarDate + date.substring(10, 25), false);
         }
 
+
         final String CalendarDate = tempCalendarDate;
         summaryHeader.setText(formattedDate);
-
-
+            System.out.println("DIA ESCOLHIDO"+CalendarDate);
 
         /*ListView summaryListView = findViewById(R.id.summary);*/
         summaryValues = new SummaryValues(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
@@ -218,9 +222,11 @@ public class MainActivity extends AppCompatActivity {
         dailyMealViewModel.getAllDailyMeals(CalendarDate+"%").observe(this, new Observer<List<DailyMeal>>() {
             @Override
             public void onChanged(@Nullable final List<DailyMeal> liveMeals) {
-               dailyMeals.clear();
+                System.out.println("Tamanho de Date"+liveMeals.size());
+              dailyMeals.clear();
 
                 for (DailyMeal meal : liveMeals) {
+
                     try {
                         if (meal != null && meal.getName() != null && meal.getDate().substring(0, 10).equals(CalendarDate)) {
                             dailyMeals.add(meal);
@@ -241,6 +247,7 @@ public class MainActivity extends AppCompatActivity {
                       mealHistoryView.setVisibility(View.GONE);
                    }
                 setListViewHeight(mealHistoryView);
+
             }
         });
 
@@ -615,6 +622,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDatePicker(View v) {
+       // DialogFragment newFragment = new DatePickerFragment();
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "date picker");
     }
@@ -623,10 +631,6 @@ public class MainActivity extends AppCompatActivity {
         ObjectAnimator titleview = ObjectAnimator.ofFloat(view, "rotation", 360);
         titleview.start();
         titleview.setDuration(1000);
-
-    }
-
-    public void onDataSet(){
 
     }
 
