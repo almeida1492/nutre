@@ -170,6 +170,9 @@ public class Helpers {
         time = raw.substring(11, 16);
 
         switch (numMonth){
+            case "00":
+                month=" dezembro ";
+                break;
             case "01":
                 month = " janeiro ";
                 break;
@@ -207,7 +210,7 @@ public class Helpers {
                 month = " dezembro ";
                 break;
             default:
-                month = "";
+                month = " ";
         }
 
         if (day.equals("01")){

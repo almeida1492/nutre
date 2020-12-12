@@ -27,7 +27,7 @@ public class FirstScree extends AppCompatActivity {
 
         TextView textnewfood = findViewById(R.id.variavel);
         ImageView newmeal = findViewById(R.id.new_meal);
-        TextView textnewmeal = findViewById(R.id.text_newmeal);
+        TextView textnewmeal       = findViewById(R.id.text_newmeal);
         final ImageView searchView = findViewById(R.id.search_action);
         ImageView userView         = findViewById(R.id.user_action);
         TextView title             =  findViewById(R.id.textView_scree);

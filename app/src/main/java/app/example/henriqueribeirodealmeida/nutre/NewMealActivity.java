@@ -161,9 +161,6 @@ public class NewMealActivity extends AppCompatActivity {
 
         });
 
-
-
-
         foodPickerView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -270,7 +267,7 @@ public class NewMealActivity extends AppCompatActivity {
 
                     DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
                     String date = df.format(Calendar.getInstance().getTime());
-
+                    System.out.println("DIA DA REFEIÇAO"+date);
                     if (flag){
                         String mealType = mealTypeView.getText().toString();
                         FoodImage foodicon = (FoodImage) spinnerFoodImages.getSelectedItem();
@@ -312,7 +309,6 @@ public class NewMealActivity extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         bundle.putInt("foodicon", foodicon.getFoodImage());
                         intent.putExtra("bundle", bundle);
-
 
                         startActivity(intent);
                     }
