@@ -1,9 +1,11 @@
 package app.example.henriqueribeirodealmeida.nutre;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import app.example.henriqueribeirodealmeida.nutre.Adapters.FoodDetailsAdapter;
 import app.example.henriqueribeirodealmeida.nutre.Entities.Meal;
@@ -36,15 +39,20 @@ public class FoodDetailsActivity extends AppCompatActivity{
     private double factor;
     private double totalQuantity;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_details);
+        final MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class); //teste
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("bundle");
-        Meal meal = bundle.getParcelable("food");
+         Intent intent = getIntent();
+         final Bundle bundle = intent.getBundleExtra("bundle");
+         final Meal meal = bundle.getParcelable("food");
 
+
+        TextView textDeleteMeal = findViewById(R.id.qua);
+        ImageView deleteMeal = findViewById(R.id.deleteMeal);
         TextView nameView = findViewById(R.id.name);
         ListView nutrientsView = findViewById(R.id.nutrients);
         ImageView homeView = findViewById(R.id.home);
@@ -94,7 +102,8 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
         }else{
             quantityView.setText("Composição em "+ (int)totalQuantity + " g");
-
+            deleteMeal.setVisibility(View.GONE);
+            textDeleteMeal.setVisibility(View.GONE);
         }
 
         setSummaryItems();
@@ -109,6 +118,15 @@ public class FoodDetailsActivity extends AppCompatActivity{
             public void onClick(View v) {
                new TrocaDeTela(FoodDetailsActivity.this, MainActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
 
+            }
+        });
+
+        deleteMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            mealViewModel.delete(meal);
+                Toast.makeText(FoodDetailsActivity.this, "Alimento removido com sucesso", Toast.LENGTH_SHORT).show();
+                new TrocaDeTela(FoodDetailsActivity.this, SearchActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
             }
         });
     }
@@ -211,4 +229,6 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
         scrollContainer.fullScroll(View.FOCUS_UP);
     }
+
+
 }

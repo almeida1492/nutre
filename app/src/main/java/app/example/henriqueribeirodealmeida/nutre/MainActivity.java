@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
     private String CalendarDate;
     double helper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -214,13 +213,13 @@ public class MainActivity extends AppCompatActivity {
         FoodViewModel foodViewModel           = ViewModelProviders.of(this).get(FoodViewModel.class);
         DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
 
-        System.out.println(CalendarDate);
+
 
         //daily meal started
         dailyMealViewModel.getAllDailyMeals(CalendarDate+"%").observe(this, new Observer<List<DailyMeal>>() {
             @Override
             public void onChanged(@Nullable final List<DailyMeal> liveMeals) {
-              //  System.out.println("Tamanho de Date"+liveMeals.size());
+
               dailyMeals.clear();
 
                 for (DailyMeal meal : liveMeals) {
@@ -351,8 +350,6 @@ public class MainActivity extends AppCompatActivity {
                                         summaryItems.get(x).setPorcent();
 
                                     }
-
-
                     }
                 });
             }
@@ -620,7 +617,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDatePicker(View v) {
-       // DialogFragment newFragment = new DatePickerFragment();
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "date picker");
     }

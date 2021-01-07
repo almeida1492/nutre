@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 
+import app.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
 import app.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import app.example.henriqueribeirodealmeida.nutre.Repositories.MealRepository;
 
@@ -27,7 +28,9 @@ public class MealViewModel extends AndroidViewModel {
 
     LiveData<List<Meal>> findByIds(int[] ids) { return mRepository.findByIds(ids); }
 
-
+    public void delete(Meal meal) {
+        mRepository.delete(meal);
+    }
 
 
     public void insert(Meal meal) { mRepository.insert(meal); }

@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/home"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
             android:layout_gravity="right"
             android:layout_margin="16dp"
             android:src="@mipmap/baseline_home_white_36"/>
@@ -73,9 +73,22 @@
             android:layout_marginLeft="48dp"
             android:layout_marginRight="48dp"
             android:layout_marginTop="32dp"
-            android:layout_marginBottom="42dp"
+            android:layout_marginBottom="52dp"
             tools:listitem="@layout/item_food_detail"/>
 
+        <ImageView
+            android:id="@+id/deleteMeal"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+
+            android:src="@drawable/ic_delete_forever_black_24dp"/>
+        <TextView
+            android:id="@+id/qua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remover Alimento"
+            android:layout_marginBottom="20dp"/>
     </LinearLayout>
 
 </ScrollView>

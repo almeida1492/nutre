@@ -44,7 +44,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
 
-        MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
+        final MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
         final ArrayList<Meal> foods = new ArrayList<>();
 
         adapter = new SearchAdapter(this, foods);
@@ -67,7 +67,6 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-
         foodListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -78,6 +77,7 @@ public class SearchActivity extends AppCompatActivity {
                 bundle.putParcelable("food", adapter.getItem(position));
                 bundle.putString("caller", "SearchActivity");
                 intent.putExtra("bundle", bundle);
+
                 startActivity(intent);
             }
         });

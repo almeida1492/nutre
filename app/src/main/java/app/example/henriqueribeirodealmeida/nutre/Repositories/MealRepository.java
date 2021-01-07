@@ -4,8 +4,10 @@ import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
+import app.example.henriqueribeirodealmeida.nutre.DAO.DailyMealDAO;
 import app.example.henriqueribeirodealmeida.nutre.DAO.MealDAO;
 import app.example.henriqueribeirodealmeida.nutre.Database.MealRoomDatabase;
+import app.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
 import app.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 
 import java.util.List;
@@ -32,7 +34,11 @@ public class MealRepository {
     public void insert (Meal meal) {
         new insertAsyncTask(mMealDao).execute(meal);
     }
-
+    //teste
+    public void delete (Meal meal) {
+        new MealRepository.deleteAsyncTask(mMealDao).execute(meal);
+    }
+    //teste
     private static class insertAsyncTask extends AsyncTask<Meal, Void, Void> {
 
         private MealDAO mAsyncTaskDao;
@@ -44,6 +50,21 @@ public class MealRepository {
         @Override
         protected Void doInBackground(final Meal... params) {
             mAsyncTaskDao.insert(params[0]);
+            return null;
+        }
+    }
+    //teste
+    private static class deleteAsyncTask extends AsyncTask<Meal, Void, Void> {
+
+        private MealDAO mAsyncTaskDao;
+
+        deleteAsyncTask(MealDAO dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Meal... params) {
+            mAsyncTaskDao.deleteMeal(params[0]);
             return null;
         }
     }
