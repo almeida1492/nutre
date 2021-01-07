@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 month = String.valueOf(c.get(Calendar.MONTH));
             }
 
-            String year = String.valueOf(c.get(Calendar.YEAR)-1);
+            String year = String.valueOf(c.get(Calendar.YEAR));
             String day;
 
             if(c.get(Calendar.DAY_OF_MONTH) < 10){
@@ -151,9 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
            if( month.equals("00"))month="12";
 
-
             tempCalendarDate = year +"-"+month+"-"+day;
-
 
         }
 
@@ -167,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String CalendarDate = tempCalendarDate;
         summaryHeader.setText(formattedDate);
-            System.out.println("DIA ESCOLHIDO"+CalendarDate);
+
 
         /*ListView summaryListView = findViewById(R.id.summary);*/
         summaryValues = new SummaryValues(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
@@ -216,13 +214,13 @@ public class MainActivity extends AppCompatActivity {
         FoodViewModel foodViewModel           = ViewModelProviders.of(this).get(FoodViewModel.class);
         DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
 
-
+        System.out.println(CalendarDate);
 
         //daily meal started
         dailyMealViewModel.getAllDailyMeals(CalendarDate+"%").observe(this, new Observer<List<DailyMeal>>() {
             @Override
             public void onChanged(@Nullable final List<DailyMeal> liveMeals) {
-                System.out.println("Tamanho de Date"+liveMeals.size());
+              //  System.out.println("Tamanho de Date"+liveMeals.size());
               dailyMeals.clear();
 
                 for (DailyMeal meal : liveMeals) {

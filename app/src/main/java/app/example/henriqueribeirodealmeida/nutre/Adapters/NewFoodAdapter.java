@@ -45,24 +45,25 @@ public class NewFoodAdapter  extends ArrayAdapter<Nutrient> {
 
         TextView typeView = itemView.findViewById(R.id.type);
         typeView.setText(nutrient.getMeasure());
+/*
+        EditText value = itemView.findViewById(R.id.valorAdd);
+        if(value.getText().toString()!=""){
+            nutrient.setAddValue(Integer.valueOf(value.getText().toString()));
+            System.out.println(value.getText().toString());
+        }
 
-
-
+*/
         NumberPicker value = itemView.findViewById(R.id.valorAdd);
 
 
         value.setFormatter(new NumberPicker.Formatter() {
             @Override
-
             public String format(int value) {
-
                 return String.format("%d ", value);
             }
 
         });
-
         value.setMaxValue(1000);
-
         value.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {

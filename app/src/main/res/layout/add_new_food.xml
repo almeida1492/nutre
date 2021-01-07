@@ -22,26 +22,26 @@
             android:text="Nome"
             android:textColor="@color/colorWhite"
             android:textSize="12sp" />
-<!--
-        <EditText
-            android:id="@+id/valorAdd"
-            android:layout_width="wrap_content"
-            android:inputType="number"
-            android:hint="Digite aqui\nEx.12"
-            android:background="@null"
-            android:gravity="center"
-            android:layout_height="match_parent"
-            android:layout_weight="0.3"
-            android:theme="@style/NumberPickerTheme"
-            />
--->
-        <NumberPicker
-            android:id="@+id/valorAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-           android:theme="@style/NumberPickerTheme"
-            />
+        <!--
+               <EditText
+                   android:id="@+id/valorAdd"
+                   android:layout_width="wrap_content"
+                   android:inputType="number"
+                   android:hint="Digite aqui\nEx.12"
+                   android:background="@null"
+                   android:gravity="center"
+                   android:layout_height="match_parent"
+                   android:layout_weight="0.3"
+                   android:theme="@style/NumberPickerTheme"
+                   />
+         -->
+                       <NumberPicker
+                           android:id="@+id/valorAdd"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1.0"
+                          android:theme="@style/NumberPickerTheme"
+                           />
 
         <TextView
             android:id="@+id/type"
