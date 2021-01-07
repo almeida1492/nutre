@@ -63,9 +63,8 @@ public class DailyMealRepository {
             }
             mActivity.finish();
         }
-    }//ok
+    }
 
-    //delete
     public void delete (DailyMeal dailyMeal) {
         new deleteAsyncTask(mDailyMealDao).execute(dailyMeal);
     }
