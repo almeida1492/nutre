@@ -2,9 +2,11 @@ package app.example.henriqueribeirodealmeida.nutre.DAO;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
+import app.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
 import app.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 
 import java.util.List;
@@ -26,6 +28,10 @@ public interface MealDAO {
 
     @Query("SELECT * FROM meals WHERE id IN(:mealIds)")
     LiveData<List<Meal>> findByIds(int[] mealIds);
+
+    //teste
+    @Delete
+    void deleteMeal(Meal meal);
 
 
 
