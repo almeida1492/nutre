@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:animateLayoutChanges="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,23 +18,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/first_screen">
+
     <ImageView
         android:id="@+id/button"
         android:layout_width="34dp"
         android:layout_height="34dp"
         android:layout_gravity="right"
-        android:layout_margin="16dp"
-        android:src="@mipmap/baseline_home_white_36"/>
+        android:layout_margin="26dp"
+        android:src="@mipmap/baseline_home_white_36"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/search_bar"
         android:layout_width="wrap_content"
-        android:animateLayoutChanges="true"
-        android:layout_gravity="center"
         android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:animateLayoutChanges="true"
         android:background="@drawable/picker"
-        android:layout_marginTop="2dp"
-        android:elevation="4dp">
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/search"
@@ -45,19 +62,21 @@
             app:fontFamily="@font/baloo_chettan" />
     </RelativeLayout>
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/meal_history_panel"
         android:layout_width="320dp"
         android:layout_height="400dp"
-        android:layout_marginLeft="22dp"
         android:layout_gravity="center"
-        android:layout_marginTop="19dp"
-        android:layout_marginRight="22dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/white_round_rec"
-        app:layout_constraintTop_toBottomOf="@id/summary_panel">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar">
 
         <ListView
-
             android:id="@+id/foods"
             android:layout_width="300dp"
             android:layout_height="380dp"
@@ -75,23 +94,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_search" >
+            tools:listitem="@layout/item_search">
 
         </ListView>
 
         <Button
             android:id="@+id/new_food1"
-            android:layout_width="278dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/picker"
-            android:text="Não encontrou seu alimento ?!\nAdicione um novo aqui !!"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/foods" />
-    </android.support.constraint.ConstraintLayout>
+            android:text="Não encontrou seu alimento ?\nAdicione um novo!!"
+            android:visibility="gone" />
+    </RelativeLayout>
 
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
+</ScrollView>
