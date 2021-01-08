@@ -1,24 +1,20 @@
 package app.example.henriqueribeirodealmeida.nutre.Adapters;
 
 import android.content.Context;
-import android.inputmethodservice.ExtractEditText;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.widget.AppCompatEditText;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import com.example.henriqueribeirodealmeida.nutre.R;
-import java.util.ArrayList;
-import app.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 
-import static android.media.CamcorderProfile.get;
+import com.example.henriqueribeirodealmeida.nutre.R;
+
+import java.util.ArrayList;
+
+import app.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 
 public class NewFoodAdapter  extends ArrayAdapter<Nutrient> {
 
@@ -54,7 +50,7 @@ public class NewFoodAdapter  extends ArrayAdapter<Nutrient> {
 
 */
         NumberPicker value = itemView.findViewById(R.id.valorAdd);
-
+        //value.setWrapSelectorWheel(true);
 
         value.setFormatter(new NumberPicker.Formatter() {
             @Override
