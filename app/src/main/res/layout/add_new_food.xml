@@ -1,66 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+   >
 
     <LinearLayout
         android:id="@+id/body"
-        android:background="@drawable/blue_round_rec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/blue_round_rec"
         android:orientation="vertical"
-        android:paddingBottom="7dp"
-        android:paddingTop="7dp">
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp">
 
         <TextView
             android:id="@+id/name21"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:layout_weight="1.4"
             android:gravity="center"
-            android:layout_gravity="center"
             android:text="Nome"
             android:textColor="@color/colorWhite"
             android:textSize="22sp" />
-        <!--
-               <EditText
-                   android:id="@+id/valorAdd"
-                   android:layout_width="wrap_content"
-                   android:inputType="number"
-                   android:hint="Digite aqui\nEx.12"
-                   android:background="@null"
-                   android:gravity="center"
-                   android:layout_height="match_parent"
-                   android:layout_weight="0.3"
-                   android:theme="@style/NumberPickerTheme"
-                   />
-         -->
+
         <NumberPicker
-        android:id="@+id/valorAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         android:layout_gravity="center"
-        android:layout_weight="0.2"
-        android:theme="@android:style/Theme.Dialog"
-        />
+            android:id="@+id/valorAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.2"
+            android:theme="@android:style/Theme.Dialog" />
 
         <TextView
             android:id="@+id/type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:layout_marginBottom="10dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="0.4"
             android:gravity="center"
             android:text="mg"
-            android:textSize="12sp" />
+            android:textSize="22sp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@drawable/divider"
-        android:layout_below="@id/body"/>
+        android:layout_height="2dp"
+        android:layout_below="@id/body"
+        android:background="@drawable/divider" />
 
 </RelativeLayout>
