@@ -208,14 +208,15 @@
                 android:id="@+id/summary_panel_title"
                 android:layout_width="1000dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:elevation="5dp"
                 android:layout_centerHorizontal="true"
-                android:textSize="23sp"
+                android:elevation="5dp"
                 android:gravity="center"
+                android:paddingTop="20dp"
                 android:paddingBottom="1dp"
+                android:rotationX="13"
                 android:text="Avaliação da refeição"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                android:textSize="23sp" />
 
             <ImageView
                 android:id="@+id/litlle_button"
@@ -235,17 +236,16 @@
                 android:background="@color/colorWhite" />
 
 
-
             <GridView
                 android:id="@+id/summary"
-                android:numColumns="3"
-                android:animateLayoutChanges="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/summary_panel_title"
-                android:layout_marginTop="24dp"
                 android:layout_marginLeft="17dp"
+                android:layout_marginTop="11dp"
                 android:layout_marginRight="17dp"
+                android:animateLayoutChanges="true"
+                android:numColumns="3"
                 tools:listitem="@layout/item_summery_panel2" />
 
             <View

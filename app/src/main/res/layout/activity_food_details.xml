@@ -82,13 +82,15 @@
             android:layout_height="39dp"
             android:layout_gravity="center"
 
-            android:src="@drawable/ic_delete_forever_black_24dp"/>
+            android:src="@drawable/ic_delete_forever_black_24dp" />
+
         <TextView
             android:id="@+id/qua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remover Alimento"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:rotationX="33"
+            android:text="Remover Alimento" />
     </LinearLayout>
 
 </ScrollView>

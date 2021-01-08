@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -36,7 +37,7 @@ public class NewFood extends AppCompatActivity {
         setContentView(R.layout.activity_new_food);
 
         //listview
-        final ListView summaryView = findViewById(R.id.foods);
+        final GridView summaryView = findViewById(R.id.foods);
 
         //texts
         final EditText nome = findViewById(R.id.nome);
@@ -81,7 +82,8 @@ public class NewFood extends AppCompatActivity {
 
         summaryAdapter = new NewFoodAdapter(this,summaryItems);
         summaryView.setAdapter(summaryAdapter);
-
+        summaryView.setHorizontalSpacing(3);
+        summaryView.setVerticalSpacing(21);
 
         findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
             @Override

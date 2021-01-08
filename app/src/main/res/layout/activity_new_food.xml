@@ -172,19 +172,17 @@
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        <ListView
+        <GridView
             android:id="@+id/foods"
             android:layout_width="match_parent"
-            android:layout_height="970dp"
+            android:layout_height="1470dp"
             android:layout_marginTop="22dp"
-            android:divider="@null"
-            android:dividerHeight="4dp"
-            android:footerDividersEnabled="true"
-            android:headerDividersEnabled="true"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:listitem="@layout/add_new_food" >
+            android:animateLayoutChanges="true"
+            android:numColumns="3"
+            tools:listitem="@layout/add_new_food">
 
-        </ListView>
+        </GridView>
 
         <Button
             android:id="@+id/ok_button"
