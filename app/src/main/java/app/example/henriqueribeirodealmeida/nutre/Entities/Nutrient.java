@@ -21,7 +21,7 @@ public class Nutrient{
     public Nutrient(){}
 
 
-    public Nutrient(String name, int value, String measure, int human) {
+    public Nutrient(String name, double value, String measure, int human) {
         this.name = name;
         this.value = value;
         this.measure = measure;
@@ -42,7 +42,7 @@ public class Nutrient{
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
@@ -146,16 +146,16 @@ public class Nutrient{
     public int Values(int x){
         switch(x){
             case 0:
-                setName("Energia");
+                setName("Energia\n");
                 break;
             case 1:
-               setName("Água");
+               setName("Água\n");
                 break;
             case 2:
-                setName("Carboidrato");
+                setName("Carboidrato\n");
                 break;
             case 3:
-                setName("Proteína");
+                setName("Proteína\n");
                 break;
             case 4:
                 setName( "Gorduras\n totais");
@@ -164,37 +164,37 @@ public class Nutrient{
                 setName( "Gorduras \nsaturadas");
                 break;
             case 6:
-                setName("Fibras");
+                setName("Fibras\n");
                 break;
             case 7:
-                setName( "Sódio");
+                setName( "Sódio\n");
                 break;
             case 8:
-                setName("Vitamina C");
+                setName("Vitamina C\n");
                 break;
             case 9:
-                setName( "Cálcio");
+                setName( "Cálcio\n");
                 break;
             case 10:
-                setName( "Ferro");
+                setName( "Ferro\n");
                 break;
             case 11:
-                setName("Vitamina A");
+                setName("Vitamina A\n");
                 break;
             case 12:
-                setName( "Potássio");
+                setName( "Potássio\n");
                 break;
             case 13:
-                setName( "Magnésio");
+                setName( "Magnésio\n");
                 break;
             case 14:
-                setName( "Tiamina");
+                setName( "Tiamina\n");
                 break;
             case 15:
-                setName( "Riboflavina");
+                setName( "Riboflavina\n");
                 break;
             case 16:
-                setName( "Niacina");
+                setName( "Niacina\n");
                 break;
 
         }
