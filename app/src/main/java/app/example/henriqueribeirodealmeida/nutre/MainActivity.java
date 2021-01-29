@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
         DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
 
 
-
+System.out.println(CalendarDate);
         //daily meal started
         dailyMealViewModel.getAllDailyMeals(CalendarDate+"%").observe(this, new Observer<List<DailyMeal>>() {
             @Override
@@ -223,9 +223,10 @@ public class MainActivity extends AppCompatActivity {
               dailyMeals.clear();
 
                 for (DailyMeal meal : liveMeals) {
-
+                    System.out.println(meal.getDate());
                     try {
                         if (meal != null && meal.getName() != null && meal.getDate().substring(0, 10).equals(CalendarDate)) {
+
                             dailyMeals.add(meal);
                         }
 
@@ -412,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
         helper = UserInfoContainer.getEnergy(this);
 
         summaryItems.get(0).setName("Energia");
-        summaryItems.get(0).setValue((int) summaryValues.getEnergy());
+        summaryItems.get(0).setValue((double) summaryValues.getEnergy());
         summaryItems.get(0).setSuggestedValue(helper);
         summaryItems.get(0).setMeasure(" kcal");
 

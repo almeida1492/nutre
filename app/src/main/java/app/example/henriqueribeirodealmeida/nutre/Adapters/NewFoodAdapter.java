@@ -41,16 +41,8 @@ public class NewFoodAdapter  extends ArrayAdapter<Nutrient> {
 
         TextView typeView = itemView.findViewById(R.id.type);
         typeView.setText(nutrient.getMeasure());
-/*
-        EditText value = itemView.findViewById(R.id.valorAdd);
-        if(value.getText().toString()!=""){
-            nutrient.setAddValue(Integer.valueOf(value.getText().toString()));
-            System.out.println(value.getText().toString());
-        }
 
-*/
         NumberPicker value = itemView.findViewById(R.id.valorAdd);
-        //value.setWrapSelectorWheel(true);
 
         value.setFormatter(new NumberPicker.Formatter() {
             @Override
@@ -66,9 +58,6 @@ public class NewFoodAdapter  extends ArrayAdapter<Nutrient> {
                 nutrient.setAddValue(newVal);
             }
         });
-
-
-
 
         return itemView;
         }

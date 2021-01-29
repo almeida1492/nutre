@@ -34,7 +34,7 @@ public class Food implements Parcelable {
     public Food() {
     }
 
-    public Food(String name, double quantity, String measure, Integer mealId){
+    public Food(String name, double  quantity, String measure, Integer mealId){
         this.name = name;
         this.quantityPerUnit = quantity;
         this.measure = measure;

@@ -24,7 +24,6 @@ public class DailyMealRepository {
     public DailyMealRepository(Application application) {
         MealRoomDatabase db = MealRoomDatabase.getDatabase(application);
         mDailyMealDao = db.dailyMealDao();
-        //mAllDailyMeals = mDailyMealDao.getAllDailyMeals();
     }
 
     public LiveData<List<DailyMeal>> getAllDailyMeals(String date) {

@@ -21,7 +21,7 @@ public class Nutrient{
     public Nutrient(){}
 
 
-    public Nutrient(String name, int value, String measure, int human) {
+    public Nutrient(String name, double value, String measure, int human) {
         this.name = name;
         this.value = value;
         this.measure = measure;
@@ -42,7 +42,7 @@ public class Nutrient{
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 

@@ -237,6 +237,7 @@ public class NewMealActivity extends AppCompatActivity {
                     emptyView.setVisibility(View.GONE);
                     double quantity = Double.parseDouble(measureValueView.getText().toString());//.replaceAll("\\D+","")
 
+
                         if (mCurrentSelectedMeal != null) {
 
                                 foods.add(new Food(mCurrentSelectedMeal.getName(),quantity, mCurrentSelectedMeal.getMeasureLabel(), mCurrentSelectedMeal.getId()));
