@@ -6,11 +6,8 @@ import java.util.ArrayList;
 
 public class Nutrient{
 
-    private ArrayList<DailyMeal> dailyMeals; //teste
-
-
     private String name;
-    private double value;
+    private int value;
     private double suggestedValue;
     private String measure;
     private int human;
@@ -21,7 +18,7 @@ public class Nutrient{
     public Nutrient(){}
 
 
-    public Nutrient(String name, double value, String measure, int human) {
+    public Nutrient(String name, int value, String measure, int human) {
         this.name = name;
         this.value = value;
         this.measure = measure;
@@ -38,11 +35,11 @@ public class Nutrient{
     }
 
     //Valor Principal
-    public double getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(int value) {
         this.value = value;
     }
 

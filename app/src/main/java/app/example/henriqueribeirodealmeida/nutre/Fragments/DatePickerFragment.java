@@ -23,8 +23,6 @@ public class DatePickerFragment extends DialogFragment {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             Date d = new Date(year-1900, month-1, day);
-
-           // System.out.println("mes dentro da funçao SET "+d);
             SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
             String strDate = dateFormatter.format(d);
 
@@ -49,17 +47,13 @@ public class DatePickerFragment extends DialogFragment {
         int y,m,d;
         calendarDate = prefs.getString(DATETIMEKEY, null);
 
-
-
         try{
 
                     y = Integer.parseInt(calendarDate.substring(0,4).replaceAll("[^0-9]",""));
                     m = Integer.parseInt(calendarDate.substring(5,7).replaceAll("[^0-9]","") );
                     d = Integer.parseInt(calendarDate.substring(8,10).replaceAll("[^0-9]",""));
-               // System.out.println("mes dentro da funçao Create"+m);
+
                 return new DatePickerDialog(getActivity(), dateSetListener, y, m, d);
-
-
 
         }catch(NullPointerException e){
             return new DatePickerDialog(getActivity(), dateSetListener, year, month, day);
