@@ -60,7 +60,7 @@ public class SummaryAdapter extends ArrayAdapter<Nutrient>{
         nameView.setText(nutrient.getName());
 
         TextView valueView = itemView.findViewById(R.id.value);
-        float value = (float) nutrient.getValue();
+        int value = (int) nutrient.getValue();
         String valueOutput = value + nutrient.getMeasure();
         valueView.setText(valueOutput);
 

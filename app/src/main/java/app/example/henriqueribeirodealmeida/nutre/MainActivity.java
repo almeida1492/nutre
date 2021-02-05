@@ -214,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
         DailyMealViewModel dailyMealViewModel = ViewModelProviders.of(this).get(DailyMealViewModel.class);
 
 
-System.out.println(CalendarDate);
         //daily meal started
         dailyMealViewModel.getAllDailyMeals(CalendarDate+"%").observe(this, new Observer<List<DailyMeal>>() {
             @Override
@@ -223,13 +222,11 @@ System.out.println(CalendarDate);
               dailyMeals.clear();
 
                 for (DailyMeal meal : liveMeals) {
-                    System.out.println(meal.getDate());
                     try {
                         if (meal != null && meal.getName() != null && meal.getDate().substring(0, 10).equals(CalendarDate)) {
 
                             dailyMeals.add(meal);
                         }
-
                     } catch (NullPointerException e) {
                         if (meal != null && meal.getName() != null) {
                             dailyMeals.add(meal);
@@ -255,7 +252,7 @@ System.out.println(CalendarDate);
             public void onChanged(@Nullable final List<Food> foods) {
 
                 int [] mealIds = new int[foods.size()];
-                final HashMap<Integer, Integer> mealQuantity = new HashMap<>();
+                final HashMap<Integer, Float> mealQuantity = new HashMap<>();
 
                 for (int i=0; i < foods.size() ; i++) {
                     try {
@@ -263,12 +260,13 @@ System.out.println(CalendarDate);
                             Food food = foods.get(i);
                             mealIds[i] = food.getMealId();
 
+                        System.out.println("meal quantidade "+mealQuantity);
+
                             if (mealQuantity.get(food.getMealId()) == null) {
-                                mealQuantity.put(food.getMealId(), (int) food.getQuantityPerUnit());
+                                mealQuantity.put(food.getMealId(), (float) food.getQuantityPerUnit());
 
                             } else {
-
-                                    int oldQuantity = mealQuantity.get(food.getMealId());
+                                    float oldQuantity = mealQuantity.get(food.getMealId());
                                     mealQuantity.put(food.getMealId(), oldQuantity + (int) food.getQuantityPerUnit());
 
                             }
@@ -301,8 +299,9 @@ System.out.println(CalendarDate);
                             Float thiamine = 0.0f;
 
                         for (Meal meal : liveMeals) {
-                            int quantity = mealQuantity.get(meal.getId());
+                            float quantity = mealQuantity.get(meal.getId());
 
+                          //  System.out.println(quantity);
 
                                 energy += meal.getEnergy() * meal.getUnityMultiplier() * quantity / 100;
                                 carbohydrate += meal.getCarbohydrate() * meal.getUnityMultiplier() * quantity / 100;
@@ -413,7 +412,7 @@ System.out.println(CalendarDate);
         helper = UserInfoContainer.getEnergy(this);
 
         summaryItems.get(0).setName("Energia");
-        summaryItems.get(0).setValue((double) summaryValues.getEnergy());
+        summaryItems.get(0).setValue((int) summaryValues.getEnergy());
         summaryItems.get(0).setSuggestedValue(helper);
         summaryItems.get(0).setMeasure(" kcal");
 
