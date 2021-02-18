@@ -81,7 +81,6 @@
             android:layout_width="39dp"
             android:layout_height="39dp"
             android:layout_gravity="center"
-
             android:src="@drawable/ic_delete_forever_black_24dp" />
 
         <TextView
@@ -91,6 +90,20 @@
             android:layout_marginBottom="20dp"
             android:rotationX="33"
             android:text="Remover Alimento" />
+        <ImageView
+            android:id="@+id/updateMeal"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:src="@drawable/edit" />
+
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:rotationX="33"
+            android:text="Editar Alimento" />
     </LinearLayout>
 
 </ScrollView>

@@ -24,6 +24,10 @@
             android:name="app.example.henriqueribeirodealmeida.nutre.NewFood"
             android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name="app.example.henriqueribeirodealmeida.nutre.UpdateFood"
+            android:theme="@style/AppTheme"/>
+
         <activity android:name="app.example.henriqueribeirodealmeida.nutre.MainActivity"
                   android:theme="@style/AppTheme"/>
 

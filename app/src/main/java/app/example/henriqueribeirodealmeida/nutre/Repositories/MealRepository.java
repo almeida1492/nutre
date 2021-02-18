@@ -34,11 +34,14 @@ public class MealRepository {
     public void insert (Meal meal) {
         new insertAsyncTask(mMealDao).execute(meal);
     }
-    //teste
+
     public void delete (Meal meal) {
         new MealRepository.deleteAsyncTask(mMealDao).execute(meal);
     }
     //teste
+    public void update (Meal meal){ new MealRepository.updateAsyncTask(mMealDao).execute(meal);}
+
+
     private static class insertAsyncTask extends AsyncTask<Meal, Void, Void> {
 
         private MealDAO mAsyncTaskDao;
@@ -53,7 +56,7 @@ public class MealRepository {
             return null;
         }
     }
-    //teste
+
     private static class deleteAsyncTask extends AsyncTask<Meal, Void, Void> {
 
         private MealDAO mAsyncTaskDao;
@@ -65,6 +68,21 @@ public class MealRepository {
         @Override
         protected Void doInBackground(final Meal... params) {
             mAsyncTaskDao.deleteMeal(params[0]);
+            return null;
+        }
+    }
+
+    private static class updateAsyncTask extends AsyncTask<Meal, Void, Void> {
+
+        private MealDAO mAsyncTaskDao;
+
+        updateAsyncTask(MealDAO dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Meal... params) {
+            mAsyncTaskDao.updateMeal(params[0]);
             return null;
         }
     }

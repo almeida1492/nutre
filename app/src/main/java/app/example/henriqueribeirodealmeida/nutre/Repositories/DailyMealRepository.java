@@ -83,7 +83,7 @@ public class DailyMealRepository {
         }
     }
 
-        //update
+    //update
     public void update(DailyMeal dailyMeal, ArrayList newFoods, ArrayList foodsToBeDeleted, FoodViewModel foodViewModel, Activity activity) {
         new updateAsyncTask(mDailyMealDao, newFoods, foodsToBeDeleted, foodViewModel, activity).execute(dailyMeal);
     }

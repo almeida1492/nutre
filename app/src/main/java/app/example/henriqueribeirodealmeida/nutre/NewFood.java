@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class NewFood extends AppCompatActivity {
 
     private ArrayList<Nutrient> summaryItems = new ArrayList<>();
-    private MealViewModel mealViewModel = new MealViewModel(getApplication());//adicionar alimento
+    private MealViewModel mealViewModel = new MealViewModel(getApplication());
     private NewFoodAdapter summaryAdapter;
 
     @Override

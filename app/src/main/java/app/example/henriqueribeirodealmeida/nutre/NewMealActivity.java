@@ -268,7 +268,7 @@ public class NewMealActivity extends AppCompatActivity {
 
                     DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
                     String date = df.format(Calendar.getInstance().getTime());
-                    System.out.println("DIA DA REFEIÇAO"+date);
+
                     if (flag){
                         String mealType = mealTypeView.getText().toString();
                         FoodImage foodicon = (FoodImage) spinnerFoodImages.getSelectedItem();
