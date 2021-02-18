@@ -32,6 +32,33 @@ public class MealViewModel extends AndroidViewModel {
         mRepository.delete(meal);
     }
 
-
     public void insert(Meal meal) { mRepository.insert(meal); }
+/*
+    public void update (Meal meal) {mRepository.update(
+            meal.getId(),
+            meal.getName(),
+            meal.getMeasureLabel(),
+            meal.getUnityMultiplier(),
+            meal.getUnity() ,
+            meal.getEnergy(),
+            meal.getWater(),
+            meal.getCarbohydrate(),
+            meal.getProtein()  ,
+            meal.getTotalFat() ,
+            meal.getSaturatedFat(),
+            meal.getFibers(),
+            meal.getSodium(),
+            meal.getVitaminC(),
+            meal.getCalcium(),
+            meal.getIron(),
+            meal.getVitaminA(),
+            meal.getPotassium(),
+            meal.getMagnesium(),
+            meal.getThiamine(),
+            meal.getRiboflavin(),
+            meal.getNiacin());}
+
+ */
+
+    public void update (Meal meal) {mRepository.update(meal);}
 }

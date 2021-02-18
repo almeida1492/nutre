@@ -35,7 +35,6 @@ public class Meal implements Parcelable, Cloneable{
     private float riboflavin;
     private float niacin;
     private float water;
-
     private String measureLabel;
     private String unity;
     private float unityMultiplier;

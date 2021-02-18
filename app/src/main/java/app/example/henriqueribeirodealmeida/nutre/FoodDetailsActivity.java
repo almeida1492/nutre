@@ -44,13 +44,13 @@ public class FoodDetailsActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_details);
-        final MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class); //teste
+        final MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
 
          Intent intent = getIntent();
          final Bundle bundle = intent.getBundleExtra("bundle");
          final Meal meal = bundle.getParcelable("food");
 
-
+        ImageView updateMeal = findViewById(R.id.updateMeal);
         TextView textDeleteMeal = findViewById(R.id.qua);
         ImageView deleteMeal = findViewById(R.id.deleteMeal);
         TextView nameView = findViewById(R.id.name);
@@ -129,6 +129,22 @@ public class FoodDetailsActivity extends AppCompatActivity{
                 new TrocaDeTela(FoodDetailsActivity.this, SearchActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
             }
         });
+
+        updateMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FoodDetailsActivity.this, UpdateFood.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("food", meal);
+                bundle.putString("caller", "FoodDetailsActivity");
+                intent.putExtra("bundle", bundle);
+
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
     private void setSummaryItems(){

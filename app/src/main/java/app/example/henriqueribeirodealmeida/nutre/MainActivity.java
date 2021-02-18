@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         String tempCalendarDate = prefs.getString(DATETIMEKEY, null);
 
-        final String date = df.format(Calendar.getInstance().getTime()); //dia de hoje
+        final String date = df.format(Calendar.getInstance().getTime());
 
         final String formattedDate;
 

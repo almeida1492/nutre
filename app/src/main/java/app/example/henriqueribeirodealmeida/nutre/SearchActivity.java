@@ -71,7 +71,6 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
                 Intent intent = new Intent(SearchActivity.this, FoodDetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("food", adapter.getItem(position));
