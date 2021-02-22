@@ -51,6 +51,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
          final Meal meal = bundle.getParcelable("food");
 
         ImageView updateMeal = findViewById(R.id.updateMeal);
+        TextView textupdatemeal = findViewById(R.id.textupdatemeal);
         TextView textDeleteMeal = findViewById(R.id.qua);
         ImageView deleteMeal = findViewById(R.id.deleteMeal);
         TextView nameView = findViewById(R.id.name);
@@ -104,6 +105,8 @@ public class FoodDetailsActivity extends AppCompatActivity{
             quantityView.setText("Composição em "+ (int)totalQuantity + " g");
             deleteMeal.setVisibility(View.GONE);
             textDeleteMeal.setVisibility(View.GONE);
+            updateMeal.setVisibility(View.GONE);
+            textupdatemeal.setVisibility(View.GONE);
         }
 
         setSummaryItems();

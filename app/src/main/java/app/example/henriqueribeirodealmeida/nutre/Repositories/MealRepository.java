@@ -38,7 +38,7 @@ public class MealRepository {
     public void delete (Meal meal) {
         new MealRepository.deleteAsyncTask(mMealDao).execute(meal);
     }
-    //teste
+
     public void update (Meal meal){ new MealRepository.updateAsyncTask(mMealDao).execute(meal);}
 
 

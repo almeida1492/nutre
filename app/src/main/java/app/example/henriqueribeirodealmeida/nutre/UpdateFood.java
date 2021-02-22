@@ -82,10 +82,7 @@ public class UpdateFood extends AppCompatActivity {
 
 
         for (int i = 0; i < 17; i++) {
-
             summaryItems.add(new Nutrient());
-
-
         }
 
         summaryAdapter = new EditFoodAdapter(this,summaryItems);
@@ -117,7 +114,6 @@ public class UpdateFood extends AppCompatActivity {
         multiplicador.setText("1");
 
         setSummaryItems();
-
 
         findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,10 +154,10 @@ public class UpdateFood extends AppCompatActivity {
                                 (summaryItems.get(16).getValue()));
 
 
-                   System.out.println(mealupdate.getName());
 
-                    mealViewModel.insert(mealupdate);
-                    mealViewModel.delete(meal);
+                   mealupdate.setId(meal.getId());
+                   mealViewModel.update(mealupdate);
+
 
                      Toast.makeText(UpdateFood.this, "Alimento Atualizado", Toast.LENGTH_SHORT).show();
 
