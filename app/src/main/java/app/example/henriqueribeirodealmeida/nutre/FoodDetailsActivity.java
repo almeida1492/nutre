@@ -51,6 +51,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
          final Meal meal = bundle.getParcelable("food");
 
         ImageView updateMeal = findViewById(R.id.updateMeal);
+        TextView textupdatemeal = findViewById(R.id.textupdatemeal);
         TextView textDeleteMeal = findViewById(R.id.qua);
         ImageView deleteMeal = findViewById(R.id.deleteMeal);
         TextView nameView = findViewById(R.id.name);
@@ -93,6 +94,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
             totalQuantity = quantity * meal.getUnityMultiplier();
             factor = totalQuantity / 100;
+            System.out.println(factor);
 
         }
 
@@ -104,6 +106,8 @@ public class FoodDetailsActivity extends AppCompatActivity{
             quantityView.setText("Composição em "+ (int)totalQuantity + " g");
             deleteMeal.setVisibility(View.GONE);
             textDeleteMeal.setVisibility(View.GONE);
+            updateMeal.setVisibility(View.GONE);
+            textupdatemeal.setVisibility(View.GONE);
         }
 
         setSummaryItems();
@@ -153,7 +157,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
         summaryItems.get(0).setMeasure(" kcal");
 
         summaryItems.get(1).setName("Água");
-        summaryItems.get(1).setValue((int) (summaryValues.getWater() /* factor*/));
+        summaryItems.get(1).setValue((int) (summaryValues.getWater() * factor));
         summaryItems.get(1).setMeasure(" ml");
 
         summaryItems.get(2).setName("Carboidrato");
