@@ -94,6 +94,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
             totalQuantity = quantity * meal.getUnityMultiplier();
             factor = totalQuantity / 100;
+            System.out.println(factor);
 
         }
 
@@ -156,7 +157,7 @@ public class FoodDetailsActivity extends AppCompatActivity{
         summaryItems.get(0).setMeasure(" kcal");
 
         summaryItems.get(1).setName("Água");
-        summaryItems.get(1).setValue((int) (summaryValues.getWater() /* factor*/));
+        summaryItems.get(1).setValue((int) (summaryValues.getWater() * factor));
         summaryItems.get(1).setMeasure(" ml");
 
         summaryItems.get(2).setName("Carboidrato");

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +37,7 @@ public class FirstScree extends AppCompatActivity {
         final TextView search      = findViewById(R.id.text_search);
         MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
         final Context c = this;
+
         //font
         Typeface balooChettanType = Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf");
         button.setTypeface(balooChettanType);
