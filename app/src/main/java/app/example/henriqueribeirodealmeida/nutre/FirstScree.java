@@ -26,7 +26,7 @@ public class FirstScree extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_first_scree);
 
-        TextView textnewfood = findViewById(R.id.variavel);
+
         ImageView newmeal = findViewById(R.id.new_meal);
         TextView textnewmeal       = findViewById(R.id.text_newmeal);
         final ImageView searchView = findViewById(R.id.search_action);
@@ -44,7 +44,6 @@ public class FirstScree extends AppCompatActivity {
         title.setTypeface(balooChettanType);
         search.setTypeface(balooChettanType);
         info.setTypeface(balooChettanType);
-        textnewfood.setTypeface(balooChettanType);
         textnewmeal.setTypeface(balooChettanType);
 
        
@@ -94,14 +93,6 @@ public class FirstScree extends AppCompatActivity {
 
             }
         });
-
-      textnewfood.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              new TrocaDeTela(FirstScree.this,NewFood.class,R.anim.mover_esquerda,R.anim.fade_in);
-          }
-      });
-
 
         if(UserInfoContainer.getAge(c) != 0){
             newmeal.setVisibility(View.VISIBLE);

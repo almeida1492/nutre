@@ -1,5 +1,4 @@
 package app.example.henriqueribeirodealmeida.nutre.Adapters;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-
 import app.example.henriqueribeirodealmeida.nutre.Entities.Food;
 import app.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import app.example.henriqueribeirodealmeida.nutre.FoodDetailsActivity;
 import app.example.henriqueribeirodealmeida.nutre.NewMealActivity;
 import com.example.henriqueribeirodealmeida.nutre.R;
-
 import java.util.ArrayList;
 
 public class AddedFoodAdapter extends ArrayAdapter<Food> {

@@ -37,7 +37,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="0dp"
-        android:layout_height="357dp"
+        android:layout_height="307dp"
         android:layout_marginStart="49dp"
         android:layout_marginLeft="49dp"
         android:layout_marginEnd="49dp"
@@ -113,32 +113,6 @@
             app:layout_constraintTop_toBottomOf="@+id/search_action"
             />
 
-        <ImageView
-            android:id="@+id/new_food2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="25dp"
-            android:src="@drawable/ic_add_white_24dp"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/new_meal" />
-
-        <TextView
-            android:id="@+id/variavel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="   Inserir novo alimento\n no banco de dados"
-            android:textColor="@color/colorWhite"
-            android:textSize="13sp"
-            app:fontFamily="sans-serif-smallcaps"
-            app:layout_constraintTop_toBottomOf="@+id/new_meal"
-            tools:layout_editor_absoluteX="0dp" />
-
-
         <Button
             android:id="@+id/initial_button"
             android:layout_width="wrap_content"
@@ -161,14 +135,14 @@
             android:id="@+id/text_search"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="  Buscar alimento"
             android:textColor="@color/colorWhite"
             android:textSize="13sp"
             app:fontFamily="sans-serif-smallcaps"
             app:layout_constraintTop_toBottomOf="@+id/text_info"
-            tools:layout_editor_absoluteX="115dp" />
+            tools:layout_editor_absoluteX="0dp" />
 
 
     </android.support.constraint.ConstraintLayout>
