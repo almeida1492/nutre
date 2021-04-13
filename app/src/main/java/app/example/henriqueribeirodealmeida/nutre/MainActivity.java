@@ -66,7 +66,7 @@ public class  MainActivity extends AppCompatActivity {
 
        setContentView(R.layout.activity_main);
 
-        final ViewGroup transitionsContainer = findViewById(R.id.transitions_container); 
+        final ViewGroup transitionsContainer = findViewById(R.id.transitions_container);
         final TextView  titleView          = transitionsContainer.findViewById(R.id.title);
         final RelativeLayout panelView     = findViewById(R.id.summary_panel);
         final GridView  summaryView        = findViewById(R.id.summary);

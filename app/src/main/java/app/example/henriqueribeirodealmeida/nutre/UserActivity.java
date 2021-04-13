@@ -1,18 +1,12 @@
 package app.example.henriqueribeirodealmeida.nutre;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,15 +16,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import app.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
-import app.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
-import app.example.henriqueribeirodealmeida.nutre.Fragments.InfoIMCFragment;
-import app.example.henriqueribeirodealmeida.nutre.Fragments.PhysicalActivityInfoFragment;
-
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import app.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
+import app.example.henriqueribeirodealmeida.nutre.Fragments.InfoIMCFragment;
+import app.example.henriqueribeirodealmeida.nutre.Fragments.PhysicalActivityInfoFragment;
 
 public class UserActivity extends AppCompatActivity{
 
@@ -87,6 +80,7 @@ public class UserActivity extends AppCompatActivity{
         genderView.setAdapter(genderAdapter);
 
         final ArrayList<String> EnergeticOption = new ArrayList<>();
+        EnergeticOption.add("-");
         EnergeticOption.add(" Usar o valor energético aproximado\n para manter seu peso atual");
         EnergeticOption.add(" Valor energético\n padrão de 2.000 Kcal");
         EnergeticOption.add(" Utilizar outro valor energético");
@@ -164,18 +158,22 @@ public class UserActivity extends AppCompatActivity{
                         public void onClick(View v) {
                             switch(Energeticvalue.getSelectedItemPosition()){
                                 case(0):
+                                    Toast.makeText(UserActivity.this, "Escolha um valor enegético", Toast.LENGTH_SHORT).show();
+
+                                    break;
+                                case(1):
                                     valorEscolhido.setVisibility(View.GONE);
                                     UserInfoContainer.setEnergy(getApplicationContext(), (int) Helpers.calculateRequiredEnergy(UserActivity.this));
                                     valorEscolhido.setVisibility(View.GONE);
                                     new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
                                     break;
-                                case(1):
+                                case(2):
                                     valorEscolhido.setVisibility(View.GONE);
                                     UserInfoContainer.setEnergy(getApplicationContext(),2000);
                                     valorEscolhido.setVisibility(View.GONE);
                                     new TrocaDeTela(UserActivity.this, MainActivity.class, R.anim.mover_esquerda, R.anim.fade_in);
                                     break;
-                                case(2):
+                                case(3):
                                     valorEscolhido.setVisibility(View.VISIBLE);
                                     if (!valorEscolhido.getText().toString().isEmpty()) {
                                         UserInfoContainer.setEnergy(getApplicationContext(), Integer.valueOf(valorEscolhido.getText().toString()));
