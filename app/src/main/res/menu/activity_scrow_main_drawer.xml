@@ -17,4 +17,23 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
     </group>
+
+    <item android:title="Avisos">
+
+        <menu>
+            <item
+                android:id="@+id/editMeal"
+                android:title="Editar um alimento"
+                android:icon="@drawable/ic_baseline_edit_36"
+                />
+            <item
+                android:id="@+id/delteMeal"
+                android:title="Excluir um alimento"
+                android:icon="@drawable/ic_baseline_delete_36 "
+                />
+
+
+        </menu>
+
+    </item>
 </menu>
