@@ -13,6 +13,7 @@ import app.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 import app.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class FoodDetailsAdapter extends ArrayAdapter<Nutrient> {
@@ -35,13 +36,13 @@ public class FoodDetailsAdapter extends ArrayAdapter<Nutrient> {
         }
 
         Nutrient nutrient = getItem(position);
-
+        DecimalFormat df = new DecimalFormat("#.##");
         TextView nameView = itemView.findViewById(R.id.name);
         nameView.setText(nutrient.getName());
 
         TextView valueView = itemView.findViewById(R.id.value);
-        int value =  nutrient.getValue();
-        String valueOutput = value + nutrient.getMeasure();
+        double value =  nutrient.getValue();
+        String valueOutput = df.format(value) + nutrient.getMeasure();
         valueView.setText(valueOutput);
 
         TextView suggestedValueView = itemView.findViewById(R.id.suggested_value);

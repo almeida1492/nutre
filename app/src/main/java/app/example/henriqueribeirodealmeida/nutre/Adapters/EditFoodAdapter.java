@@ -66,7 +66,7 @@ public class EditFoodAdapter extends ArrayAdapter<Nutrient> {
 
         });
 
-        value.setValue(nutrient.getValue());
+        value.setValue((int) nutrient.getValue());
 
 
 

@@ -155,7 +155,7 @@
             android:layout_marginRight="16dp"
             android:elevation="5dp"
             android:gravity="center"
-            android:text="Buscar\nAlimento"
+            android:text="Editar\nAlimento"
             android:textColor="@color/colorWhite"
             android:textSize="8sp"
             android:textStyle="bold"

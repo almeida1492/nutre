@@ -1,11 +1,13 @@
 package app.example.henriqueribeirodealmeida.nutre;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +26,9 @@ import app.example.henriqueribeirodealmeida.nutre.Entities.SummaryValues;
 
 import com.example.henriqueribeirodealmeida.nutre.R;
 
+import java.math.RoundingMode;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,21 +43,22 @@ public class FoodDetailsActivity extends AppCompatActivity{
     private double factor;
     private double totalQuantity;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_details);
+
         final MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
 
-         Intent intent = getIntent();
-         final Bundle bundle = intent.getBundleExtra("bundle");
-         final Meal meal = bundle.getParcelable("food");
+        Intent intent = getIntent();
+        final Bundle bundle = intent.getBundleExtra("bundle");
+        final Meal meal = bundle.getParcelable("food");
+
 
         ImageView updateMeal = findViewById(R.id.updateMeal);
         TextView textupdatemeal = findViewById(R.id.textupdatemeal);
         TextView textDeleteMeal = findViewById(R.id.qua);
-        ImageView deleteMeal = findViewById(R.id.deleteMeal);
+        final ImageView deleteMeal = findViewById(R.id.deleteMeal);
         TextView nameView = findViewById(R.id.name);
         ListView nutrientsView = findViewById(R.id.nutrients);
         ImageView homeView = findViewById(R.id.home);
@@ -61,7 +66,6 @@ public class FoodDetailsActivity extends AppCompatActivity{
         TextView quantityView = findViewById(R.id.quantity);
         nameView.setText(meal.getName());
         nameView.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/BalooChettan-Regular.ttf"));
-
         factor = 1;
 
         summaryItems = new ArrayList<>();
@@ -128,22 +132,14 @@ public class FoodDetailsActivity extends AppCompatActivity{
         deleteMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            mealViewModel.delete(meal);
-                Toast.makeText(FoodDetailsActivity.this, "Alimento removido com sucesso", Toast.LENGTH_SHORT).show();
-                new TrocaDeTela(FoodDetailsActivity.this, SearchActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
+                    deleteConfirm(mealViewModel,meal);
             }
         });
 
         updateMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FoodDetailsActivity.this, UpdateFood.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("food", meal);
-                bundle.putString("caller", "FoodDetailsActivity");
-                intent.putExtra("bundle", bundle);
-
-                startActivity(intent);
+                editConfirm(meal);
             }
         });
 
@@ -153,71 +149,71 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
     private void setSummaryItems(){
         summaryItems.get(0).setName("Energia");
-        summaryItems.get(0).setValue((int) (summaryValues.getEnergy() * factor));
+        summaryItems.get(0).setValue((float) ( summaryValues.getEnergy() * factor));
         summaryItems.get(0).setMeasure(" kcal");
 
         summaryItems.get(1).setName("Água");
-        summaryItems.get(1).setValue((int) (summaryValues.getWater() * factor));
+        summaryItems.get(1).setValue((float) (summaryValues.getWater() * factor));
         summaryItems.get(1).setMeasure(" ml");
 
         summaryItems.get(2).setName("Carboidrato");
-        summaryItems.get(2).setValue((int) (summaryValues.getCarbohydrate() * factor));
+        summaryItems.get(2).setValue((float) (summaryValues.getCarbohydrate() * factor));
         summaryItems.get(2).setMeasure(" g");
 
         summaryItems.get(3).setName("Proteína");
-        summaryItems.get(3).setValue((int) (summaryValues.getProtein() * factor));
+        summaryItems.get(3).setValue((float)(summaryValues.getProtein() * factor));
         summaryItems.get(3).setMeasure(" g");
 
         summaryItems.get(4).setName("Gorduras totais");
-        summaryItems.get(4).setValue((int) (summaryValues.getTotalFat() * factor));
+        summaryItems.get(4).setValue((float) (summaryValues.getTotalFat() * factor));
         summaryItems.get(4).setMeasure(" g");
 
         summaryItems.get(5).setName("Gordura saturada");
-        summaryItems.get(5).setValue((int) (summaryValues.getSaturatedFat() * factor));
+        summaryItems.get(5).setValue((float) (summaryValues.getSaturatedFat() * factor));
         summaryItems.get(5).setMeasure(" g");
 
         summaryItems.get(6).setName("Fibras");
-        summaryItems.get(6).setValue((int) (summaryValues.getFibers() * factor));
+        summaryItems.get(6).setValue((float) (summaryValues.getFibers() * factor));
         summaryItems.get(6).setMeasure(" g");
 
         summaryItems.get(7).setName("Sódio");
-        summaryItems.get(7).setValue((int) (summaryValues.getSodium() * factor));
+        summaryItems.get(7).setValue((float) (summaryValues.getSodium() * factor));
         summaryItems.get(7).setMeasure(" mg");
 
         summaryItems.get(8).setName("Vitamina C");
-        summaryItems.get(8).setValue((int) (summaryValues.getVitaminC() * factor));
+        summaryItems.get(8).setValue((float) (summaryValues.getVitaminC() * factor));
         summaryItems.get(8).setMeasure(" mg");
 
         summaryItems.get(9).setName("Cálcio");
-        summaryItems.get(9).setValue((int) (summaryValues.getCalcium() * factor));
+        summaryItems.get(9).setValue((float) (summaryValues.getCalcium() * factor));
         summaryItems.get(9).setMeasure(" mg");
 
         summaryItems.get(10).setName("Ferro");
-        summaryItems.get(10).setValue((int) (summaryValues.getIron() * factor));
+        summaryItems.get(10).setValue((float) (summaryValues.getIron() * factor));
         summaryItems.get(10).setMeasure(" mg");
 
         summaryItems.get(11).setName("Vitamina A");
-        summaryItems.get(11).setValue((int) (summaryValues.getVitaminA() * factor));
+        summaryItems.get(11).setValue((float) (summaryValues.getVitaminA() * factor));
         summaryItems.get(11).setMeasure(" µg");
 
         summaryItems.get(12).setName("Potássio");
-        summaryItems.get(12).setValue((int) (summaryValues.getPotassium() * factor));
+        summaryItems.get(12).setValue((float) (summaryValues.getPotassium() * factor));
         summaryItems.get(12).setMeasure(" mg");
 
         summaryItems.get(13).setName("Magnésio");
-        summaryItems.get(13).setValue((int) (summaryValues.getMagnesium() * factor));
+        summaryItems.get(13).setValue((float) (summaryValues.getMagnesium() * factor));
         summaryItems.get(13).setMeasure(" mg");
 
         summaryItems.get(14).setName("Tiamina");
-        summaryItems.get(14).setValue((int) (summaryValues.getThiamine() * factor));
+        summaryItems.get(14).setValue((float) (summaryValues.getThiamine() * factor));
         summaryItems.get(14).setMeasure(" mg");
 
         summaryItems.get(15).setName("Riboflavina");
-        summaryItems.get(15).setValue((int) (summaryValues.getRiboflavin() * factor));
+        summaryItems.get(15).setValue((float) (summaryValues.getRiboflavin() * factor));
         summaryItems.get(15).setMeasure(" mg");
 
         summaryItems.get(15).setName("Niacina");
-        summaryItems.get(15).setValue((int) (summaryValues.getNiacin() * factor));
+        summaryItems.get(15).setValue((float) (summaryValues.getNiacin() * factor));
         summaryItems.get(15).setMeasure(" mg");
 
     }
@@ -249,6 +245,60 @@ public class FoodDetailsActivity extends AppCompatActivity{
 
         scrollContainer.fullScroll(View.FOCUS_UP);
     }
+
+    public void deleteConfirm(final MealViewModel view, final Meal meal){
+
+        AlertDialog.Builder msgBox = new AlertDialog.Builder(this);
+
+        msgBox.setTitle("Excluindo...");
+        msgBox.setIcon(R.drawable.ic_baseline_delete_36);
+        msgBox.setMessage("Deseja excluir este alimento?");
+        msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                view.delete(meal);
+                Toast.makeText(FoodDetailsActivity.this, "Alimento removido com sucesso", Toast.LENGTH_SHORT).show();
+                new TrocaDeTela(FoodDetailsActivity.this, SearchActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
+            }
+        });
+        msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        msgBox.show();
+
+    }
+
+    public void editConfirm( final Meal meal){
+
+        AlertDialog.Builder msgBox = new AlertDialog.Builder(this);
+
+        msgBox.setTitle("Editar");
+        msgBox.setIcon(R.drawable.ic_baseline_delete_36);
+        msgBox.setMessage("Deseja editar este alimento?");
+        msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(FoodDetailsActivity.this, UpdateFood.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("food", meal);
+                bundle.putString("caller", "FoodDetailsActivity");
+                intent.putExtra("bundle", bundle);
+
+                startActivity(intent);
+                 }
+        });
+        msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        msgBox.show();
+
+    }
+
+
 
 
 }

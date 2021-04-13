@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Nutrient{
 
     private String name;
-    private int value;
+    private float value;
     private double suggestedValue;
     private String measure;
     private int human;
@@ -18,7 +18,7 @@ public class Nutrient{
     public Nutrient(){}
 
 
-    public Nutrient(String name, int value, String measure, int human) {
+    public Nutrient(String name, float value, String measure, int human) {
         this.name = name;
         this.value = value;
         this.measure = measure;
@@ -35,11 +35,11 @@ public class Nutrient{
     }
 
     //Valor Principal
-    public int getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(float value) {
         this.value = value;
     }
 
