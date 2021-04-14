@@ -369,14 +369,7 @@ public class  MainActivity extends AppCompatActivity {
 
 
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
     private void user(){
-
     final Context c = this;
     if(UserInfoContainer.getAge( c) == 0){
         new TrocaDeTela(MainActivity.this, UserActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
