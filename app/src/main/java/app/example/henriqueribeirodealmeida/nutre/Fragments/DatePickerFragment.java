@@ -3,13 +3,13 @@ package app.example.henriqueribeirodealmeida.nutre.Fragments;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.telecom.Call;
 import android.widget.DatePicker;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,6 +34,23 @@ public class DatePickerFragment extends DialogFragment {
             getActivity().recreate();
         }
     };
+
+
+    public static String getDate(Context c){
+        SharedPreferences sp = c.getSharedPreferences(DATETIMEKEY, Context.MODE_PRIVATE);
+        if (sp.getString(DATETIMEKEY, null) == null){
+            setDate(c, "");
+        }
+        return sp.getString(DATETIMEKEY, "");
+    }
+
+    public static void setDate(Context c, String name){
+        SharedPreferences sp = c.getSharedPreferences(DATETIMEKEY, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(DATETIMEKEY, name);
+        editor.apply();
+    }
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
