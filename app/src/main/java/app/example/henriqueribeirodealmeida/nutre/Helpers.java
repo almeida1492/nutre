@@ -2,8 +2,6 @@ package app.example.henriqueribeirodealmeida.nutre;
 
 import android.content.Context;
 
-import java.text.DecimalFormat;
-
 import app.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
 
 public class Helpers {
@@ -205,9 +203,6 @@ public class Helpers {
                 break;
             case "11":
                 month = " novembro ";
-                break;
-            case "12":
-                month = " dezembro ";
                 break;
             default:
                 month = " ";

@@ -104,7 +104,11 @@ public class  MainActivity extends AppCompatActivity {
 
         final String formattedDate;
 
-        if (tempCalendarDate!=null) {
+        /*Caso o dia não tenha sido escolhido ainda np primeiro uso, recebe o dia atual*/
+        if(tempCalendarDate == null){
+            tempCalendarDate = date.substring(0,10);//dia atual
+
+        }else{
             Date CalDate = null;
             try {
                 CalDate = cdf.parse(tempCalendarDate);
@@ -115,41 +119,31 @@ public class  MainActivity extends AppCompatActivity {
             Calendar c = Calendar.getInstance();
             c.setTime(CalDate);
             c.add(Calendar.MONTH, 2);
-            String month;
+
+           String month = String.valueOf(c.get(Calendar.MONTH));
+           String year = String.valueOf(c.get(Calendar.YEAR));
+           String day = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
 
             if(c.get(Calendar.MONTH) < 10){
-                month = "0"+String.valueOf(c.get(Calendar.MONTH));
-
-            }else{
-                month = String.valueOf(c.get(Calendar.MONTH));
+                month = "0"+ month;
             }
-
-            String year = String.valueOf(c.get(Calendar.YEAR));
-            String day;
 
             if(c.get(Calendar.DAY_OF_MONTH) < 10){
-                day = "0"+String.valueOf(c.get(Calendar.DAY_OF_MONTH));
-            }else{
-                day = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
+                day = "0"+ day;
             }
 
-           if( month.equals("00"))month="12";
-
             tempCalendarDate = year +"-"+month+"-"+day;
-
         }
 
 
-        if(savedInstanceState==null){
-            formattedDate = Helpers.formatDate(date, false);
-        }else{
             formattedDate = Helpers.formatDate(tempCalendarDate + date.substring(10, 25), false);
-        }
 
 
+        //Recebendo o dia escolhido no calendario
         final String CalendarDate = tempCalendarDate;
         summaryHeader.setText(formattedDate);
 
+       //dia do calenadrio
 
         /*ListView summaryListView = findViewById(R.id.summary);*/
         summaryValues = new SummaryValues(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
@@ -244,8 +238,6 @@ public class  MainActivity extends AppCompatActivity {
 
                             Food food = foods.get(i);
                             mealIds[i] = food.getMealId();
-
-                        System.out.println("meal quantidade "+mealQuantity);
 
                             if (mealQuantity.get(food.getMealId()) == null) {
                                 mealQuantity.put(food.getMealId(), (float) food.getQuantityPerUnit());
@@ -538,7 +530,7 @@ public class  MainActivity extends AppCompatActivity {
 
     private void setListViewHeight(ListView listView) {
 
-        float px = 500 * (listView.getResources().getDisplayMetrics().density);//teste
+        float px = 500 * (listView.getResources().getDisplayMetrics().density);
 
         ListAdapter adapter = listView.getAdapter();
         int totalHeight = 0;
@@ -603,6 +595,7 @@ public class  MainActivity extends AppCompatActivity {
     public void showDatePicker(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "date picker");
+
     }
 
     public void rotate(View view){
