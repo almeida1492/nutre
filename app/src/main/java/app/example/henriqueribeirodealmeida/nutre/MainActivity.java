@@ -56,6 +56,7 @@ public class  MainActivity extends AppCompatActivity {
     private ArrayList<DailyMeal> dailyMeals;
     private String CalendarDate;
     double helper;
+    private DatePickerFragment datePickerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,16 +99,18 @@ public class  MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
-        String tempCalendarDate = prefs.getString(DATETIMEKEY, null);
 
+        String tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
+
+        //System.out.println(tempCalendarDate);
         final String date = df.format(Calendar.getInstance().getTime());
 
         final String formattedDate;
 
-        /*Caso o dia não tenha sido escolhido ainda np primeiro uso, recebe o dia atual*/
+        /*Caso o dia não tenha sido escolhido ainda no primeiro uso, recebe o dia atual*/
         if(tempCalendarDate == null){
-            tempCalendarDate = date.substring(0,10);//dia atual
-
+            DatePickerFragment.setDate(getApplicationContext() ,date.substring(0,10));
+            tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
         }else{
             Date CalDate = null;
             try {
@@ -143,8 +146,6 @@ public class  MainActivity extends AppCompatActivity {
         final String CalendarDate = tempCalendarDate;
         summaryHeader.setText(formattedDate);
 
-       //dia do calenadrio
-
         /*ListView summaryListView = findViewById(R.id.summary);*/
         summaryValues = new SummaryValues(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         summaryItems = new ArrayList<>();
@@ -170,7 +171,7 @@ public class  MainActivity extends AppCompatActivity {
             @Override
             protected void changeVisibility(boolean visible) {
                 findViewById(R.id.litlle_button).setRotation(visible ?180:0);
-              //  TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(800));
+              // TransitionManager.beginDelayedTransition(transitionsContainer, new Fade(Gravity.LEFT).setDuration(800));
 
 
                 // This method call returns the panel status towards view expansion from the adapter
