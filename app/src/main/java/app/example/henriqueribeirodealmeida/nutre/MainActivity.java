@@ -99,12 +99,11 @@ public class  MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
+        String tempCalendarDate = prefs.getString(DATETIMEKEY, null);
+        //tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
 
-        String tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
 
-        //System.out.println(tempCalendarDate);
         final String date = df.format(Calendar.getInstance().getTime());
-
         final String formattedDate;
 
         /*Caso o dia não tenha sido escolhido ainda no primeiro uso, recebe o dia atual*/

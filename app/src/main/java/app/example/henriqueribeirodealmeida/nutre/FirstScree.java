@@ -41,7 +41,6 @@ public class FirstScree extends AppCompatActivity {
         info.setTypeface(balooChettanType);
         textnewmeal.setTypeface(balooChettanType);
 
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
