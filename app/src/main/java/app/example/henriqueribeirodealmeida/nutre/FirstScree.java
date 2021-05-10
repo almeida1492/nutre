@@ -41,14 +41,14 @@ public class FirstScree extends AppCompatActivity {
         info.setTypeface(balooChettanType);
         textnewmeal.setTypeface(balooChettanType);
 
-       
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(UserInfoContainer.getAge( c) != 0){
 
                     new TrocaDeTela(FirstScree.this,MainActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
-
+                    //DatePickerFragment.setDate(getApplicationContext(),"");
                     }else {
                     new TrocaDeTela(FirstScree.this,UserActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
                 }
@@ -76,7 +76,6 @@ public class FirstScree extends AppCompatActivity {
             public void onClick(View v) {
                 new TrocaDeTela(FirstScree.this,SearchActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
 
-
             }
         });
 
@@ -84,8 +83,6 @@ public class FirstScree extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new TrocaDeTela(FirstScree.this,SearchActivity.class,R.anim.mover_esquerda,R.anim.fade_in);
-
-
             }
         });
 
@@ -102,11 +99,7 @@ public class FirstScree extends AppCompatActivity {
         }else{
             newmeal.setVisibility(View.GONE);
             textnewmeal.setVisibility(View.GONE);
-
         }
-
-
-
 
 
     }

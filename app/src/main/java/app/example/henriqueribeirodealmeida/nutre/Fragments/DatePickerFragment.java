@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
 
@@ -17,37 +16,30 @@ import java.util.Date;
 public class DatePickerFragment extends DialogFragment {
 
     private final static String DATETIMEKEY = "com.example.henriqueribeirodealmeida.nutre.datetimekey";
+    private final static String DATE = "DATE";
     String calendarDate;
+    SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             Date d = new Date(year-1900, month-1, day);
-            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
             String strDate = dateFormatter.format(d);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            SharedPreferences.Editor editor;
-            editor = prefs.edit();
-            editor.putString(DATETIMEKEY, strDate);
-            editor.apply();
+            setDate(getActivity(),strDate);
             getActivity().recreate();
         }
     };
 
-
     public static String getDate(Context c){
         SharedPreferences sp = c.getSharedPreferences(DATETIMEKEY, Context.MODE_PRIVATE);
-        if (sp.getString(DATETIMEKEY, null) == null){
-            setDate(c, "");
-        }
-        return sp.getString(DATETIMEKEY, "");
+        return sp.getString(DATE, "");
     }
 
-    public static void setDate(Context c, String name){
+    public static void setDate(Context c, String strDate){
         SharedPreferences sp = c.getSharedPreferences(DATETIMEKEY, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString(DATETIMEKEY, name);
+        editor.putString(DATE, strDate);
         editor.apply();
     }
 
@@ -60,9 +52,8 @@ public class DatePickerFragment extends DialogFragment {
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         int y,m,d;
-        calendarDate = prefs.getString(DATETIMEKEY, null);
+        calendarDate = getDate(getActivity());
 
         try{
 
