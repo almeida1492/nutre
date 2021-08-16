@@ -99,7 +99,8 @@ public class  MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
-        String tempCalendarDate = prefs.getString(DATETIMEKEY, null);
+        String tempCalendarDate = prefs.getString(DATETIMEKEY, DatePickerFragment.getDate(getApplicationContext()));
+        System.out.println("Primeiro aqui " + tempCalendarDate);
         //tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
 
 
@@ -107,9 +108,10 @@ public class  MainActivity extends AppCompatActivity {
         final String formattedDate;
 
         /*Caso o dia não tenha sido escolhido ainda no primeiro uso, recebe o dia atual*/
-        if(tempCalendarDate == null){
+        if(tempCalendarDate == null && tempCalendarDate.isEmpty()){
             DatePickerFragment.setDate(getApplicationContext() ,date.substring(0,10));
             tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
+            System.out.println("Depois aqui " + tempCalendarDate);
         }else{
             Date CalDate = null;
             try {

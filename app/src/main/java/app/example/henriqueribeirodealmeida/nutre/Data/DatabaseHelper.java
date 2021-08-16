@@ -5,13 +5,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-
-import app.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
-
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
+   //TODO Delete this class
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "newfoodtable2.sqlite";
     public static final String DBPATH = "%s/databases/";

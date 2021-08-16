@@ -2,8 +2,10 @@ package app.example.henriqueribeirodealmeida.nutre;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +14,15 @@ import android.widget.TextView;
 
 import com.example.henriqueribeirodealmeida.nutre.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import app.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
+import app.example.henriqueribeirodealmeida.nutre.Fragments.DatePickerFragment;
 
 public class FirstScree extends AppCompatActivity {
+    private final static String DATETIMEKEY = "com.example.henriqueribeirodealmeida.nutre.datetimekey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +39,9 @@ public class FirstScree extends AppCompatActivity {
         TextView info              =  findViewById(R.id.text_info);
         final TextView search      = findViewById(R.id.text_search);
         MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
+        DateFormat df  = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        final String date = df.format(Calendar.getInstance().getTime());
+
         final Context c = this;
 
         //font
@@ -101,6 +112,13 @@ public class FirstScree extends AppCompatActivity {
         }
 
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(FirstScree.this);
+        DatePickerFragment.setDate(getApplicationContext() ,date.substring(0,10));
+        String tempCalendarDate = prefs.getString(DATETIMEKEY, DatePickerFragment.getDate(getApplicationContext()));
+
+        //tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
+
+        System.out.println("Splash screen -- " + tempCalendarDate);
     }
 
 
