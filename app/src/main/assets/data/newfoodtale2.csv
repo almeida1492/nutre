@@ -590,3 +590,135 @@ Vagem crua,Colher de sopa,20,gramas,25,92,5,1.8,0.2,NULL,2.4,NULL,1.2,41,0.4,16,
 Vatapá,Unidade,100,gramas,255,58,10,6.0,23.2,7.5,1.7,880,NULL,47,1.4,NULL,209,39,NULL,NULL,1.80
 Virado à paulista,Colher de sopa,30,gramas,307,49,14,10.2,25.6,8.3,2.2,346,NULL,41,1.1,10,237,22,0.14,0.05,2.60
 Yakisoba,Porção,220,gramas,113,69,18,7.5,2.6,0.6,1.1,794,NULL,14,0.6,31,159,13,0.16,NULL,2.09
+
+
+Batata frita do McDonald´s,Colher sopa cheia ,25,g,315,36.6,38.7,3.41,15.5,2.27,3.9,189,5.6,19,0.8,0,596,37,0.18,0.04,3.22
+Sanduíche Cheeseburguer do McDonald´s,Unidade média,200,g,267,45,26.7,13,11.8,4.44,1.1,626,0.6,167,2.35,0,200,20,0.22,0.26,04.03
+Sanduíche Hambúrguer do McDonald´s,Unidade média,200,g,261,44.5,29,12.9,10.1,3.5,1.3,494,0.6,127,2.87,0,192,21,0.25,0.24,4.54
+Sanduíche Whopper com queijo do Burguer King,Unidade média,200,g,248,54.9,15.7,11.2,15.3,5.78,1,453,0.2,82,2,0,169,18,0.21,0.2,2.56
+Sanduíche  Double Whopper com queijo do Burguer King,Unidade média,200,g,262,53.3,11.9,14.5,17.1,7,1.6,387,0.2,78,5.3,0,189,19,0.27,0.21,3
+Sanduíche Duplo cheeseburguer do Burguer King,Unidade média,200,g,282,47.4,17.4,16.8,16.1,6.92,0,562,0,120,2.33,0,231,23,0.27,0.21,3
+Patê (média de diferentes sabores),Colher sobremesa cheia ,21,g,225,66.5,2.79,8.65,19.9,6.53,0,1378,0,10.3,0.76,0,192,12.8,0.56,0.15,2.69
+Banha suína,Colher sobremesa cheia ,21,g,900,0,0,0,100,39.2,0,0,0,0,0,0,0,0,0,0,0
+Gordura bovina. sebo,Colher sobremesa cheia ,21,g,900,0,0,0,100,49.8,0,0,0,0,0,0,0,0,0,0,0
+Almôndega de carne bovina industrializada crua com sal,Unidade média,45,g,178,64.7,10.7,12.9,9.32,3.9,0,621,0,22.2,1.56,9.23,328,23.8,0.11,0.04,2.2
+Blanquet fatiado cozido,Unidade média,5,g,92,74.9,3.77,17,01.01,0.14,0,995,0,3.53,0.49,0,225,19,0.04,0.15,7.43
+Carne de avestruz crua (média de diferentes cortes),Porção Média ,100,g,141,65.7,0.71,30,2,0.64,0,100,0,5.27,12.3,0,124,9.7,0.28,0.41,6.8
+Carne de búfalo crua (média de diferentes cortes),Porção Média ,100,g,104,75.6,0,21.3,02.07,0.4,0,54.7,0,12.4,1.66,0,306,33,0.04,0.21,5
+Carne de cabrito crua (média de diferentes cortes),Porção Média ,100,g,120,74.8,0.09,19.3,4.69,1.44,0,69.1,0,6.32,0.89,0,279,19.7,0.07,0.48,3.13
+Pão de forma de trigo diet/light,Unidade média,25,g,242,36,45.6,11.5,0.53,0.12,4.21,536,0.56,105,3.57,0,85.1,25.8,0.46,0.32,04.08
+Cream cheese light,Colher sopa cheia ,30,g,195,70,4.37,8.5,16,10.1,0,315,0,51.3,0.82,168,81,4.34,0.01,0.13,0.63
+Queijo minas padrão light,Fatia média,30,g,276,49.1,7.38,21.2,17.9,3.5,0,600,0,810,0.56,0,115,26.1,0.03,0.31,0
+Requeijão light,Colher sopa cheia ,30,g,182,68,1.6,13,13.7,08.01,0,475,0,221,0.1,0,79.3,9.91,0,0.16,0
+Abacate polpa in natura,Colher sopa cheia ,100,g,76,86.3,1.81,1.15,6.21,1.7,04.03,0,7.32,7.16,0.17,6.21,174,17,0,0.04,0
+Bebida isotônica (diversos sabores),Copo americano duplo ,240,ml,26,93.5,6.4,0,0,0,0,44.1,1.33,1.23,0.67,0,13,0,0,0,04.09
+Vinho (Bebida alcoólica),Copo americano duplo ,240,ml,92,85.2,3.41,0.08,0,0,0,2.58,0,7.91,0.42,0,89.9,7.43,0.01,0.03,0.18
+Café com leite (meio a meio) e com açúcar,Copo americano duplo ,240,ml,59,86.8,9.42,1.72,1.55,0.95,0,31.2,0,52.1,0.04,23.3,136,9.14,0.03,0.15,0.8
+Capuccino (leite. café e achocolatado em pó) com açúcar,Copo americano duplo ,240,ml,105,75.8,18.1,2.47,2.41,1.46,0.56,49,0,78.1,0.69,107,174,17.1,0.16,0.27,1.51
+Milk shake (leite integral. sorvete. extrato de baunilha e calda de chocolate),Copo americano duplo ,240,ml,113,68.7,21.8,2.84,5.86,1.29,0,75.3,0.36,97,0.09,39.4,141,14.3,0.03,0.19,0.75
+Caipirinha (Bebida alcoólica),Copo americano duplo ,240,ml,219,58.9,21.8,0.22,0.03,0,0.24,4.57,7.65,10.9,0.06,0.7,26.9,02.05,0.06,0.01,0
+Ponche de frutas (com álcool),Copo americano duplo ,240,ml,65,85.7,9.11,0.45,0.23,0.04,01.01,3.28,15.6,11.1,0.24,6.1,136,7.44,0.03,0.01,0.02
+Chantily  (em pó),Colher sopa rasa,8,g,489,0.6,77.3,2.6,18.8,10.9,0.56,127,0,02.05,0.27,0,685,01.02,0,0,0
+Mousse (chocolate),Colher sopa rasa,15,g,436,1.5,62.3,11.2,13.9,7.95,8.45,100,0.27,255,1.46,121,380,53.2,0.12,0.54,0.15
+Torta salgada,Colher sopa rasa,12,g,340,11.8,71.6,9.7,1.1,0.28,2.19,718,0,58.2,2.12,0,61.1,14.3,0.37,0.2,2.6
+Creme de milho em pó,Colher sopa cheia ,20,g,371,5.65,82.4,4.82,1.64,0.3,3.72,593,0,323,4.26,0.37,165,30.1,0.74,0,0
+Milho pipoca micro-ondas light,Colher sopa rasa,15,g,398,1.66,57.5,9.74,10.4,1.55,17.9,546,0,11.1,2.31,6.4,243,152,0.35,0.11,02.09
+Refrigerante com adoçante (média de diferentes sabores),Copo americano duplo ,240,ml,0,99.8,0.11,0,0,0,0,14.4,0,1.23,0.67,0,13,0,0,0,0
+Bife à parmegiana com sal,Unidade,110,g,341,50.7,9.5,17.2,20.3,6.65,0.5,363,3.98,90.1,2.15,38,256,24.4,0.07,0.05,2.11
+Goulash som sal,Unidade,110,g,130,74.2,03.09,14.3,6.53,2.91,01.06,283,4.66,8.93,1.33,126,258,12.7,0.04,0.03,01.08
+Nuggets crocante cru (empanado),Unidade,18,g,267,52,18,10.5,17,3.72,0,536,0,37.9,1.43,17.6,280,34.9,0.11,0.05,6.72
+Torrada de trigo tradicional,Unidade,10,g,395,6.24,72.3,11.5,6.39,1.74,1.28,912,0,19.3,5.75,0,208,34.7,0.41,0,0
+Sonho frito com recheio de creme de confeiteiro polvilhado com açúcar e canela,Unidade,50,g,344,22.2,60.8,6.42,08.03,02.01,1.27,294,0,13.7,03.02,35.8,90.5,16.3,0.12,0.04,0.47
+Croissant simples,Unidade,80,g,400,23.2,43.2,8.2,21,11.7,2.6,467,0.2,37,02.03,206,118,16,0.39,0.24,2.19
+ Barra de cereais (média de diferentes sabores),Unidade,25,g,396,7.79,70.9,6.25,8.53,0,5.25,498,0,30.9,2.55,0,142,45.9,0.68,0.77,09.06
+Lasanha industrializada (média diferentes sabores),Colher sopa cheia ,50,g,132,72.6,12.2,5.77,6.39,03.05,1.5,351,2.35,82.9,0.67,53.2,184,18.8,0.07,0.08,1.44
+Quinoa. grão cru ,Colher sopa cheia,25,g,354,13.3,57.2,14.1,06.07,0.71,7,5,0,47,4.57,1,563,197,0.36,0.32,1.52
+Quibe de carne bovina assado,Porção média,50,g,134,69,12.9,14.6,2.68,1.23,0,39.9,0,15.6,2.15,2.65,287,36.1,0.04,0.04,1.81
+Amaranto. grão cru,Colher sopa cheia ,25,g,365,11.3,58.5,13.6,07.02,1.46,6.7,4,4.2,159,7.61,0,508,248,0.12,0.2,0.92
+Risoto de legume com arroz polido e sal,Colher servir cheia,60,g,141,73.7,12.9,03.01,7.78,03.05,1.56,259,17.4,59.9,0.36,139,93.7,15.2,0.01,0.03,0.26
+Rondele caseiro sem molho,Porção média ,100,g,197,59.8,13.6,14,9.49,4.93,0.65,595,0.98,241,01.07,2.54,141,14.3,0.19,0.07,2.75
+Enroladinho de salsicha caseiro,Unidade,80,g,311,41.1,24,13.1,18,7.21,0.52,638,0,47.8,02.08,15.2,347,18.5,0.08,0.19,2.23
+Bolinha de queijo caseira,Unidade,40,g,373,26.9,36,14.9,18.5,6.75,1.52,399,0.11,285,2.57,69,102,24.8,0.12,0.12,0.42
+Pastel de forno recheado com carne (assado),Unidade,80,g,467,18.6,36.6,12.2,29.9,16.8,1.32,283,0.1,12.6,3.45,312,164,20.9,0.15,0.07,1.4
+Arroz com ovo frito,Colher de servir cheia,55,g,186,67,15,9,10,2,0.6,271,0.2,39,1,51,107,20,0.03,0.1,0
+Arroz á grega - integral,Colher de servir cheia,55,g,118,72,23,2,3,0.5,2.3,250,8,11,0.3,56,140,20,0.06,0.01,0.2
+Arroz á grega - polido,Colher de servir cheia,55,g,135,68,27,2,2,0.4,1.8,250,6.3,1.4,0.5,59,144,21,0.02,0.01,0.2
+Arroz caipira - integral,Colher de servir cheia,55,g,172,66,14,11,8.3,2,1.5,241,2.6,22,0.7,13,133,21,0.06,0.01,3
+Arroz caipira - polido,Colher de servir cheia,55,g,184,63,17,11,8,2,1,241,3,23,0.8,13,127,22,0.02,0.01,3
+Arroz com abobrinha,Colher servir rasa,40,g,108,73,22,2,1,0,1,250,1,8,0.3,19,56,22,0.02,0,0
+Arroz com alho poró - polido,Colher de servir cheia,55,g,124,71,24,2,2,0.4,1,191,1,11,0.5,9,33,21,0.01,0,0.05
+Arroz com brócolis - integral,Colher de servir cheia,55,g,102,76,18,3,3,0.5,3,250,13,17,0.3,91,94,21,0.07,0.01,0
+Arroz com cenoura ,Colher servir rasa,40,g,118,71,24,2,2,0.3,2,192,2,11,0.4,209,116,21,0,0,0
+Arroz com lentilha - polido,Colher de servir cheia,55,g,144,68,20,5,5,1,2,349,3,9,0.7,18,138,21,0.06,0.03,0.04
+Arroz com nozes - integral,Colher servir cheia,55,g,204,62,22,4,12,1,3,250,0.8,19,0.4,0,129,42,0.1,0,0.16
+Arroz doce,Colher servir cheia,60,g,126,70,23,3,2,13,1.3,250,0.33,72,0.1,23,105,19,0.06,0.12,0.4
+Barra de cereal,Unidade,3,g,406,12,70,5,12,5,3,312,0,4.2,2,0,199,48,0.2,0.1,1
+Bombom tipo ferrero rocher caseiro,Unidade,50,g,520,10,44,9,35,13,4,53,0.3,138,3,20,420,120,0.1,0.3,0.9
+Brownie tradicional caseiro,Unidade,50,g,468,21,43,5,31,17,1.5,31,0.52,31,2,282,184,38,0.09,0.07,0.3
+Brownie vegano,Unidade,50,g,203,19,54,4,21,3,5,232,0,99,5,0,449,92,0.04,0.02,0.3
+Polenta ao molho bolonhesa,Porção,100,g,99,75,20,3.4,1.3,0.3,2.4,435,0.5,2.5,1.5,15,161,6,0.04,0.01,0.2
+Polenta ao molho carne bovina,Porção,100,g,146,70,14,8,7,2,1.5,469,8.5,6.8,1.7,23,145,9.3,0.05,0.1,0.7
+Abobrinha italiana com casca á milanesa frita com sal,Fatia média,25,g,131,75,12,4,8,1.4,2,181,6.3,25,1.2,65,308,28,0.03,0.1,0.08
+Abobrinha italiana com casca á milanesa frita sem sal,Fatia média,25,g,131,75,12,4,8,1.4,2,53,6.3,25,1.2,65,308,28,0.03,0.1,0.08
+Abobrinha grelhada com sal e sem óleo,Colher de servir cheia,50,g,13,91,6,1.6,0.2,0.05,2,187,7.3,21,0.3,62,348,27,0,0.07,0
+Abobrinha grelhad sem sal e sem óleo,Colher de servir cheia,70,g,27,92,38,1.6,2,0.05,2,0,7.3,21,0.33,62,349,28,0,0.07,0
+Açafrão,Colher de café cheia,4,g,352,12,65,11,5.9,1.6,4,148,81,111,11,0,1724,264,0.12,0.27,1.5
+Acelga regogada com alho. cebola e sal,Colher de sopa cheia,25,g,35,91,4.7,1.6,1.3,0.2,1.3,129,14,44,0.3,68,255,11,0.04,0,0
+Acelga refogada com algo. cebola e sem sal,Colher de sopa cheia,25,g,36,91,5,1.6,1.3,0.2,1.3,1.3,14,44,0.3,68,255,11,0.04,0,0
+Alcachorra refogada com alho. cebola e sem sal,Unidada média,90,g,51,84,6,3,0.3,0.08,5.7,187,7.4,21,0.6,0,285,42,0.05,0.09,0.1
+Alcaparra em conserva,Colher sopa rasa,30,g,37,84,5,2,0.8,0.2,0,2348,4.3,40,1.6,0,40,33,0.02,0.14,0.65
+Alecrim seco,Colher de café cheia,4,g,328,9.3,64,5,15,7.3,43,50,61,1280,29,0,955,220,0.5,0.4,1
+Páprica,Colher sopa rasa,30,g,314,11,74,14,13,2,35,68,0.9,229,21,0,2280,178,0.3,1.2,10
+Batata MC´Donalds,Colher servir cheia,50,g,315,37,43,3,15,2,4,189,6,19,0.8,0,596,37,0.18,0.04,3
+Abacaxi polpa grelhado com canela,Fatia média,80,g,51,87,12,0.7,0.3,0.02,1.4,3,33,22,0.5,1.7,125,17,0.13,0.02,0.01
+Abacaxi cozido caramelizado,Fatia média,80,g,136,66,33,0.6,0.3,0.02,0.8,5,17,25,0.9,0,137,19,0.1,0.02,0
+Cereja in natura,Unidade,40,g,66,82,16,1,0.2,0.04,2,0,7,64,0.4,0,222,11,0.03,0.03,0.15
+Baba de moça,Colher servir cheia,60,g,282,46,33,5,15,9,0.2,60,0.8,114,0.7,84,212,19,0.04,0.15,0
+Bala caramelo,Unidade,5,g,399,8,77,5,8,2,0,245,0.4,138,0.1,0,214,17,0.1,0.26,0.15
+Bala diet,Unidade,5,g,382,4,96,0,0.2,0.03,2,7,0,0,0,0,0,0,0,0,0
+Banana flambada,Unidade,80,g,187,38,38,0.9,5,1.5,1.3,12,19,34,0.9,35,168,18,0.02,0.04,0.01
+Baunilha extrato,Colher sopa rasa,15,g,292,53,13,0.06,0.06,0.01,0,9,0,11,0.1,0,148,12,0.01,0.1,0.4
+Avelã crua com sal,Unidade,30,g,673,2.5,18,15,62,4,9,0,4,123,4.3,0,755,173,0.3,0.1,2
+Aspargo cozido sem óleo e com sal,Unidade,80,g,24,92,4,2,0.2,0.05,2,141,8,23,0.9,0,223,14,0.1,0.1,0.1
+Aspargo in natura,Unidade,70,g,21,93,4,2,0.1,0.04,2,2,6,24,2,0,202,14,0.1,0.1,0.1
+Banha suína,Colher café cheia,4,g,900,0,0,0,100,39,0,0,0,0,0,0,0,0,0,0,0
+Bacalhoada,Colher servir cheia,60,g,137,72,4,12,8,1.4,0.8,792,24,32,0.3,15,121,12,0.04,0.03,5
+Almôndega de soja assada,Unidade,50,g,189,48,25,23,0.8,0.3,4.5,242,0.6,54,4.2,42,57,15,0.02,0.03,0.34
+Achocolatdo Ovomaltine,Colher de café cheia,2,g,373,1.4,93,0,0,0,0,636,55,909,16,1365,0,0,1.4,0,18
+Queijo cheddar,Unidade,10,g,404,37,3,23,33,19,0,655,0,710,0.15,1242,76,27,0.03,0.04,0.06
+Bebida maracujá com álcool,Unidade,100,ml,152,69,19,2.7,2.6,0.9,0.7,20,12,52,0.4,65,268,18,0.01,0.1,0
+Bebida alcoolica aguardente,Dose,50,ml,218,69,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0
+Bebida alcoolica amarula caseira,Dose,50,ml,238,56,23,3.6,8.5,4.3,0.7,47,5,176,0.4,57,280,44,0.1,0.2,2.4
+Bebida alcoolica arroz saquê,Dose,50,ml,135,78,5,0.5,0,0,0,2,0,5,0.1,0,25,6,0,0,0
+Bebida alcoolica caipirinha, Copo americano duplo,240,ml,219,59,22,0.2,0.03,0,0.2,4.6,8,11,0.06,0.7,27,2,0.06,0.01,0
+Bebida alcoolica cerveja, Copo americano duplo,240,ml,41,93,3.3,0.6,0,0,0,10,0,5,0,0,71,6,0,0,3
+Bebida alcoolica cerveja sem alcool, Copo americano duplo,240,ml,36,91,8,0.2,0.1,0.2,0,13,0.5,7,0.06,0,8,7,0.02,0.05,1
+Bebida alcoolica destilada,Dose,50,ml,231,67,0,0,0,0,0,1,0,0,0.04,0,2,0,0,0.01,0
+Bebida alcoolica vinho, Copo americano duplo,240,ml,92,85,3.4,0.08,0,0,0,2.6,0,8,0.4,0,90,7.4,0.01,0.03,0.2
+Bebida energética, Copo americano duplo,240,ml,43,89,10,0.4,0,0,0,39,0,6,0.06,0,4,19,0.04,0.1,99.8
+Bebida isotônica, Copo americano duplo,240,ml,26,93,6,0,0,0,0,44,1.3,1.2,0.6,0,31,0,0,0,4
+Café solúvel em pó,Colher de chá cheia,1.5,g,355,3,75,12,0.5,0.2,0,37,0,141,4.4,0,3535,327,0.01,0.07,28
+Cappuccino com açúcar, Copo americano duplo,240,ml,105,76,19,2.5,2.4,1.5,0.6,49,0,78,0.7,107,174,17,0.2,0.2,1.5
+Cappuccino sem açúcar, Copo americano duplo,240,ml,87,80,13,3,2.6,1.6,0.6,51,0,80,0.6,114,174,17,0.2,0.3,1.6
+Beijinho,Unidade,25,g,350,31,46,5,16,9,1.2,95,0.6,148,0.3,50,265,27,0.04,0.2,0
+Bem casado,Unidade,100,g,411,17,58,6.7,17,9,0.6,71,0,70,1.8,204,142,15,0.08,0.2,0.5
+Brigadeiro,Unidade,25,g,388,20,58,6,15,7,0.5,103,0,191,0.6,49,268,30,0.05,0.2,0.2
+Ketchup,Colher sopa cheia,20,g,123,66,30,1.1,0.1,0.02,0.3,980,4.4,16,0.4,80,303,14,0.01,0.2,1.5
+Cebola empanada frita com sal,Colher sopa rasa,10,g,144,74,14,3,8,1.5,2,191,3,23,0.7,9.6,175,13,0.06,0.03,0.2
+Champignon cru,Colher sopa rasa,20,g,27,92,5,2,0.4,0.06,1.6,0.9,2.2,1.6,0.1,0,365,8,0.6,0.9,18
+Maionese vegana com sal,Colher sopa cheia,20,g,623,28,2,1.3,68,7,0.3,99,1.4,3,0.4,0.1,48,16,0.01,0,0
+Maionese light,Colher sopa cheia,20,g,238,66,9.2,0.4,22,3.4,0,827,0,6,0.1,0,31,2,0.01,0,0.01
+Marshmallow,Colher sopa cheia,25,g,322,20,79,0.8,0.3,0.06,0.1,80,0,3,0.2,0,5,2,0,0,0.08
+Milkshake baunilha com calda chocolate, Copo americano duplo,240,ml,113,69,22,3,6,1.3,0,75,0.4,97,0.09,39,141,14,0.03,0.2,0.7
+Milkshake paçoca vegano com calda de cacau, Copo americano duplo,240,ml,269,57,15,6,21,9.6,2.5,34,0,82,1.7,6,252,69,0.04,0.01,1.3
+Milkshake paçoca de amenendoim sem calda vegano, Copo americano duplo,240,ml,321,49,17,7,2.5,12,0.2,23,0,34,1.8,0.01,275,63,0.04,0.01,1.1
+Mingau de fubá com açúcar, Copo americano duplo,240,ml,138,71,21,2.4,5,3,0.3,66,0,78,0.6,67,128,11,0.03,0.2,1
+Mingau de maisena,Prato fundo,375,g,155,64,30,2.4,2.6,1.6,0.1,53,0,85,0.09,39,107,8,0.03,0.2,1.1
+Mingau de maisena com banana,Prato fundo,375,g,123,70,26,1.8,1.4,0.8,0.9,26,2.7,44,0.2,19,226,17,0.01,0.1,0.6
+Mingau de aveia, Copo americano duplo,240,ml,110,76,15,4,3.8,2,0.8,62,0.08,107,0.4,47,156,19,0.07,0.02,1.7
+Mingau de farinha de cereais com leite integral, Copo americano duplo,240,ml,147,65,25,6,3,1.6,1.7,116,11,231,3.4,0,163,27,0.3,0.5,5
+Mingau de farinha láctea com leite integral, Copo americano duplo,240,ml,156,64,25,5.4,4,2.4,0.6,80,6.5,130,2.4,176,195,27,0.4,0.5,3.6
+Panqueca de frango com requeijão sem molho,Unidade,80,g,216,57,10,19,11,1.6,0.3,336,0.2,32,1,24,249,28,0.09,0.1,4
+Panqueca crane moída sem molho e comsal,Unidade,80,g,243,52,16,17,12,3.8,0.5,373,0.2,48,2.3,40,252,19,0.1,0.3,2
+Panqueca ricota com espinafre com molho e sal,Unidade,80,g,134,72,12,6.6,6.7,2.2,1.2,451,4.3,109,0.9,104,187,20,0.08,0.2,0.5
+Pizza vegetariana ,Fatia média,90,g,234,46,40,6.4,6,1.5,2.4,547,17,37,3.3,77,167,20,0.1,0.06,0.7
