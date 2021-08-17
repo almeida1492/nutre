@@ -25,7 +25,7 @@ public class DatePickerFragment extends DialogFragment {
         public void onDateSet(DatePicker view, int year, int month, int day) {
             Date d = new Date(year-1900, month, day);
             String strDate = dateFormatter.format(d);
-            System.out.println(strDate);
+            System.out.println("Fragment " + strDate);
             setDate(getActivity(),strDate);
             getActivity().recreate();
         }

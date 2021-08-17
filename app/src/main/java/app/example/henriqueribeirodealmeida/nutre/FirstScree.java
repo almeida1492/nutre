@@ -2,10 +2,8 @@ package app.example.henriqueribeirodealmeida.nutre;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -111,15 +109,7 @@ public class FirstScree extends AppCompatActivity {
             textnewmeal.setVisibility(View.GONE);
         }
 
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(FirstScree.this);
         DatePickerFragment.setDate(getApplicationContext() ,date.substring(0,10));
-        String tempCalendarDate = prefs.getString(DATETIMEKEY, DatePickerFragment.getDate(getApplicationContext()));
-
-        //tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
-
-        System.out.println("Splash screen -- " + tempCalendarDate);
+        System.out.println(DatePickerFragment.getDate(getApplicationContext()));
     }
-
-
 }
