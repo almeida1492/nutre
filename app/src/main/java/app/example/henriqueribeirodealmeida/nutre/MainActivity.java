@@ -56,7 +56,6 @@ public class  MainActivity extends AppCompatActivity {
     private ArrayList<DailyMeal> dailyMeals;
     private String CalendarDate;
     double helper;
-    private DatePickerFragment datePickerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,19 +99,11 @@ public class  MainActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
         String tempCalendarDate = prefs.getString(DATETIMEKEY, DatePickerFragment.getDate(getApplicationContext()));
-        //System.out.println(tempCalendarDate);
-        //tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
-
 
         final String date = df.format(Calendar.getInstance().getTime());
         final String formattedDate;
 
-        /*Caso o dia não tenha sido escolhido ainda no primeiro uso, recebe o dia atual*/
-        if(tempCalendarDate == null){
-            DatePickerFragment.setDate(getApplicationContext() ,date.substring(0,10));
-            tempCalendarDate = DatePickerFragment.getDate(getApplicationContext());
-            System.out.println("Depois aqui " + tempCalendarDate);
-        }else{
+
             Date CalDate = null;
             try {
                 CalDate = cdf.parse(tempCalendarDate);
@@ -121,30 +112,25 @@ public class  MainActivity extends AppCompatActivity {
             }
 
             Calendar c = Calendar.getInstance();
-
             c.setTime(CalDate);
             c.add(Calendar.MONTH, 2);
-
 
            String month = String.valueOf(c.get(Calendar.MONTH));
            String year = String.valueOf(c.get(Calendar.YEAR));
            String day = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
-            System.out.println( month );
-            if(c.get(Calendar.MONTH) < 10){
-                month = "0"+ month;
 
-            }
+        month = c.get(Calendar.MONTH) < 10 ? "0"+ month : month;
+        day = c.get(Calendar.DAY_OF_MONTH) < 10? "0"+ day : day;
 
-            if(c.get(Calendar.DAY_OF_MONTH) < 10){
-                day = "0"+ day;
-            }
+        System.out.println( month );
 
             tempCalendarDate = year +"-"+month+"-"+day;
-        }
 
 
-            formattedDate = Helpers.formatDate(tempCalendarDate + date.substring(10, 25), false);
+        //System.out.println("saida da data picotada do dia atual: " + date.substring(0, 10));
 
+
+        formattedDate = Helpers.formatDate(tempCalendarDate + date.substring(10, 25), false);
 
         //Recebendo o dia escolhido no calendario
         final String CalendarDate = tempCalendarDate;
