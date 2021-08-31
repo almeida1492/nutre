@@ -17,15 +17,12 @@ public class DatePickerFragment extends DialogFragment {
     private final static String DATETIMEKEY = "com.example.henriqueribeirodealmeida.nutre.datetimekey";
     private final static String DATE = "DATE";
     String calendarDate;
-    private Calendar calendar;
     SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
-
             Calendar dataSelecionada = Calendar.getInstance();
-            //Date d = new Date(year-1900, month-1, day);
             dataSelecionada.set(year,month,day);
             String strDate = dateFormatter.format(dataSelecionada.getTime());
             System.out.println("Fragment " + strDate);
@@ -60,10 +57,10 @@ public class DatePickerFragment extends DialogFragment {
         try{
 
             y = Integer.parseInt(calendarDate.substring(0,4).replaceAll("[^0-9]",""));
-            m = Integer.parseInt(calendarDate.substring(5,7).replaceAll("[^0-9]","") );
-            d = Integer.parseInt(calendarDate.substring(8,10).replaceAll("[^0-9]",""));
+            m = Integer.parseInt(calendarDate.substring(5,7).replaceAll("[^0-9]",""));
+            d = Integer.parseInt(calendarDate.substring(8,10).replaceAll("[^0-9]","")) ;
 
-            return new DatePickerDialog(getActivity(), dateSetListener, y, m, d);
+            return new DatePickerDialog(getActivity(), dateSetListener, y, m-1, d);
 
         }catch(NullPointerException e){
             return new DatePickerDialog(getActivity(), dateSetListener, year, month, day);

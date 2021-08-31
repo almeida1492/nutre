@@ -51,7 +51,6 @@ public class  MainActivity extends AppCompatActivity {
     private ArrayList<Nutrient> summaryItems;
     private SummaryAdapter summaryAdapter;
     private ArrayList<DailyMeal> dailyMeals;
-    private String CalendarDate;
     double helper;
 
     @Override
@@ -100,21 +99,11 @@ public class  MainActivity extends AppCompatActivity {
         final String date = df.format(Calendar.getInstance().getTime());
         final String formattedDate;
 
-
-
            String month = tempCalendarDate.substring(5,7);
            String year = tempCalendarDate.substring(0,4);
            String day = tempCalendarDate.substring(8,10);
 
-
-
-        System.out.println( month );
-
             tempCalendarDate = year +"-"+month+"-"+day;
-
-
-        //System.out.println("saida da data picotada do dia atual: " + date.substring(0, 10));
-
 
         formattedDate = Helpers.formatDate(tempCalendarDate + date.substring(10, 25), false);
 
