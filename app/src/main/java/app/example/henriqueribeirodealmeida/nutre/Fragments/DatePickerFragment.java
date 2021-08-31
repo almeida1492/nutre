@@ -11,20 +11,23 @@ import android.widget.DatePicker;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class DatePickerFragment extends DialogFragment {
 
     private final static String DATETIMEKEY = "com.example.henriqueribeirodealmeida.nutre.datetimekey";
     private final static String DATE = "DATE";
     String calendarDate;
+    private Calendar calendar;
     SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            Date d = new Date(year-1900, month-1, day);
-            String strDate = dateFormatter.format(d);
+
+            Calendar dataSelecionada = Calendar.getInstance();
+            //Date d = new Date(year-1900, month-1, day);
+            dataSelecionada.set(year,month,day);
+            String strDate = dateFormatter.format(dataSelecionada.getTime());
             System.out.println("Fragment " + strDate);
             setDate(getActivity(),strDate);
             getActivity().recreate();

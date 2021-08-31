@@ -22,16 +22,13 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -104,23 +101,12 @@ public class  MainActivity extends AppCompatActivity {
         final String formattedDate;
 
 
-            Date CalDate = null;
-            try {
-                CalDate = cdf.parse(tempCalendarDate);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
 
-            Calendar c = Calendar.getInstance();
-            c.setTime(CalDate);
-            c.add(Calendar.MONTH, 2);
+           String month = tempCalendarDate.substring(5,7);
+           String year = tempCalendarDate.substring(0,4);
+           String day = tempCalendarDate.substring(8,10);
 
-           String month = String.valueOf(c.get(Calendar.MONTH));
-           String year = String.valueOf(c.get(Calendar.YEAR));
-           String day = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
 
-        month = c.get(Calendar.MONTH) < 10 ? "0"+ month : month;
-        day = c.get(Calendar.DAY_OF_MONTH) < 10? "0"+ day : day;
 
         System.out.println( month );
 
@@ -569,11 +555,6 @@ public class  MainActivity extends AppCompatActivity {
         listView.setLayoutParams(params);
         listView.requestLayout();
 
-    }
-
-    public void setCalendarDate(String calendarDate) {
-        this.CalendarDate = calendarDate;
-        Toast.makeText(this, CalendarDate, Toast.LENGTH_LONG).show();
     }
 
     public void showDatePicker(View v) {
