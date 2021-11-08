@@ -383,17 +383,17 @@ public class  MainActivity extends AppCompatActivity {
 
         summaryItems.get(7).setName("Sódio");
         summaryItems.get(7).setValue((int) summaryValues.getSodium());
-        summaryItems.get(7).setSuggestedValue(2400);
+        summaryItems.get(7).setSuggestedValue(2000);
         summaryItems.get(7).setMeasure(" mg");
 
         summaryItems.get(8).setName("Vitamina C");
         summaryItems.get(8).setValue((int) summaryValues.getVitaminC());
-        summaryItems.get(8).setSuggestedValue(45);
+        summaryItems.get(8).setSuggestedValue(100);
         summaryItems.get(8).setMeasure(" mg");
 
         summaryItems.get(9).setName("Cálcio");
         summaryItems.get(9).setValue((int) summaryValues.getCalcium());
-        summaryItems.get(9).setSuggestedValue(600);
+        summaryItems.get(9).setSuggestedValue(1000);
         summaryItems.get(9).setMeasure(" mg");
 
         summaryItems.get(10).setName("Ferro");
@@ -408,7 +408,7 @@ public class  MainActivity extends AppCompatActivity {
 
         summaryItems.get(12).setName("Potássio");
         summaryItems.get(12).setValue((int) summaryValues.getPotassium());
-        summaryItems.get(12).setSuggestedValue(2400);
+        summaryItems.get(12).setSuggestedValue(3500);
         summaryItems.get(12).setMeasure(" mg");
 
         summaryItems.get(13).setName("Magnésio");
@@ -423,12 +423,12 @@ public class  MainActivity extends AppCompatActivity {
 
         summaryItems.get(15).setName("Riboflavina");
         summaryItems.get(15).setValue((int) summaryValues.getRiboflavin());
-        summaryItems.get(15).setSuggestedValue(10);
+        summaryItems.get(15).setSuggestedValue(1.3);
         summaryItems.get(15).setMeasure(" mg");
 
         summaryItems.get(16).setName("Niacina");
         summaryItems.get(16).setValue((int) summaryValues.getThiamine());
-        summaryItems.get(16).setSuggestedValue(1.2);
+        summaryItems.get(16).setSuggestedValue(16);
         summaryItems.get(16).setMeasure(" mg");
 
     }
