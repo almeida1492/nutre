@@ -101,27 +101,27 @@ public class Helpers {
         } else if (age < 30){
             switch (gender) {
                 case MALE:
-                    return ((15.3 * weightToUse) + 679) * physicalActivityFactor;
+                    return ((15.05 * weightToUse) + 692) * physicalActivityFactor;
                 case FEMALE:
-                    return (14.7 * weightToUse + 496) * physicalActivityFactor;
+                    return (14.81 * weightToUse + 486.6) * physicalActivityFactor;
                 default:
                     break;
             }
         } else if (age < 60) {
             switch (gender) {
                 case MALE:
-                    return (11.6 * weightToUse + 879) * physicalActivityFactor;
+                    return (11.47 * weightToUse + 873) * physicalActivityFactor;
                 case FEMALE:
-                    return (8.7 * weightToUse + 829) * physicalActivityFactor;
+                    return (8.12 * weightToUse + 845) * physicalActivityFactor;
                 default:
                     break;
             }
         } else {
             switch (gender) {
                 case MALE:
-                    return (13.5 * weightToUse + 487) * physicalActivityFactor;
+                    return (11.7 * weightToUse + 587) * physicalActivityFactor;
                 case FEMALE:
-                    return (10.5 * weightToUse + 596) * physicalActivityFactor;
+                    return (9.08 * weightToUse + 658) * physicalActivityFactor;
                 default:
                     break;
             }
