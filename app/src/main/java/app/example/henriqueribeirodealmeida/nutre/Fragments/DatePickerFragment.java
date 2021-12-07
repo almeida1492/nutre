@@ -25,7 +25,6 @@ public class DatePickerFragment extends DialogFragment {
             Calendar dataSelecionada = Calendar.getInstance();
             dataSelecionada.set(year,month,day);
             String strDate = dateFormatter.format(dataSelecionada.getTime());
-            System.out.println("Fragment " + strDate);
             setDate(getActivity(),strDate);
             getActivity().recreate();
         }

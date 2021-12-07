@@ -166,12 +166,8 @@ public class Helpers {
         numMonth = raw.substring(5, 7);
         day = raw.substring(8, 10);
         time = raw.substring(11, 16);
-        System.out.println("saida da função helper: " + raw);
 
         switch (numMonth){
-            case "00":
-                month=" dezembro ";
-                break;
             case "01":
                 month = " janeiro ";
                 break;
@@ -204,6 +200,9 @@ public class Helpers {
                 break;
             case "11":
                 month = " novembro ";
+                break;
+            case "12":
+                month = " dezembro ";
                 break;
             default:
                 month = " ";

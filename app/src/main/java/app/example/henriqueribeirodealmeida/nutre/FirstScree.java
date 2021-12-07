@@ -1,6 +1,5 @@
 package app.example.henriqueribeirodealmeida.nutre;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -20,8 +19,6 @@ import app.example.henriqueribeirodealmeida.nutre.Data.UserInfoContainer;
 import app.example.henriqueribeirodealmeida.nutre.Fragments.DatePickerFragment;
 
 public class FirstScree extends AppCompatActivity {
-    private final static String DATETIMEKEY = "com.example.henriqueribeirodealmeida.nutre.datetimekey";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +33,6 @@ public class FirstScree extends AppCompatActivity {
         Button button              =  findViewById(R.id.initial_button);
         TextView info              =  findViewById(R.id.text_info);
         final TextView search      = findViewById(R.id.text_search);
-        MealViewModel mealViewModel = ViewModelProviders.of(this).get(MealViewModel.class);
         DateFormat df  = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
         final String date = df.format(Calendar.getInstance().getTime());
 
@@ -110,6 +106,5 @@ public class FirstScree extends AppCompatActivity {
         }
 
         DatePickerFragment.setDate(getApplicationContext() ,date.substring(0,10));
-        System.out.println(DatePickerFragment.getDate(getApplicationContext()));
     }
 }

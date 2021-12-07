@@ -106,7 +106,7 @@ public class  MainActivity extends AppCompatActivity {
             tempCalendarDate = year +"-"+month+"-"+day;
 
         formattedDate = Helpers.formatDate(tempCalendarDate + date.substring(10, 25), false);
-
+        System.out.println(month);
         //Recebendo o dia escolhido no calendario
         final String CalendarDate = tempCalendarDate;
         summaryHeader.setText(formattedDate);
