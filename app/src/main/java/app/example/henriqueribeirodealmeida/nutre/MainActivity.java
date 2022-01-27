@@ -106,8 +106,7 @@ public class  MainActivity extends AppCompatActivity {
             tempCalendarDate = year +"-"+month+"-"+day;
 
         formattedDate = Helpers.formatDate(tempCalendarDate + date.substring(10, 25), false);
-        System.out.println(month);
-        //Recebendo o dia escolhido no calendario
+
         final String CalendarDate = tempCalendarDate;
         summaryHeader.setText(formattedDate);
 
@@ -244,7 +243,6 @@ public class  MainActivity extends AppCompatActivity {
                         for (Meal meal : liveMeals) {
                             float quantity = mealQuantity.get(meal.getId());
 
-                          //  System.out.println(quantity);
 
                                 energy += meal.getEnergy() * meal.getUnityMultiplier() * quantity / 100;
                                 carbohydrate += meal.getCarbohydrate() * meal.getUnityMultiplier() * quantity / 100;
@@ -358,7 +356,7 @@ public class  MainActivity extends AppCompatActivity {
 
         summaryItems.get(2).setName("Carboidrato");
         summaryItems.get(2).setValue((int) summaryValues.getCarbohydrate());
-        summaryItems.get(2).setSuggestedValue((int) ((helper * 0.65)/4));
+        summaryItems.get(2).setSuggestedValue((int) ((helper * 0.60)/4));
         summaryItems.get(2).setMeasure(" g");
 
         summaryItems.get(3).setName("Proteína");
@@ -368,7 +366,7 @@ public class  MainActivity extends AppCompatActivity {
 
         summaryItems.get(4).setName("Gorduras totais");
         summaryItems.get(4).setValue((int) summaryValues.getTotalFat());
-        summaryItems.get(4).setSuggestedValue((int) ((helper * 0.225)/9));
+        summaryItems.get(4).setSuggestedValue((int) ((helper - (summaryItems.get(3).getSuggestedValue() * 4) - (summaryItems.get(2).getSuggestedValue() * 4))/9));
         summaryItems.get(4).setMeasure(" g");
 
         summaryItems.get(5).setName("Gordura Saturada");
@@ -403,7 +401,7 @@ public class  MainActivity extends AppCompatActivity {
 
         summaryItems.get(11).setName("Vitamina A");
         summaryItems.get(11).setValue((int) summaryValues.getVitaminA());
-        summaryItems.get(11).setSuggestedValue(600);
+        summaryItems.get(11).setSuggestedValue(800);
         summaryItems.get(11).setMeasure(" µg");
 
         summaryItems.get(12).setName("Potássio");
@@ -413,7 +411,7 @@ public class  MainActivity extends AppCompatActivity {
 
         summaryItems.get(13).setName("Magnésio");
         summaryItems.get(13).setValue((int) summaryValues.getMagnesium());
-        summaryItems.get(13).setSuggestedValue(260);
+        summaryItems.get(13).setSuggestedValue(420);
         summaryItems.get(13).setMeasure(" mg");
 
         summaryItems.get(14).setName("Tiamina");
@@ -423,12 +421,12 @@ public class  MainActivity extends AppCompatActivity {
 
         summaryItems.get(15).setName("Riboflavina");
         summaryItems.get(15).setValue((int) summaryValues.getRiboflavin());
-        summaryItems.get(15).setSuggestedValue(1.3);
+        summaryItems.get(15).setSuggestedValue(1.2);
         summaryItems.get(15).setMeasure(" mg");
 
         summaryItems.get(16).setName("Niacina");
         summaryItems.get(16).setValue((int) summaryValues.getThiamine());
-        summaryItems.get(16).setSuggestedValue(16);
+        summaryItems.get(16).setSuggestedValue(15);
         summaryItems.get(16).setMeasure(" mg");
 
     }

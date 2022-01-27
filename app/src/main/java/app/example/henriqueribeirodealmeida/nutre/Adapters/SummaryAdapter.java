@@ -10,11 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import app.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
-import app.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.util.ArrayList;
+
+import app.example.henriqueribeirodealmeida.nutre.Entities.Nutrient;
 
 public class SummaryAdapter extends ArrayAdapter<Nutrient>{
 
@@ -46,7 +46,7 @@ public class SummaryAdapter extends ArrayAdapter<Nutrient>{
         valueView2.setText("Ingerido:");
 
         TextView suggestedValueview2 = itemView.findViewById(R.id.suggested_value2);
-        suggestedValueview2.setText("Sugerido:");
+        suggestedValueview2.setText("Recomendado:");
 
         ImageView human = itemView.findViewById(R.id.silhueta);
         human.setImageResource(nutrient.getHuman());

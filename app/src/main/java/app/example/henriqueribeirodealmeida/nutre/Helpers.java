@@ -140,26 +140,6 @@ public class Helpers {
 
     }
 
-    public static String textIMC(Context context){
-
-        int imc = (int) calculateIMC(context);
-        if (imc < 18.5) {
-            return "Valores de IMC de referência:\n Você está abaixo do peso";
-        } if (imc > 18.5 && imc <24.0) {
-            return "Valores de IMC de referência:\n Peso normal";
-        }if (imc > 24.0 && imc <29.9) {
-            return "Valores de IMC de referência:\n Sobrepeso";
-        }if (imc > 29.9 && imc <34.9) {
-            return "Valores de IMC de referência:\n Obesidade grau 1";
-        }if (imc > 34.9 && imc <39.9) {
-            return "Valores de IMC de referência:\n Obesidade grau 2";
-        }if (imc > 39.9) {
-            return "Valores de IMC de referência:\n Obesidade grau 3";
-        }
-
-        return "";
-    }
-
     public static String formatDate(String raw, boolean isComplete){
         String date, day, numMonth, month, time;
 
