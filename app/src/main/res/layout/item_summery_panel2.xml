@@ -67,13 +67,12 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_gravity="center"
-        android:layout_marginTop="143dp"
+        android:layout_marginTop="140dp"
         android:gravity="left"
         android:textColor="@color/colorWhite"
-        android:textSize="8sp"
+        android:textSize="7sp"
         android:textStyle="bold|italic"
         tools:text="Recomendado :" />
-
 
     <TextView
         android:id="@+id/suggested_value"
@@ -82,7 +81,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="136dp"
         android:gravity="center"
         android:textColor="@color/colorWhite"
         android:textSize="7sp"

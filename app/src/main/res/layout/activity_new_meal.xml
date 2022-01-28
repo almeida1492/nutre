@@ -46,7 +46,6 @@
                 android:background="@drawable/first_screen"
                 android:gravity="center"
                 android:text="Salvar"
-                android:visibility="invisible"
                 android:textColor="#FFF"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"

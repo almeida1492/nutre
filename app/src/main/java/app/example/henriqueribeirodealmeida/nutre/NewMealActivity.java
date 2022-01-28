@@ -29,12 +29,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import app.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
-import app.example.henriqueribeirodealmeida.nutre.Adapters.FoodImageAdapter;
-import app.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
-import app.example.henriqueribeirodealmeida.nutre.Entities.Food;
-import app.example.henriqueribeirodealmeida.nutre.Entities.Meal;
-
 import com.example.henriqueribeirodealmeida.nutre.R;
 
 import java.text.DateFormat;
@@ -42,6 +36,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import app.example.henriqueribeirodealmeida.nutre.Adapters.AddedFoodAdapter;
+import app.example.henriqueribeirodealmeida.nutre.Adapters.FoodImageAdapter;
+import app.example.henriqueribeirodealmeida.nutre.Entities.DailyMeal;
+import app.example.henriqueribeirodealmeida.nutre.Entities.Food;
+import app.example.henriqueribeirodealmeida.nutre.Entities.Meal;
 
 
 public class NewMealActivity extends AppCompatActivity {
@@ -99,7 +99,7 @@ public class NewMealActivity extends AppCompatActivity {
             updateFlag = true;
             emptyView.setVisibility(View.GONE);
             pathNewMeal.setVisibility(View.GONE);
-            addMeal.setVisibility(View.INVISIBLE);
+            //addMeal.setVisibility(View.INVISIBLE);
         }
 
 
@@ -233,7 +233,6 @@ public class NewMealActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pathNewMeal.setVisibility(View.GONE);
                 if (!measureValueView.getText().toString().equals("") &  !mealTypeView.getText().toString().equals("")){
-                    addMeal.setVisibility(View.VISIBLE);
                     emptyView.setVisibility(View.GONE);
                     double quantity = Double.parseDouble(measureValueView.getText().toString());//.replaceAll("\\D+","")
 
